@@ -1,18 +1,6 @@
 import type { Metadata } from "next";
-import { Schibsted_Grotesk, Instrument_Serif, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const schibsted = Schibsted_Grotesk({
-  variable: "--font-schibsted",
-  subsets: ["latin"],
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  weight: "400",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,13 +8,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SpectersAI — Automatización e IA para tu negocio",
+  title: "SpectersAI — Automatizamos tu negocio con IA",
   description:
-    "Diagnosticamos tus procesos y construimos agentes de IA, integraciones y CRMs a medida. IA donde suma, control humano donde es crítico.",
+    "Automatizamos lo repetitivo y construimos software a medida con IA para tu pyme. Diagnóstico inicial gratis y sin compromiso.",
   openGraph: {
-    title: "SpectersAI — Automatización e IA para tu negocio",
+    title: "SpectersAI — Automatizamos tu negocio con IA",
     description:
-      "Diagnóstico de automatización + agentes de IA, CRMs a medida e integraciones. Implementación real, medida y con control humano donde importa.",
+      "Menos trabajo manual, más tiempo para tu negocio. Agentes de IA, CRMs a medida e integraciones. Diagnóstico gratis.",
     siteName: "SpectersAI",
     locale: "es_CL",
     type: "website",
@@ -39,10 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${schibsted.variable} ${instrumentSerif.variable} ${inter.variable} h-full antialiased`}
-    >
+    <html lang="es" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

@@ -28,8 +28,6 @@
   --color-input: rgba(244, 244, 242, 0.14);
   --color-ring: #c8ef6f;
 
-  --font-display: var(--font-schibsted);
-  --font-serif: var(--font-instrument-serif);
   --font-sans: var(--font-inter);
 }
 

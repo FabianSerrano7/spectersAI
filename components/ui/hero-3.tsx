@@ -29,8 +29,8 @@ export interface Hero3Props {
   signInText?: string;
   signInHref?: string;
   tagline?: string;
-  titleLine1?: string;
-  titleLine2?: string;
+  titleLine1?: ReactNode;
+  titleLine2?: ReactNode;
   description?: string;
   primaryCtaText?: string;
   primaryCtaHref?: string;

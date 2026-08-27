@@ -8,11 +8,11 @@ import {
   FaPlug,
   FaLayerGroup,
   FaHandshake,
-  FaMagnifyingGlassChart,
   FaScaleBalanced,
   FaLinkedin,
 } from "react-icons/fa6";
 import { Hero3 } from "@/components/ui/hero-3";
+import { RotatingWord } from "@/components/rotating-word";
 import {
   ClaudeIcon,
   GeminiIcon,
@@ -65,65 +65,91 @@ function Reveal({
 /* ---------- Datos ---------- */
 
 const NAV_ITEMS = [
-  { label: "Diagnóstico", href: "#diagnostico" },
-  { label: "Casos", href: "#casos" },
+  { label: "Cómo trabajamos", href: "#diagnostico" },
   { label: "Servicios", href: "#servicios" },
   { label: "Stack", href: "#stack" },
   { label: "Quién soy", href: "#nosotros" },
   { label: "FAQ", href: "#faq" },
 ];
 
+const BUSINESS_TYPES = [
+  "Peluquería",
+  "Barbería",
+  "Automotora",
+  "Taller Mecánico",
+  "Panadería",
+  "Estudio Jurídico",
+  "Clínica",
+  "Consulta Médica",
+  "Veterinaria",
+  "Restaurante",
+  "Inmobiliaria",
+  "Empresa",
+];
+
 const HERO_STATS = [
-  { value: "5+", label: "Sistemas y CRMs construidos" },
-  { value: "120h → 40h", label: "Horas ahorradas al mes en un caso real" },
-  { value: "2020", label: "Trabajando con IA aplicada a negocios" },
+  { value: "120h → 40h", label: "Horas ahorradas al mes, en un caso real" },
+  { value: "5+", label: "Sistemas y automatizaciones en producción" },
+  { value: "Gratis", label: "El diagnóstico inicial, sin costo ni compromiso" },
 ];
 
 /* Fondo del hero: el mismo asset de la referencia Watermelon/Hero3. */
 const HERO_BG = "https://assets.watermelon.sh/hero-3-bg.avif";
 
+const DOLORES = [
+  "Agendas y confirmas horas a mano, por WhatsApp, todo el día.",
+  "La info de tus clientes está repartida entre Excel, WhatsApp y el cuaderno del mostrador.",
+  "Si alguien pregunta algo fuera de horario, tiene que esperar hasta el día siguiente.",
+  "Sabes que hay tareas que se podrían automatizar, pero no sabes por dónde partir ni si vale la pena.",
+];
+
+const BENEFICIOS = [
+  {
+    tag: "Menos trabajo manual",
+    titulo: "Recuperas horas cada semana",
+    texto: "Tu equipo deja de hacer a mano lo que un sistema puede hacer solo: agendar, cotizar, ordenar.",
+  },
+  {
+    tag: "Respuesta inmediata",
+    titulo: "Tus clientes nunca esperan",
+    texto: "Un agente de IA contesta, agenda y deriva, incluso fuera de horario y los fines de semana.",
+  },
+  {
+    tag: "Todo en un solo lugar",
+    titulo: "Se acabaron las planillas sueltas",
+    texto: "Un CRM hecho a tu medida centraliza clientes, ventas e historial. Nada se pierde ni se duplica.",
+  },
+  {
+    tag: "Decisiones con datos",
+    titulo: "Sabes qué automatizar y qué no",
+    texto: "Medimos el impacto de cada automatización, para invertir tu tiempo y plata donde realmente rinde.",
+  },
+];
+
 const PASOS = [
   {
     numero: "01",
-    titulo: "Mapeamos tus procesos",
-    texto: "Revisamos cómo opera hoy tu equipo: qué hacen a mano, en qué herramientas, y dónde se pierde más tiempo.",
+    titulo: "Diagnóstico gratis",
+    texto: "Revisamos tu operación real: qué haces a mano, en qué se te va más tiempo. Sin costo, sin compromiso.",
   },
   {
     numero: "02",
-    titulo: "Priorizamos por impacto",
-    texto: "No todo se automatiza igual de bien. Encontramos los procesos donde la IA suma de verdad y el ROI se nota rápido.",
+    titulo: "Plan priorizado",
+    texto: "Te decimos, en tu idioma, qué automatizar primero y cuánto tiempo o plata te ahorra.",
   },
   {
     numero: "03",
-    titulo: "Construimos e integramos",
-    texto: "Agentes de IA, automatizaciones o un CRM a medida, conectados a lo que ya usas: Shopify, WhatsApp, planillas, tus APIs.",
+    titulo: "Construcción",
+    texto: "Armamos el agente, la integración o el CRM, conectado a lo que ya usas hoy.",
   },
   {
     numero: "04",
-    titulo: "Medimos y dejamos control humano donde importa",
-    texto: "La IA decide lo operativo; una persona revisa lo crítico. Medimos resultados y ajustamos con datos reales.",
+    titulo: "Acompañamiento",
+    texto: "Medimos el resultado real y seguimos ajustando contigo, mes a mes.",
   },
 ];
 
-const ESCENARIOS = [
-  {
-    situacion: "Tu equipo pierde horas copiando información entre planillas y sistemas.",
-    paso: "Partimos automatizando ese proceso",
-    detalle: "Detectamos la tarea manual de mayor volumen y la conectamos para que fluya sola, sin errores humanos.",
-  },
-  {
-    situacion: "Tienes datos de clientes desordenados en Excel, WhatsApp y el correo.",
-    paso: "Partimos con un CRM a medida",
-    detalle: "Centralizamos la información de tus clientes en una herramienta hecha para cómo trabaja tu equipo.",
-  },
-  {
-    situacion: "Ya tienes procesos digitales y quieres sumar IA con criterio, no por moda.",
-    paso: "Ahí diseñamos agentes de IA",
-    detalle: "Aplicamos IA donde realmente suma valor, dejando control humano en las decisiones críticas.",
-  },
-];
-
-const CASOS = [
+const PROYECTOS = [
   {
     numero: "01",
     cliente: "Lovely Hair",
@@ -162,26 +188,26 @@ const CASOS = [
 const SERVICIOS = [
   {
     icon: FaRobot,
-    titulo: "Agentes de IA y Automatización",
+    titulo: "Agentes de IA que nunca duermen",
     texto:
-      "Agentes que atienden clientes, califican leads o hacen seguimiento por WhatsApp, email o tu web, integrados a tus sistemas y con reglas claras de cuándo escalar a una persona.",
+      "Atienden clientes, cotizan y agendan por WhatsApp, mail o tu web, las 24 horas, con reglas claras de cuándo pasarte la conversación a ti.",
   },
   {
     icon: FaLayerGroup,
-    titulo: "CRMs y Plataformas a Medida",
+    titulo: "Un CRM hecho para cómo trabajas tú",
     texto:
-      "Construimos CRMs y herramientas internas a medida (con Lovable y stack propio) para gestionar clientes, postulaciones o retención sin depender de un software genérico.",
+      "Nada de forzar tu negocio a encajar en un software genérico. Construimos el CRM a tu medida, con Lovable y stack propio.",
   },
   {
     icon: FaPlug,
-    titulo: "Integraciones y APIs",
+    titulo: "Todo tu software hablando entre sí",
     texto:
-      "Conectamos tus herramientas entre sí: Shopify, pasarelas de pago, WhatsApp Business, planillas, CRMs y APIs propias o de terceros.",
+      "Shopify, WhatsApp Business, pasarelas de pago, planillas, APIs propias o de terceros: conectado, sin trabajo doble.",
   },
   {
     icon: FaHandshake,
-    titulo: "Acompañamiento Continuo",
-    texto: "La automatización no se instala y se olvida. Monitoreamos, ajustamos y sumamos nuevos procesos a medida que tu negocio crece.",
+    titulo: "No te dejamos solo después de lanzar",
+    texto: "Monitoreamos, ajustamos y sumamos automatizaciones nuevas a medida que tu negocio crece.",
   },
 ];
 
@@ -223,29 +249,6 @@ const STACK = [
   },
 ];
 
-const VENTAJAS = [
-  {
-    tag: "Menos trabajo repetitivo",
-    titulo: "Tu equipo se enfoca en lo que importa",
-    texto: "Sacamos de las manos de tu equipo las tareas mecánicas, para que dediquen su tiempo a decisiones y relaciones con clientes.",
-  },
-  {
-    tag: "IA aplicada con criterio",
-    titulo: "IA donde suma, control humano donde es crítico",
-    texto: "Definimos junto contigo qué decisiones puede tomar un agente y cuáles siempre pasan por una persona.",
-  },
-  {
-    tag: "Integrado a tu operación",
-    titulo: "Conectado a lo que ya usas",
-    texto: "Shopify, WhatsApp Business, planillas, CRMs, APIs propias. No te pedimos cambiar todo tu stack.",
-  },
-  {
-    tag: "Enfoque data-driven",
-    titulo: "Medimos el impacto real",
-    texto: "Horas ahorradas, tiempos de respuesta, tasas de conversión. Medimos cada automatización para saber qué mover después.",
-  },
-];
-
 const PERFIL_STATS = [
   { valor: "5+ sistemas", etiqueta: "CRMs y plataformas a medida construidos y en uso" },
   { valor: "APIs & Shopify", etiqueta: "experiencia integrando sistemas y tiendas online" },
@@ -273,28 +276,20 @@ const CERTS = [
 
 const FAQS = [
   {
-    q: "¿La IA va a reemplazar a mi equipo?",
-    a: "No es el objetivo. Automatizamos las tareas repetitivas y de bajo valor para que tu equipo se dedique a lo que realmente requiere criterio humano.",
+    q: "¿Cuánto cuesta el diagnóstico inicial?",
+    a: "Nada. Es gratis y sin compromiso, así ambos vemos si tiene sentido trabajar juntos.",
   },
   {
-    q: "¿Qué tan rápido se ven resultados?",
-    a: "Depende del proceso, pero priorizamos siempre por impacto y velocidad de implementación. Muchas automatizaciones e integraciones se pueden tener funcionando en semanas.",
+    q: "¿Cuánto se demora en verse resultados?",
+    a: "Semanas, no meses. Priorizamos por impacto para que notes el cambio rápido.",
   },
   {
-    q: "¿Necesito saber de tecnología para trabajar con ustedes?",
-    a: "No. Partimos con un diagnóstico en tu idioma, sin tecnicismos, y te explicamos cada decisión en el camino.",
+    q: "¿Necesito saber de tecnología?",
+    a: "No. Hablamos en tu idioma y te explicamos cada decisión en el camino.",
   },
   {
-    q: "¿Qué pasa con mis datos y los de mis clientes?",
-    a: "Trabajamos con las herramientas e integraciones que tú definas, respetando tus políticas de datos. Donde hay decisiones sensibles, dejamos control humano explícito.",
-  },
-  {
-    q: "¿Con qué plataformas trabajan?",
-    a: "Shopify, WhatsApp Business, CRMs, planillas, APIs propias y de terceros, y herramientas de IA aplicadas a tu operación.",
-  },
-  {
-    q: "¿Cómo cobran por su servicio?",
-    a: "Para proyectos puntuales cobramos un valor fijo definido en la primera conversación, según alcance y complejidad. Para acompañamiento continuo, el modelo es un fee de puesta en marcha más una mensualidad.",
+    q: "¿Y si el resultado no me convence?",
+    a: "Seguimos ajustando hasta que sí. No entregamos algo a medias.",
   },
 ];
 
@@ -311,48 +306,104 @@ export default function Home() {
         navItems={NAV_ITEMS}
         signInText="Hablemos"
         signInHref={`mailto:${EMAIL}`}
-        tagline="IA aplicada. Diseñada para pymes reales."
-        titleLine1="Automatizamos lo repetitivo"
-        titleLine2="de tu negocio con IA."
-        description="Diagnosticamos tus procesos y construimos agentes de IA, integraciones y CRMs a medida — IA donde suma, control humano donde es crítico."
-        primaryCtaText="Agenda una llamada"
+        tagline="Diagnóstico gratis. Automatización real."
+        titleLine1="Automatizamos lo repetitivo y"
+        titleLine2={
+          <>
+            construimos software para tu <RotatingWord words={BUSINESS_TYPES} /> con IA
+          </>
+        }
+        description="Dejamos de hacer a mano lo que un sistema puede hacer solo: agendar, responder, ordenar tus datos. Te mostramos gratis dónde te conviene partir."
+        primaryCtaText="Agenda tu diagnóstico gratis"
         primaryCtaHref={`mailto:${EMAIL}`}
-        secondaryCtaText="Cómo trabajamos"
-        secondaryCtaHref="#diagnostico"
+        secondaryCtaText="Ver casos reales"
+        secondaryCtaHref="#casos"
         backgroundImage={HERO_BG}
         stats={HERO_STATS}
-        scrollText="Descubre cómo"
-        scrollHref="#diagnostico"
+        scrollText="Ver cómo te ayudamos"
+        scrollHref="#dolor"
       />
 
       <div className="dark bg-background text-foreground">
         <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-20">
-          {/* ---------- Diagnóstico ---------- */}
-          <section id="diagnostico" className="py-20 lg:py-28 scroll-mt-24 relative">
+          {/* ---------- Dolor ---------- */}
+          <section id="dolor" className="py-20 lg:py-28 scroll-mt-24 relative">
             <div className="grid-fade absolute inset-x-0 top-0 h-[420px] -z-10" />
             <Reveal className="max-w-2xl">
               <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Primero, el diagnóstico
+                ¿Te suena familiar?
               </motion.p>
               <motion.h2 variants={fadeUp} className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                No toda tarea merece un agente de IA
+                Tu negocio factura bien. Tú vives apagando incendios.
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed">
-                La mayoría de las agencias de IA parte vendiéndote un chatbot.
-                Nosotros partimos entendiendo tu operación: qué hace tu equipo
-                hoy a mano y dónde se pierde más tiempo. Priorizamos según
-                impacto real, no según lo que está de moda.
+                Pasa en casi todas las pymes que conocemos:
               </motion.p>
             </Reveal>
 
-            <Reveal className="mt-8 rounded-2xl border border-coral/25 bg-coral/[0.08] p-6 sm:p-7 max-w-2xl">
+            <Reveal className="mt-8 grid sm:grid-cols-2 gap-4">
+              {DOLORES.map((d) => (
+                <motion.div
+                  key={d}
+                  variants={fadeUp}
+                  className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.02] p-5"
+                >
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-coral" />
+                  <p className="text-zinc-300 leading-relaxed">{d}</p>
+                </motion.div>
+              ))}
+            </Reveal>
+
+            <Reveal className="mt-8">
+              <motion.p variants={fadeUp} className="text-xl font-light tracking-tight text-coral">
+                Nosotros partimos justo ahí.
+              </motion.p>
+            </Reveal>
+          </section>
+
+          {/* ---------- Beneficios ---------- */}
+          <section className="py-20 lg:py-28 border-t border-white/10">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Lo que cambia
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Esto pasa cuando automatizas con criterio
+              </motion.h2>
+            </Reveal>
+            <Reveal className="mt-12 grid sm:grid-cols-2 gap-x-12 gap-y-10">
+              {BENEFICIOS.map((v) => (
+                <motion.div key={v.titulo} variants={fadeUp} className="border-t border-white/10 pt-6">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">{v.tag}</p>
+                  <h3 className="mt-2 text-xl font-medium tracking-tight">{v.titulo}</h3>
+                  <p className="mt-3 text-zinc-400 leading-relaxed">{v.texto}</p>
+                </motion.div>
+              ))}
+            </Reveal>
+          </section>
+
+          {/* ---------- Cómo trabajamos ---------- */}
+          <section id="diagnostico" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Cómo trabajamos
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Primero el diagnóstico, gratis
+              </motion.h2>
+              <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed">
+                No te vendemos un chatbot antes de entender tu negocio. Así se ve el proceso:
+              </motion.p>
+            </Reveal>
+
+            <Reveal className="mt-10 rounded-2xl border border-coral/25 bg-coral/[0.08] p-6 sm:p-7 max-w-2xl">
               <motion.p variants={fadeUp} className="text-xl font-light tracking-tight text-coral">
                 IA donde suma, control humano donde es crítico.
               </motion.p>
               <motion.p variants={fadeUp} className="mt-2 text-zinc-400 leading-relaxed">
-                Automatizamos lo repetitivo y dejamos las decisiones críticas en
-                manos de tu equipo. Trabajamos con IA desde 2020, así que
-                sabemos dónde de verdad aporta.
+                No delegamos todo a la IA. Automatizamos lo repetitivo y dejamos las decisiones
+                importantes en tus manos. Trabajamos con IA desde 2020, así que sabemos dónde
+                realmente aporta.
               </motion.p>
             </Reveal>
 
@@ -371,72 +422,6 @@ export default function Home() {
             </Reveal>
           </section>
 
-          {/* ---------- Escenarios ---------- */}
-          <section className="py-20 lg:py-28 border-t border-white/10">
-            <Reveal className="max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Cómo se ve en la práctica
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                El diagnóstico define por dónde partir
-              </motion.h2>
-            </Reveal>
-            <Reveal className="mt-12 grid md:grid-cols-3 gap-4">
-              {ESCENARIOS.map((e, i) => (
-                <motion.article
-                  key={i}
-                  variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 flex flex-col"
-                >
-                  <span className="text-sm font-medium text-coral">Escenario {i + 1}</span>
-                  <p className="mt-4 text-lg font-medium tracking-tight leading-snug">“{e.situacion}”</p>
-                  <div className="mt-auto pt-6">
-                    <div className="flex items-center gap-2 text-sm font-medium">
-                      <FaArrowRight className="h-3 w-3 text-coral" />
-                      <span>{e.paso}</span>
-                    </div>
-                    <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{e.detalle}</p>
-                  </div>
-                </motion.article>
-              ))}
-            </Reveal>
-          </section>
-
-          {/* ---------- Casos ---------- */}
-          <section id="casos" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
-            <Reveal className="max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Trabajo en producción
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Sistemas que ya construí
-              </motion.h2>
-              <motion.p variants={fadeUp} className="mt-5 text-lg text-zinc-400 leading-relaxed">
-                No es teoría: esto es parte de lo que he construido para negocios y equipos reales.
-              </motion.p>
-            </Reveal>
-            <Reveal className="mt-12 grid sm:grid-cols-2 gap-4">
-              {CASOS.map((c) => (
-                <motion.article
-                  key={c.numero}
-                  variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 flex flex-col"
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="text-sm font-medium text-coral">{c.numero}</span>
-                    {c.logo ? (
-                      <LogoChip src={c.logo} name={c.cliente} />
-                    ) : (
-                      <span className="text-lg font-light tracking-tight text-zinc-400">{c.cliente}</span>
-                    )}
-                  </div>
-                  <h3 className="mt-4 text-xl font-medium tracking-tight">{c.titulo}</h3>
-                  <p className="mt-3 text-zinc-400 leading-relaxed">{c.texto}</p>
-                </motion.article>
-              ))}
-            </Reveal>
-          </section>
-
           {/* ---------- Servicios ---------- */}
           <section id="servicios" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
             <Reveal className="max-w-2xl">
@@ -448,32 +433,7 @@ export default function Home() {
               </motion.h2>
             </Reveal>
 
-            <Reveal className="mt-12 rounded-2xl border border-white/10 bg-gradient-to-br from-coral/[0.10] via-white/[0.02] to-coral/[0.03] p-8 lg:p-10 grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center">
-              <motion.div variants={fadeUp}>
-                <span className="text-sm font-medium text-coral flex items-center gap-2">
-                  <FaMagnifyingGlassChart /> 00 · Lo primero
-                </span>
-                <h3 className="mt-3 text-2xl sm:text-3xl font-light tracking-tight">Diagnóstico de Automatización</h3>
-                <p className="mt-4 text-zinc-400 leading-relaxed">
-                  Antes de construir nada, mapeamos tu operación completa y
-                  priorizamos qué automatizar primero según impacto y esfuerzo.
-                </p>
-              </motion.div>
-              <motion.ul variants={fadeUp} className="space-y-3">
-                {[
-                  "Mapeo de procesos manuales y herramientas actuales",
-                  "Priorización por impacto: horas, errores y costo",
-                  "Plan de acción concreto, con alcance y plazos",
-                ].map((it) => (
-                  <li key={it} className="flex items-start gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm">
-                    <FaCheck className="mt-0.5 h-3.5 w-3.5 text-coral shrink-0" />
-                    {it}
-                  </li>
-                ))}
-              </motion.ul>
-            </Reveal>
-
-            <Reveal className="mt-4 grid sm:grid-cols-2 gap-4">
+            <Reveal className="mt-12 grid sm:grid-cols-2 gap-4">
               {SERVICIOS.map((s) => (
                 <motion.article
                   key={s.titulo}
@@ -518,39 +478,18 @@ export default function Home() {
             </Reveal>
           </section>
 
-          {/* ---------- Ventajas ---------- */}
-          <section className="py-20 lg:py-28 border-t border-white/10">
-            <Reveal className="max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Por qué funciona
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Ventajas de automatizar con criterio
-              </motion.h2>
-            </Reveal>
-            <Reveal className="mt-12 grid sm:grid-cols-2 gap-x-12 gap-y-10">
-              {VENTAJAS.map((v) => (
-                <motion.div key={v.titulo} variants={fadeUp} className="border-t border-white/10 pt-6">
-                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">{v.tag}</p>
-                  <h3 className="mt-2 text-xl font-medium tracking-tight">{v.titulo}</h3>
-                  <p className="mt-3 text-zinc-400 leading-relaxed">{v.texto}</p>
-                </motion.div>
-              ))}
-            </Reveal>
-          </section>
-
           {/* ---------- Quién soy ---------- */}
           <section id="nosotros" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-start">
               <Reveal>
                 <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                  Quién soy
+                  Con quién vas a hablar
                 </motion.p>
                 <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
                   Hola, soy Fabián
                 </motion.h2>
                 <motion.p variants={fadeUp} className="mt-3 font-medium text-zinc-400">
-                  Fundador de SpectersAI · Ingeniero Civil Industrial
+                  Fundador de SpectersAI, y la persona con la que realmente vas a hablar.
                 </motion.p>
 
                 <motion.div variants={fadeUp} className="lg:hidden mt-8 grid grid-cols-2 gap-4">
@@ -575,13 +514,11 @@ export default function Home() {
                   integraciones y automatizaciones para negocios reales.
                 </motion.p>
                 <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  He construido CRMs a medida con Lovable para Ramaeduc,
-                  Postulo.cl y Fyno, diseñé el CRM de Retention que usamos en
-                  SumUp, e hice el diagnóstico y plan de automatización de
-                  Lovely Hair. Tengo experiencia integrando APIs, Shopify y
-                  herramientas de IA a operaciones reales, además de fundar
-                  Conquerspro, un ecommerce que hice crecer con más de $250M
-                  CLP en ventas.
+                  Antes de fundar SpectersAI, tengo experiencia integrando
+                  APIs, Shopify y herramientas de IA a operaciones reales,
+                  además de haber fundado Conquerspro, un ecommerce que hice
+                  crecer con más de $250M CLP en ventas. Esa experiencia es la
+                  que traigo a tu negocio.
                 </motion.p>
 
                 <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
@@ -650,6 +587,35 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            <Reveal className="mt-16">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-zinc-500">
+                Antes de SpectersAI, ya construí esto
+              </motion.p>
+              <motion.p variants={fadeUp} className="mt-2 max-w-2xl text-zinc-400 leading-relaxed">
+                Es la experiencia con la que arranca SpectersAI, no una promesa sin respaldo.
+              </motion.p>
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                {PROYECTOS.map((p) => (
+                  <motion.article
+                    key={p.numero}
+                    variants={fadeUp}
+                    className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex flex-col"
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-sm font-medium text-coral">{p.numero}</span>
+                      {p.logo ? (
+                        <LogoChip src={p.logo} name={p.cliente} />
+                      ) : (
+                        <span className="text-lg font-light tracking-tight text-zinc-400">{p.cliente}</span>
+                      )}
+                    </div>
+                    <h3 className="mt-4 text-lg font-medium tracking-tight">{p.titulo}</h3>
+                    <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{p.texto}</p>
+                  </motion.article>
+                ))}
+              </div>
+            </Reveal>
           </section>
 
           {/* ---------- FAQ ---------- */}
@@ -657,7 +623,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12">
               <Reveal>
                 <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                  Dudas comunes
+                  Dudas rápidas
                 </motion.p>
                 <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
                   Preguntas frecuentes
@@ -690,11 +656,10 @@ export default function Home() {
           <section className="py-20 lg:py-28 border-t border-white/10">
             <Reveal className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-coral/[0.08] to-transparent px-6 sm:px-12 lg:px-16 pt-16 pb-10 relative overflow-hidden">
               <motion.h2 variants={fadeUp} className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight max-w-3xl">
-                ¿Listo para <span className="text-coral">automatizar</span> tu negocio?
+                Tu competencia todavía hace todo a mano. <span className="text-coral">Tú no tienes por qué.</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed max-w-xl">
-                Conversemos. Partimos con un diagnóstico, y de ahí vemos si lo
-                tuyo es un agente de IA, una integración o un CRM a medida.
+                Agenda tu diagnóstico gratis y en 30 minutos sabemos por dónde partir.
               </motion.p>
               <motion.div variants={fadeUp} className="mt-8 inline-flex items-start gap-3 rounded-2xl border border-coral/25 bg-coral/[0.08] px-5 py-4 max-w-xl">
                 <FaScaleBalanced className="mt-0.5 h-5 w-5 text-coral shrink-0" />
@@ -708,7 +673,7 @@ export default function Home() {
                   href={`mailto:${EMAIL}`}
                   className="inline-flex items-center gap-2 rounded-full bg-coral px-7 py-3.5 font-medium text-white hover:bg-coral/85 transition-colors"
                 >
-                  Escríbenos <FaArrowRight className="h-3.5 w-3.5" />
+                  Agenda tu diagnóstico gratis <FaArrowRight className="h-3.5 w-3.5" />
                 </a>
                 <p className="text-sm text-zinc-500">
                   Te respondemos a la brevedad,
