@@ -13,6 +13,15 @@ import {
   FaLinkedin,
 } from "react-icons/fa6";
 import { Hero3 } from "@/components/ui/hero-3";
+import {
+  ClaudeIcon,
+  GeminiIcon,
+  LovableIcon,
+  ChatGPTIcon,
+  CloudflareIcon,
+  VercelIcon,
+  GitHubIcon,
+} from "@/components/brand-icons";
 import { Avatar, LogoChip } from "./Avatar";
 
 const fadeUp: Variants = {
@@ -59,6 +68,7 @@ const NAV_ITEMS = [
   { label: "Diagnóstico", href: "#diagnostico" },
   { label: "Casos", href: "#casos" },
   { label: "Servicios", href: "#servicios" },
+  { label: "Stack", href: "#stack" },
   { label: "Quién soy", href: "#nosotros" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -172,6 +182,44 @@ const SERVICIOS = [
     icon: FaHandshake,
     titulo: "Acompañamiento Continuo",
     texto: "La automatización no se instala y se olvida. Monitoreamos, ajustamos y sumamos nuevos procesos a medida que tu negocio crece.",
+  },
+];
+
+const STACK = [
+  {
+    name: "Claude",
+    icon: ClaudeIcon,
+    texto: "El modelo de IA con el que construimos agentes y automatizaciones a medida.",
+  },
+  {
+    name: "ChatGPT",
+    icon: ChatGPTIcon,
+    texto: "Otra pieza del stack de IA, según el caso de uso y lo que pida el proyecto.",
+  },
+  {
+    name: "Gemini",
+    icon: GeminiIcon,
+    texto: "Motor de IA de Google, integrado cuando el negocio ya trabaja en ese ecosistema.",
+  },
+  {
+    name: "Lovable",
+    icon: LovableIcon,
+    texto: "Con esto construimos CRMs y apps a medida rápido, con código real y editable.",
+  },
+  {
+    name: "Vercel",
+    icon: VercelIcon,
+    texto: "Despliegue y hosting de lo que construimos, con CI/CD automático en cada cambio.",
+  },
+  {
+    name: "Cloudflare",
+    icon: CloudflareIcon,
+    texto: "Infraestructura y seguridad para que tus sitios y APIs corran rápido y protegidos.",
+  },
+  {
+    name: "GitHub",
+    icon: GitHubIcon,
+    texto: "Control de versiones y colaboración en cada proyecto que entregamos.",
   },
 ];
 
@@ -436,6 +484,36 @@ export default function Home() {
                   <h3 className="mt-4 text-xl font-medium tracking-tight">{s.titulo}</h3>
                   <p className="mt-3 text-zinc-400 leading-relaxed">{s.texto}</p>
                 </motion.article>
+              ))}
+            </Reveal>
+          </section>
+
+          {/* ---------- Stack ---------- */}
+          <section id="stack" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Con qué construimos
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Herramientas reales, no humo
+              </motion.h2>
+              <motion.p variants={fadeUp} className="mt-5 text-lg text-zinc-400 leading-relaxed">
+                IA, infraestructura y desarrollo de verdad: esto es lo que usamos para construir agentes, integraciones y CRMs.
+              </motion.p>
+            </Reveal>
+            <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {STACK.map((s) => (
+                <motion.div
+                  key={s.name}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
+                    <s.icon className="h-5 w-5 text-coral" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-medium tracking-tight">{s.name}</h3>
+                  <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
+                </motion.div>
               ))}
             </Reveal>
           </section>
