@@ -8,11 +8,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SpectersAI — Automatizamos tu negocio con IA",
+  title: "SpectersAI: Automatizamos tu negocio con IA",
   description:
     "Automatizamos lo repetitivo y construimos software a medida con IA para tu pyme. Diagnóstico inicial gratis y sin compromiso.",
   openGraph: {
-    title: "SpectersAI — Automatizamos tu negocio con IA",
+    title: "SpectersAI: Automatizamos tu negocio con IA",
     description:
       "Menos trabajo manual, más tiempo para tu negocio. Agentes de IA, CRMs a medida e integraciones. Diagnóstico gratis.",
     siteName: "SpectersAI",
