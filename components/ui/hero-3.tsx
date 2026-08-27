@@ -225,7 +225,7 @@ export function Hero3({
           viewport={{ once: true, amount: 0.38 }}
           className="flex flex-1 flex-col justify-center"
         >
-          <div className="max-w-4xl">
+          <div className="max-w-5xl">
             {tagline && (
               <motion.p
                 variants={item}

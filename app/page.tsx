@@ -12,7 +12,7 @@ import {
   FaLinkedin,
 } from "react-icons/fa6";
 import { Hero3 } from "@/components/ui/hero-3";
-import { RotatingWord } from "@/components/rotating-word";
+import { HeroHeadline } from "@/components/hero-headline";
 import {
   ClaudeIcon,
   GeminiIcon,
@@ -307,14 +307,8 @@ export default function Home() {
         signInText="Hablemos"
         signInHref={`mailto:${EMAIL}`}
         tagline="Diagnóstico gratis. Automatización real."
-        titleLine1="Automatizamos lo repetitivo"
-        titleLine2={
-          <>
-            <span className="whitespace-nowrap">y construimos</span> software para tu{" "}
-            <RotatingWord words={BUSINESS_TYPES} />{" "}
-            <span className="whitespace-nowrap">con IA</span>
-          </>
-        }
+        titleLine1={<HeroHeadline words={BUSINESS_TYPES} />}
+        titleLine2={null}
         description="Dejamos de hacer a mano lo que un sistema puede hacer solo: agendar, responder, ordenar tus datos. Te mostramos gratis dónde te conviene partir."
         primaryCtaText="Agenda tu diagnóstico gratis"
         primaryCtaHref={`mailto:${EMAIL}`}

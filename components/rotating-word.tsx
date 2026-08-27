@@ -6,9 +6,11 @@ import { AnimatePresence, motion } from "motion/react";
 export function RotatingWord({
   words,
   intervalMs = 2200,
+  onChange,
 }: {
   words: string[];
   intervalMs?: number;
+  onChange?: (word: string) => void;
 }) {
   const [index, setIndex] = useState(0);
 
@@ -18,6 +20,10 @@ export function RotatingWord({
     }, intervalMs);
     return () => clearInterval(id);
   }, [words.length, intervalMs]);
+
+  useEffect(() => {
+    onChange?.(words[index]);
+  }, [index, words, onChange]);
 
   return (
     <AnimatePresence mode="wait">
