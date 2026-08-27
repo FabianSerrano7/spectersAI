@@ -21,6 +21,7 @@ function Ghost({ className }: { className?: string }) {
 
 const NAV_LINKS = [
   { label: "Diagnóstico", href: "#diagnostico" },
+  { label: "Casos", href: "#casos" },
   { label: "Servicios", href: "#servicios" },
   { label: "Quién soy", href: "#nosotros" },
   { label: "Preguntas frecuentes", href: "#faq" },
@@ -129,6 +130,46 @@ const ESCENARIOS = [
     detalle: "Recién acá invertir en Meta y Google tiene sentido: amplificamos lo que ya funciona.",
     color: "bg-night text-paper",
     acento: "text-lime",
+  },
+];
+
+const CASOS = [
+  {
+    numero: "01",
+    cliente: "Lovely Hair",
+    titulo: "Diagnóstico y plan de automatización",
+    texto:
+      "Análisis completo del negocio (agenda, clientes, ventas) y un plan priorizado de qué automatizar primero, con portal de seguimiento para el cliente.",
+    logo: "/logo-lovelyhair.png",
+  },
+  {
+    numero: "02",
+    cliente: "Ramaeduc",
+    titulo: "CRM educativo",
+    texto:
+      "CRM a medida construido con Lovable para centralizar la información de alumnos y automatizar el seguimiento administrativo.",
+  },
+  {
+    numero: "03",
+    cliente: "Postulo.cl",
+    titulo: "Plataforma de postulaciones",
+    texto:
+      "Sistema que ordena y automatiza el flujo de postulantes, desde el registro hasta el seguimiento, reemplazando planillas sueltas.",
+  },
+  {
+    numero: "04",
+    cliente: "Fyno",
+    titulo: "CRM a medida",
+    texto:
+      "Herramienta interna para gestionar clientes y operación diaria, construida con Lovable a la medida del flujo de trabajo del equipo.",
+  },
+  {
+    numero: "05",
+    cliente: "SumUp",
+    titulo: "CRM de Retention",
+    texto:
+      "Durante mi paso por SumUp diseñé un CRM interno orientado a Retention, para dar seguimiento a clientes en riesgo de fuga.",
+    logo: "/logo-sumup.png",
   },
 ];
 
@@ -380,6 +421,41 @@ export default function Home() {
         <p className="mt-8 text-sm text-ink-soft/80">
           ¿No sabes en cuál estás? Justo para eso es el diagnóstico.
         </p>
+      </section>
+
+      {/* ---------- Casos ---------- */}
+      <section id="casos" className="py-16 lg:py-24 scroll-mt-8">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-widest text-coral">
+            Trabajo en producción
+          </p>
+          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">
+            Sistemas que ya{" "}
+            <em className="not-italic text-coral">construí</em>
+          </h2>
+          <p className="mt-5 text-lg text-ink-soft leading-relaxed">
+            No es teoría: esto es parte de lo que he construido para negocios
+            y equipos reales.
+          </p>
+        </div>
+        <div className="reveal mt-12 grid sm:grid-cols-2 gap-4 lg:gap-5">
+          {CASOS.map((c) => (
+            <article key={c.numero} className="rounded-3xl bg-white border border-ink/10 p-7 lg:p-8 flex flex-col">
+              <div className="flex items-center justify-between gap-4">
+                <span className="font-display font-bold text-sm text-coral">{c.numero}</span>
+                {c.logo ? (
+                  <LogoChip src={c.logo} name={c.cliente} />
+                ) : (
+                  <span className="font-display text-lg font-bold tracking-tight text-ink-soft/80">
+                    {c.cliente}
+                  </span>
+                )}
+              </div>
+              <h3 className="mt-4 font-display text-xl font-bold tracking-tight">{c.titulo}</h3>
+              <p className="mt-3 leading-relaxed text-ink-soft">{c.texto}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       {/* ---------- Servicios ---------- */}
