@@ -310,7 +310,8 @@ export default function Home() {
         titleLine1="Automatizamos lo repetitivo y"
         titleLine2={
           <>
-            construimos software para tu <RotatingWord words={BUSINESS_TYPES} /> con IA
+            construimos software para tu <RotatingWord words={BUSINESS_TYPES} />{" "}
+            <span className="whitespace-nowrap">con IA</span>
           </>
         }
         description="Dejamos de hacer a mano lo que un sistema puede hacer solo: agendar, responder, ordenar tus datos. Te mostramos gratis dónde te conviene partir."
