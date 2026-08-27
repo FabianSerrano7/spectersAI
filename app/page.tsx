@@ -316,8 +316,8 @@ export default function Home() {
         description="Dejamos de hacer a mano lo que un sistema puede hacer solo: agendar, responder, ordenar tus datos. Te mostramos gratis dónde te conviene partir."
         primaryCtaText="Agenda tu diagnóstico gratis"
         primaryCtaHref={`mailto:${EMAIL}`}
-        secondaryCtaText="Ver casos reales"
-        secondaryCtaHref="#casos"
+        secondaryCtaText="Ver experiencia real"
+        secondaryCtaHref="#nosotros"
         backgroundImage={HERO_BG}
         stats={HERO_STATS}
         scrollText="Ver cómo te ayudamos"
