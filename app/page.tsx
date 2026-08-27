@@ -1,30 +1,66 @@
+"use client";
+
+import { motion, type Variants } from "motion/react";
+import {
+  FaArrowRight,
+  FaCheck,
+  FaRobot,
+  FaPlug,
+  FaLayerGroup,
+  FaHandshake,
+  FaMagnifyingGlassChart,
+  FaScaleBalanced,
+  FaLinkedin,
+} from "react-icons/fa6";
 import { Hero3 } from "@/components/ui/hero-3";
 import { Avatar, LogoChip } from "./Avatar";
 
-/* ---------- Gráficos estilo dashboard (SVG) ---------- */
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 22, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { type: "spring", duration: 0.6, bounce: 0 },
+  },
+};
 
-function Ghost({ className }: { className?: string }) {
+const stagger: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
+
+function Reveal({
+  children,
+  className,
+  as = "div",
+}: {
+  children: React.ReactNode;
+  className?: string;
+  as?: "div" | "section";
+}) {
+  const Comp = motion[as];
   return (
-    <svg viewBox="0 0 48 48" fill="none" className={className} aria-hidden>
-      <path
-        d="M24 5C14.6 5 8 12.2 8 21.5V40c0 1.8 2.1 2.8 3.5 1.6l3.1-2.6c.8-.7 2-.6 2.7.1l2.9 2.9c.9.9 2.4.9 3.3 0l2.9-2.9c.7-.7 1.9-.8 2.7-.1l3.4 2.7C34 42.9 36 41.9 36 40.1V21.5C40 12.2 33.4 5 24 5Z"
-        fill="currentColor"
-        transform="translate(2 0)"
-      />
-      <circle cx="20" cy="21" r="2.6" fill="var(--color-paper)" />
-      <circle cx="31" cy="21" r="2.6" fill="var(--color-paper)" />
-    </svg>
+    <Comp
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      className={className}
+    >
+      {children}
+    </Comp>
   );
 }
 
 /* ---------- Datos ---------- */
 
-const NAV_LINKS = [
+const NAV_ITEMS = [
   { label: "Diagnóstico", href: "#diagnostico" },
   { label: "Casos", href: "#casos" },
   { label: "Servicios", href: "#servicios" },
   { label: "Quién soy", href: "#nosotros" },
-  { label: "Preguntas frecuentes", href: "#faq" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 const HERO_STATS = [
@@ -33,103 +69,47 @@ const HERO_STATS = [
   { value: "2020", label: "Trabajando con IA aplicada a negocios" },
 ];
 
-/* Fondo del hero: gradiente + grilla generados en SVG, sin depender de
-   una imagen externa (evita 404s/hotlink-blocking en producción). */
-const HERO_BG =
-  "data:image/svg+xml;utf8," +
-  encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1200" viewBox="0 0 1920 1200">
-  <defs>
-    <radialGradient id="g1" cx="78%" cy="12%" r="55%">
-      <stop offset="0%" stop-color="#c8ef6f" stop-opacity="0.22"/>
-      <stop offset="100%" stop-color="#c8ef6f" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="g2" cx="12%" cy="85%" r="55%">
-      <stop offset="0%" stop-color="#f37262" stop-opacity="0.20"/>
-      <stop offset="100%" stop-color="#f37262" stop-opacity="0"/>
-    </radialGradient>
-    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
-      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="1920" height="1200" fill="#08090b"/>
-  <rect width="1920" height="1200" fill="url(#grid)"/>
-  <rect width="1920" height="1200" fill="url(#g1)"/>
-  <rect width="1920" height="1200" fill="url(#g2)"/>
-</svg>
-`.trim());
+/* Fondo del hero: el mismo asset de la referencia Watermelon/Hero3. */
+const HERO_BG = "https://assets.watermelon.sh/hero-3-bg.avif";
 
 const PASOS = [
   {
     numero: "01",
-    titulo: "Revisamos tu data",
-    texto: "Si tienes números (ventas, clientes, ticket promedio, márgenes), los analizamos para ver tu situación real. Si no, te ayudamos a empezar a medir.",
+    titulo: "Mapeamos tus procesos",
+    texto: "Revisamos cómo opera hoy tu equipo: qué hacen a mano, en qué herramientas, y dónde se pierde más tiempo.",
   },
   {
     numero: "02",
-    titulo: "Priorización 80/20",
-    texto: "Encontramos el 20% de productos y clientes que te deja el 80% del margen, y enfocamos el esfuerzo ahí.",
+    titulo: "Priorizamos por impacto",
+    texto: "No todo se automatiza igual de bien. Encontramos los procesos donde la IA suma de verdad y el ROI se nota rápido.",
   },
   {
     numero: "03",
-    titulo: "Más ventas por cliente y por visita",
-    texto: "Detectamos dónde subir el ticket promedio con upselling y cross-selling, y cómo hacer que más visitas de tu web terminen comprando.",
+    titulo: "Construimos e integramos",
+    texto: "Agentes de IA, automatizaciones o un CRM a medida, conectados a lo que ya usas: Shopify, WhatsApp, planillas, tus APIs.",
   },
   {
     numero: "04",
-    titulo: "Ejecución y medición",
-    texto: "Ejecutamos en orden lo que mueve la aguja y medimos cada peso invertido para decidir el siguiente paso. Nada de suerte.",
-  },
-];
-
-const SERVICIOS = [
-  {
-    numero: "02",
-    titulo: "Optimización Web y E-commerce",
-    texto:
-      "Creamos o rediseñamos tu sitio web o tienda online, con pasarela de pagos, SSL y velocidad, para que convierta las visitas que ya tienes antes de traer más.",
-  },
-  {
-    numero: "03",
-    titulo: "Oferta, Priorización y Ticket Promedio",
-    texto:
-      "Priorizamos los productos que dejan margen (80/20) y diseñamos estrategias de upselling y cross-selling para subir tu ticket promedio y que cada cliente valga más.",
-  },
-  {
-    numero: "04",
-    titulo: "Publicidad en Meta y Google Ads",
-    texto:
-      "Cuando la base está lista, escalamos con campañas en Facebook, Instagram y Google (Búsqueda, Shopping, Display o Video), medidas y optimizadas.",
-  },
-  {
-    numero: "05",
-    titulo: "Acompañamiento Continuo",
-    texto:
-      "Si tú creces, nosotros crecemos. Nos convertimos en partners durante todo el proceso para que tu negocio aumente en ventas y reconocimiento.",
+    titulo: "Medimos y dejamos control humano donde importa",
+    texto: "La IA decide lo operativo; una persona revisa lo crítico. Medimos resultados y ajustamos con datos reales.",
   },
 ];
 
 const ESCENARIOS = [
   {
-    situacion: "Tienes un buen producto, pero tu web es lenta o no convierte.",
-    paso: "Partimos optimizando tu web",
-    detalle: "Antes de traer tráfico, arreglamos la casa: velocidad, claridad y flujo de compra.",
-    color: "bg-white border border-ink/10",
-    acento: "text-coral",
+    situacion: "Tu equipo pierde horas copiando información entre planillas y sistemas.",
+    paso: "Partimos automatizando ese proceso",
+    detalle: "Detectamos la tarea manual de mayor volumen y la conectamos para que fluya sola, sin errores humanos.",
   },
   {
-    situacion: "Vendes de todo, pero no sabes qué deja margen ni a quién apuntar.",
-    paso: "Partimos por tu oferta (80/20)",
-    detalle: "Priorizamos lo rentable y afinamos qué vender, a qué precio y a quién.",
-    color: "bg-lime",
-    acento: "text-ink/60",
+    situacion: "Tienes datos de clientes desordenados en Excel, WhatsApp y el correo.",
+    paso: "Partimos con un CRM a medida",
+    detalle: "Centralizamos la información de tus clientes en una herramienta hecha para cómo trabaja tu equipo.",
   },
   {
-    situacion: "Tu web y tu oferta ya están sólidas y quieres crecer.",
-    paso: "Ahí sí, escalamos con Ads",
-    detalle: "Recién acá invertir en Meta y Google tiene sentido: amplificamos lo que ya funciona.",
-    color: "bg-night text-paper",
-    acento: "text-lime",
+    situacion: "Ya tienes procesos digitales y quieres sumar IA con criterio, no por moda.",
+    paso: "Ahí diseñamos agentes de IA",
+    detalle: "Aplicamos IA donde realmente suma valor, dejando control humano en las decisiones críticas.",
   },
 ];
 
@@ -146,65 +126,83 @@ const CASOS = [
     numero: "02",
     cliente: "Ramaeduc",
     titulo: "CRM educativo",
-    texto:
-      "CRM a medida construido con Lovable para centralizar la información de alumnos y automatizar el seguimiento administrativo.",
+    texto: "CRM a medida construido con Lovable para centralizar la información de alumnos y automatizar el seguimiento administrativo.",
   },
   {
     numero: "03",
     cliente: "Postulo.cl",
     titulo: "Plataforma de postulaciones",
-    texto:
-      "Sistema que ordena y automatiza el flujo de postulantes, desde el registro hasta el seguimiento, reemplazando planillas sueltas.",
+    texto: "Sistema que ordena y automatiza el flujo de postulantes, desde el registro hasta el seguimiento, reemplazando planillas sueltas.",
   },
   {
     numero: "04",
     cliente: "Fyno",
     titulo: "CRM a medida",
-    texto:
-      "Herramienta interna para gestionar clientes y operación diaria, construida con Lovable a la medida del flujo de trabajo del equipo.",
+    texto: "Herramienta interna para gestionar clientes y operación diaria, construida con Lovable a la medida del flujo de trabajo del equipo.",
   },
   {
     numero: "05",
     cliente: "SumUp",
     titulo: "CRM de Retention",
-    texto:
-      "Durante mi paso por SumUp diseñé un CRM interno orientado a Retention, para dar seguimiento a clientes en riesgo de fuga.",
+    texto: "Durante mi paso por SumUp diseñé un CRM interno orientado a Retention, para dar seguimiento a clientes en riesgo de fuga.",
     logo: "/logo-sumup.png",
+  },
+];
+
+const SERVICIOS = [
+  {
+    icon: FaRobot,
+    titulo: "Agentes de IA y Automatización",
+    texto:
+      "Agentes que atienden clientes, califican leads o hacen seguimiento por WhatsApp, email o tu web, integrados a tus sistemas y con reglas claras de cuándo escalar a una persona.",
+  },
+  {
+    icon: FaLayerGroup,
+    titulo: "CRMs y Plataformas a Medida",
+    texto:
+      "Construimos CRMs y herramientas internas a medida (con Lovable y stack propio) para gestionar clientes, postulaciones o retención sin depender de un software genérico.",
+  },
+  {
+    icon: FaPlug,
+    titulo: "Integraciones y APIs",
+    texto:
+      "Conectamos tus herramientas entre sí: Shopify, pasarelas de pago, WhatsApp Business, planillas, CRMs y APIs propias o de terceros.",
+  },
+  {
+    icon: FaHandshake,
+    titulo: "Acompañamiento Continuo",
+    texto: "La automatización no se instala y se olvida. Monitoreamos, ajustamos y sumamos nuevos procesos a medida que tu negocio crece.",
   },
 ];
 
 const VENTAJAS = [
   {
-    tag: "Mejores resultados",
-    titulo: "Aumentarás tus ventas",
-    texto:
-      "Una buena implementación y optimización de campañas te ayudará a aumentar las ventas de tu negocio, no a quemar presupuesto.",
+    tag: "Menos trabajo repetitivo",
+    titulo: "Tu equipo se enfoca en lo que importa",
+    texto: "Sacamos de las manos de tu equipo las tareas mecánicas, para que dediquen su tiempo a decisiones y relaciones con clientes.",
   },
   {
-    tag: "Más alcance de marca",
-    titulo: "Mayor reconocimiento",
-    texto:
-      "Cuando tu marca aparece de manera frecuente frente a los clientes correctos, pasas de ser desconocido a ser la primera opción.",
+    tag: "IA aplicada con criterio",
+    titulo: "IA donde suma, control humano donde es crítico",
+    texto: "Definimos junto contigo qué decisiones puede tomar un agente y cuáles siempre pasan por una persona.",
   },
   {
-    tag: "Enfoque analítico y creativo",
-    titulo: "Data-driven: las métricas lo son todo",
-    texto:
-      "El marketing digital no es suerte. Medimos y optimizamos cada métrica de tus campañas para sacarle el máximo a tu presupuesto.",
+    tag: "Integrado a tu operación",
+    titulo: "Conectado a lo que ya usas",
+    texto: "Shopify, WhatsApp Business, planillas, CRMs, APIs propias. No te pedimos cambiar todo tu stack.",
   },
   {
-    tag: "Conviértete en referente",
-    titulo: "Posicionamiento en el mercado",
-    texto:
-      "El posicionamiento es lo que produces en la mente del cliente: que te vean como la opción perfecta cuando necesiten lo que ofreces.",
+    tag: "Enfoque data-driven",
+    titulo: "Medimos el impacto real",
+    texto: "Horas ahorradas, tiempos de respuesta, tasas de conversión. Medimos cada automatización para saber qué mover después.",
   },
 ];
 
 const PERFIL_STATS = [
-  { valor: "$50–100 millones", etiqueta: "de pesos mensuales gestionados y optimizados en Meta Ads" },
-  { valor: "10+ personas", etiqueta: "experiencia liderando equipos y proyectos" },
-  { valor: "Data-driven", etiqueta: "mido, priorizo y optimizo cada peso invertido" },
-  { valor: "IA a medida", etiqueta: "experiencia creando herramientas y plataformas con IA" },
+  { valor: "5+ sistemas", etiqueta: "CRMs y plataformas a medida construidos y en uso" },
+  { valor: "APIs & Shopify", etiqueta: "experiencia integrando sistemas y tiendas online" },
+  { valor: "Data-driven", etiqueta: "mido, priorizo y optimizo cada automatización" },
+  { valor: "IA con criterio", etiqueta: "IA donde suma, control humano donde es crítico" },
 ];
 
 const COMPANIES = [
@@ -225,88 +223,35 @@ const CERTS = [
   "Curtin · Digital Branding & Engagement",
 ];
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/fserranop/";
-
-/* Piezas de la sección "Quién soy" que se renderizan una vez por breakpoint
-   (mobile y desktop), para evitar que CSS Grid intente igualar alturas de fila. */
-function ProfileCard() {
-  return (
-    <div className="col-span-2 float-card rounded-2xl bg-white border border-ink/10 p-6 flex items-center gap-4">
-      <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
-      <div>
-        <p className="font-display text-xl font-bold tracking-tight">Fabián Serrano</p>
-        <p className="text-sm text-ink-soft">Ingeniero Civil Industrial · Santiago, Chile</p>
-      </div>
-    </div>
-  );
-}
-
-function PerfilStats() {
-  return (
-    <>
-      {PERFIL_STATS.map((s, i) => (
-        <div
-          key={s.valor}
-          className={`float-card rounded-2xl p-6 ${
-            i === 0 ? "bg-lime" : i === 3 ? "bg-night text-paper" : "bg-white border border-ink/10"
-          }`}
-        >
-          <p className={`font-display text-2xl font-bold tracking-tight ${i === 3 ? "text-lime" : ""}`}>
-            {s.valor}
-          </p>
-          <p className={`mt-2 text-sm leading-snug ${i === 3 ? "text-paper/70" : "text-ink-soft"}`}>
-            {s.etiqueta}
-          </p>
-        </div>
-      ))}
-    </>
-  );
-}
-
-function CertList() {
-  return (
-    <>
-      <p className="text-xs font-semibold uppercase tracking-widest text-ink-soft/70">
-        Certificaciones
-      </p>
-      <ul className="mt-3 flex flex-wrap gap-2">
-        {CERTS.map((c) => (
-          <li
-            key={c}
-            className="rounded-full border border-ink/12 bg-white px-3 py-1 text-xs font-medium text-ink-soft"
-          >
-            {c}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-}
-
 const FAQS = [
   {
-    q: "¿Por qué no parten altiro con campañas de publicidad?",
-    a: "Porque la publicidad amplifica lo que ya existe: si tu web no convierte o tu oferta no está clara, invertir en anuncios es quemar plata. Con el diagnóstico detectamos qué hay que arreglar primero, a veces es optimizar tu sitio, priorizar productos o ajustar precios, y recién ahí invertimos en tráfico.",
+    q: "¿La IA va a reemplazar a mi equipo?",
+    a: "No es el objetivo. Automatizamos las tareas repetitivas y de bajo valor para que tu equipo se dedique a lo que realmente requiere criterio humano.",
   },
   {
-    q: "¿Con qué podemos empezar si conozco poco sobre el tema?",
-    a: "Con el trabajo que haremos queremos que también aprendas. Partimos haciendo una auditoría de tu empresa a nivel de negocio y marketing digital, y desde ahí comenzamos a ayudarte. Con eso definimos lo mejor a implementar en tu caso.",
+    q: "¿Qué tan rápido se ven resultados?",
+    a: "Depende del proceso, pero priorizamos siempre por impacto y velocidad de implementación. Muchas automatizaciones e integraciones se pueden tener funcionando en semanas.",
   },
   {
-    q: "¿Trabajan de manera presencial o remota?",
-    a: "Trabajamos remoto por defecto, con reuniones por Zoom o Google Meet según te acomode, lo que nos permite trabajar con clientes de todo Chile y responder rápido. Si el proyecto lo amerita, también podemos visitar tu local o tienda de forma presencial.",
+    q: "¿Necesito saber de tecnología para trabajar con ustedes?",
+    a: "No. Partimos con un diagnóstico en tu idioma, sin tecnicismos, y te explicamos cada decisión en el camino.",
   },
   {
-    q: "¿Qué pasa si no me convencen los entregables?",
-    a: "Si eso pasa, seguimos desarrollando lo solicitado hasta que quedes conforme con el trabajo. No queremos hacer las cosas a medias, ni menos que no te gusten.",
+    q: "¿Qué pasa con mis datos y los de mis clientes?",
+    a: "Trabajamos con las herramientas e integraciones que tú definas, respetando tus políticas de datos. Donde hay decisiones sensibles, dejamos control humano explícito.",
+  },
+  {
+    q: "¿Con qué plataformas trabajan?",
+    a: "Shopify, WhatsApp Business, CRMs, planillas, APIs propias y de terceros, y herramientas de IA aplicadas a tu operación.",
   },
   {
     q: "¿Cómo cobran por su servicio?",
-    a: "Para trabajo puntual (diagnóstico, sitios web, oferta y priorización, u otros proyectos específicos) cobramos un valor fijo que definimos en la primera conversación, según el tamaño y la complejidad de tu negocio. Para campañas de marketing digital en modo de acompañamiento continuo, el modelo es un fee de puesta en marcha más una mensualidad, o un porcentaje del monto invertido en la plataforma (10 a 20%).",
+    a: "Para proyectos puntuales cobramos un valor fijo definido en la primera conversación, según alcance y complejidad. Para acompañamiento continuo, el modelo es un fee de puesta en marcha más una mensualidad.",
   },
 ];
 
 const EMAIL = "fabian@specterspro.com";
+const LINKEDIN_URL = "https://www.linkedin.com/in/fserranop/";
 
 /* ---------- Página ---------- */
 
@@ -315,7 +260,7 @@ export default function Home() {
     <>
       <Hero3
         logoText="SpectersAI"
-        navItems={NAV_LINKS.map((l) => ({ label: l.label, href: l.href }))}
+        navItems={NAV_ITEMS}
         signInText="Hablemos"
         signInHref={`mailto:${EMAIL}`}
         tagline="IA aplicada. Diseñada para pymes reales."
@@ -331,401 +276,383 @@ export default function Home() {
         scrollText="Descubre cómo"
         scrollHref="#diagnostico"
       />
-      <div className="mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10">
-      {/* ---------- Diagnóstico ---------- */}
-      <section id="diagnostico" className="py-16 lg:py-24 scroll-mt-8">
-        <div className="rounded-[2.5rem] bg-night text-paper px-6 sm:px-12 lg:px-16 py-14 lg:py-20 relative overflow-hidden">
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(520px 380px at 85% 0%, rgba(200,239,111,0.14), transparent 70%), radial-gradient(480px 360px at 0% 100%, rgba(243,114,98,0.12), transparent 70%)",
-            }}
-          />
-          <div className="relative max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-widest text-lime">
-              Primero, el diagnóstico
-            </p>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight">
-              No siempre hay que partir por la{" "}
-              <em className="not-italic text-coral">publicidad</em>
-            </h2>
-            <p className="mt-6 text-lg text-paper/70 leading-relaxed">
-              La mayoría de las agencias parte vendiéndote campañas. Nosotros
-              partimos entendiendo tu negocio: tu oferta, tu sitio web, tus
-              precios y tus canales. A veces la oportunidad está en publicidad.
-              Pero muchas veces primero hay que optimizar tu web, priorizar los
-              productos que de verdad dejan margen, o mejorar tu oferta. Recién
-              ahí invertir en tráfico hace sentido.
-            </p>
-          </div>
 
-          <div className="relative mt-10 rounded-2xl border border-lime/25 bg-lime/10 p-6 sm:p-7 max-w-3xl">
-            <p className="font-display text-xl sm:text-2xl font-bold tracking-tight">
-              Priorizar es clave.
-            </p>
-            <p className="mt-2 text-paper/75 leading-relaxed">
-              Estoy seguro de que cerca del{" "}
-              <span className="font-semibold text-lime">20% de tus productos te deja el 80% del margen</span>.
-              El diagnóstico encuentra ese 20% para enfocar ahí tu energía y tu
-              presupuesto, en vez de repartirlo en todo por igual.
-            </p>
-          </div>
+      <div className="dark bg-background text-foreground">
+        <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-20">
+          {/* ---------- Diagnóstico ---------- */}
+          <section id="diagnostico" className="py-20 lg:py-28 scroll-mt-24 relative">
+            <div className="grid-fade absolute inset-x-0 top-0 h-[420px] -z-10" />
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Primero, el diagnóstico
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                No toda tarea merece un agente de IA
+              </motion.h2>
+              <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed">
+                La mayoría de las agencias de IA parte vendiéndote un chatbot.
+                Nosotros partimos entendiendo tu operación: qué hace tu equipo
+                hoy a mano y dónde se pierde más tiempo. Priorizamos según
+                impacto real, no según lo que está de moda.
+              </motion.p>
+            </Reveal>
 
-          <div className="reveal relative mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {PASOS.map((p) => (
-              <div key={p.numero} className="rounded-2xl bg-white/[0.06] border border-white/10 p-6">
-                <span className="font-display text-sm font-bold text-lime">{p.numero}</span>
-                <h3 className="mt-2 font-display text-xl font-bold tracking-tight">{p.titulo}</h3>
-                <p className="mt-2 text-sm text-paper/65 leading-relaxed">{p.texto}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <Reveal className="mt-8 rounded-2xl border border-coral/25 bg-coral/[0.08] p-6 sm:p-7 max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xl font-light tracking-tight text-coral">
+                IA donde suma, control humano donde es crítico.
+              </motion.p>
+              <motion.p variants={fadeUp} className="mt-2 text-zinc-400 leading-relaxed">
+                Automatizamos lo repetitivo y dejamos las decisiones críticas en
+                manos de tu equipo. Trabajamos con IA desde 2020, así que
+                sabemos dónde de verdad aporta.
+              </motion.p>
+            </Reveal>
 
-      {/* ---------- Escenarios ---------- */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-coral">
-            Cómo se ve en la práctica
-          </p>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">
-            El diagnóstico define por dónde{" "}
-            <em className="not-italic text-coral">partir</em>
-          </h2>
-          <p className="mt-5 text-lg text-ink-soft leading-relaxed">
-            Cada negocio parte en un punto distinto. Estos son escenarios típicos
-            de dónde suele estar la primera gran oportunidad:
-          </p>
-        </div>
-        <div className="reveal mt-12 grid md:grid-cols-3 gap-4 lg:gap-5">
-          {ESCENARIOS.map((e, i) => (
-            <article key={i} className={`rounded-3xl p-7 lg:p-8 flex flex-col ${e.color}`}>
-              <span className={`font-display text-sm font-bold ${e.acento}`}>
-                Escenario {i + 1}
-              </span>
-              <p className="mt-4 font-display text-lg font-bold tracking-tight leading-snug">
-                “{e.situacion}”
-              </p>
-              <div className="mt-auto pt-6">
-                <div className="flex items-center gap-2 text-sm font-semibold">
-                  <span className={e.acento}>→</span>
-                  <span>{e.paso}</span>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed opacity-75">{e.detalle}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        <p className="mt-8 text-sm text-ink-soft/80">
-          ¿No sabes en cuál estás? Justo para eso es el diagnóstico.
-        </p>
-      </section>
-
-      {/* ---------- Casos ---------- */}
-      <section id="casos" className="py-16 lg:py-24 scroll-mt-8">
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-coral">
-            Trabajo en producción
-          </p>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">
-            Sistemas que ya{" "}
-            <em className="not-italic text-coral">construí</em>
-          </h2>
-          <p className="mt-5 text-lg text-ink-soft leading-relaxed">
-            No es teoría: esto es parte de lo que he construido para negocios
-            y equipos reales.
-          </p>
-        </div>
-        <div className="reveal mt-12 grid sm:grid-cols-2 gap-4 lg:gap-5">
-          {CASOS.map((c) => (
-            <article key={c.numero} className="rounded-3xl bg-white border border-ink/10 p-7 lg:p-8 flex flex-col">
-              <div className="flex items-center justify-between gap-4">
-                <span className="font-display font-bold text-sm text-coral">{c.numero}</span>
-                {c.logo ? (
-                  <LogoChip src={c.logo} name={c.cliente} />
-                ) : (
-                  <span className="font-display text-lg font-bold tracking-tight text-ink-soft/80">
-                    {c.cliente}
-                  </span>
-                )}
-              </div>
-              <h3 className="mt-4 font-display text-xl font-bold tracking-tight">{c.titulo}</h3>
-              <p className="mt-3 leading-relaxed text-ink-soft">{c.texto}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* ---------- Servicios ---------- */}
-      <section id="servicios" className="py-16 lg:py-24 scroll-mt-8">
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-coral">
-            Nuestros servicios
-          </p>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">
-            Lo que hacemos para que tu negocio{" "}
-            <em className="not-italic text-coral">despegue</em>
-          </h2>
-        </div>
-
-        <div className="reveal mt-12 grid gap-4 lg:gap-5">
-          {/* Servicio destacado */}
-          <article
-            className="rounded-3xl p-8 lg:p-10 grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center"
-            style={{
-              background: "linear-gradient(120deg, var(--color-mint) 0%, #eef5d8 55%, var(--color-peach) 100%)",
-            }}
-          >
-            <div>
-              <span className="font-display text-sm font-bold text-ink/50">01 · Lo primero</span>
-              <h3 className="mt-3 font-display text-3xl font-bold tracking-tight">
-                Asesoría y Diagnóstico de Negocio
-              </h3>
-              <p className="mt-4 leading-relaxed text-ink-soft">
-                Antes de invertir un peso en publicidad, analizamos tu negocio
-                completo. Te entregamos un plan priorizado con lo que hace más
-                sentido hacer primero, que no siempre es marketing.
-              </p>
-            </div>
-            <ul className="space-y-3">
-              {[
-                "Auditoría de tu presencia digital y tu oferta",
-                "Priorización 80/20: foco en lo que mueve la aguja",
-                "Plan de acción concreto, con responsables y plazos",
-              ].map((item) => (
-                <li key={item} className="float-card flex items-start gap-3 rounded-xl bg-white/85 px-4 py-3 text-sm font-medium">
-                  <span className="mt-0.5 grid place-items-center w-5 h-5 rounded-full bg-ink text-lime text-[10px] font-bold shrink-0">
-                    ✓
-                  </span>
-                  {item}
-                </li>
+            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {PASOS.map((p) => (
+                <motion.div
+                  key={p.numero}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors"
+                >
+                  <span className="text-sm font-medium text-coral">{p.numero}</span>
+                  <h3 className="mt-2 text-lg font-medium tracking-tight">{p.titulo}</h3>
+                  <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{p.texto}</p>
+                </motion.div>
               ))}
-            </ul>
-          </article>
+            </Reveal>
+          </section>
 
-          <div className="grid sm:grid-cols-2 gap-4 lg:gap-5">
-            {SERVICIOS.map((s) => (
-              <article key={s.numero} className="rounded-3xl bg-white border border-ink/10 p-7 lg:p-9">
-                <span className="font-display font-bold text-sm text-coral">{s.numero}</span>
-                <h3 className="mt-3 font-display text-2xl font-bold tracking-tight">{s.titulo}</h3>
-                <p className="mt-3 leading-relaxed text-ink-soft">{s.texto}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* ---------- Escenarios ---------- */}
+          <section className="py-20 lg:py-28 border-t border-white/10">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Cómo se ve en la práctica
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                El diagnóstico define por dónde partir
+              </motion.h2>
+            </Reveal>
+            <Reveal className="mt-12 grid md:grid-cols-3 gap-4">
+              {ESCENARIOS.map((e, i) => (
+                <motion.article
+                  key={i}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 flex flex-col"
+                >
+                  <span className="text-sm font-medium text-coral">Escenario {i + 1}</span>
+                  <p className="mt-4 text-lg font-medium tracking-tight leading-snug">“{e.situacion}”</p>
+                  <div className="mt-auto pt-6">
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      <FaArrowRight className="h-3 w-3 text-coral" />
+                      <span>{e.paso}</span>
+                    </div>
+                    <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{e.detalle}</p>
+                  </div>
+                </motion.article>
+              ))}
+            </Reveal>
+          </section>
 
-      {/* ---------- Ventajas ---------- */}
-      <section id="ventajas" className="py-16 lg:py-24 scroll-mt-8">
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-widest text-coral">
-            Por qué funciona
-          </p>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">
-            Ventajas de hacer campañas en Meta y Google
-          </h2>
-        </div>
-        <div className="reveal mt-12 grid sm:grid-cols-2 gap-x-12 gap-y-10">
-          {VENTAJAS.map((v) => (
-            <div key={v.titulo} className="border-t border-ink/10 pt-6">
-              <p className="text-xs font-semibold uppercase tracking-widest text-ink-soft/70">
-                {v.tag}
-              </p>
-              <h3 className="mt-2 font-display text-2xl font-bold tracking-tight">{v.titulo}</h3>
-              <p className="mt-3 text-ink-soft leading-relaxed">{v.texto}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+          {/* ---------- Casos ---------- */}
+          <section id="casos" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Trabajo en producción
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Sistemas que ya construí
+              </motion.h2>
+              <motion.p variants={fadeUp} className="mt-5 text-lg text-zinc-400 leading-relaxed">
+                No es teoría: esto es parte de lo que he construido para negocios y equipos reales.
+              </motion.p>
+            </Reveal>
+            <Reveal className="mt-12 grid sm:grid-cols-2 gap-4">
+              {CASOS.map((c) => (
+                <motion.article
+                  key={c.numero}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 flex flex-col"
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-sm font-medium text-coral">{c.numero}</span>
+                    {c.logo ? (
+                      <LogoChip src={c.logo} name={c.cliente} />
+                    ) : (
+                      <span className="text-lg font-light tracking-tight text-zinc-400">{c.cliente}</span>
+                    )}
+                  </div>
+                  <h3 className="mt-4 text-xl font-medium tracking-tight">{c.titulo}</h3>
+                  <p className="mt-3 text-zinc-400 leading-relaxed">{c.texto}</p>
+                </motion.article>
+              ))}
+            </Reveal>
+          </section>
 
-      {/* ---------- Quién soy ---------- */}
-      {/*
-        Dos columnas independientes en desktop (como cualquier layout de 2 columnas
-        normal, sin auto-placement de grid: cada una fluye a su propia altura).
-        El bloque de foto+hitos y el de certificaciones se renderizan dos veces
-        (uno para mobile, oculto en lg:, y otro para desktop, oculto por defecto)
-        para poder ubicarlos en el orden correcto en cada breakpoint sin que
-        CSS Grid intente igualar alturas de fila entre columnas.
-      */}
-      <section id="nosotros" className="py-16 lg:py-24 scroll-mt-8">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-start">
-          {/* Columna 1 (desktop): identidad, bio, CTA, trayectoria */}
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-coral">
-              Quién soy
-            </p>
-            <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">
-              Hola, soy{" "}
-              <em className="not-italic text-coral">Fabián</em>
-            </h2>
-            <p className="mt-3 font-medium text-ink-soft">
-              Fundador de Specters · Ingeniero Civil Industrial
-            </p>
+          {/* ---------- Servicios ---------- */}
+          <section id="servicios" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Nuestros servicios
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Lo que hacemos para que tu operación se ordene sola
+              </motion.h2>
+            </Reveal>
 
-            {/* Foto + hitos: solo en mobile, justo después de la identidad */}
-            <div className="reveal lg:hidden mt-8 grid grid-cols-2 gap-4">
-              <ProfileCard />
-              <PerfilStats />
-            </div>
-
-            <p className="mt-8 text-lg text-ink-soft leading-relaxed">
-              Llevo más de 7 años entre ventas, performance marketing, growth y
-              customer success, siempre con el mismo método: entender el problema,
-              moverme rápido y generar impacto real en ventas.
-            </p>
-            <p className="mt-4 text-lg text-ink-soft leading-relaxed">
-              He liderado equipos de grandes cuentas de hasta 15 personas con un
-              volumen sobre €30M mensuales, gestionado campañas de Meta de
-              $50–100M CLP al mes y asesorado a pymes en su web y sus campañas.
-              También fundé Conquerspro, un ecommerce de planners que hice crecer
-              con más de $250M CLP en ventas vía Meta Ads. Esa experiencia, de
-              fundador y de gestor de grandes cuentas, es la que traigo a tu
-              negocio.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a
-                href={`mailto:${EMAIL}`}
-                className="inline-flex rounded-full bg-ink text-paper px-7 py-3.5 font-semibold hover:bg-ink/85 transition-colors"
-              >
-                Conversemos →
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-semibold underline decoration-coral decoration-2 underline-offset-4 hover:text-coral transition-colors"
-              >
-                Ver mi LinkedIn
-              </a>
-            </div>
-
-            <div className="mt-10">
-              <p className="text-xs font-semibold uppercase tracking-widest text-ink-soft/70">
-                He trabajado en
-              </p>
-              <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
-                {COMPANIES.map((c) => (
-                  <LogoChip key={c.name} src={c.src} name={c.name} />
+            <Reveal className="mt-12 rounded-2xl border border-white/10 bg-gradient-to-br from-coral/[0.10] via-white/[0.02] to-coral/[0.03] p-8 lg:p-10 grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center">
+              <motion.div variants={fadeUp}>
+                <span className="text-sm font-medium text-coral flex items-center gap-2">
+                  <FaMagnifyingGlassChart /> 00 · Lo primero
+                </span>
+                <h3 className="mt-3 text-2xl sm:text-3xl font-light tracking-tight">Diagnóstico de Automatización</h3>
+                <p className="mt-4 text-zinc-400 leading-relaxed">
+                  Antes de construir nada, mapeamos tu operación completa y
+                  priorizamos qué automatizar primero según impacto y esfuerzo.
+                </p>
+              </motion.div>
+              <motion.ul variants={fadeUp} className="space-y-3">
+                {[
+                  "Mapeo de procesos manuales y herramientas actuales",
+                  "Priorización por impacto: horas, errores y costo",
+                  "Plan de acción concreto, con alcance y plazos",
+                ].map((it) => (
+                  <li key={it} className="flex items-start gap-3 rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm">
+                    <FaCheck className="mt-0.5 h-3.5 w-3.5 text-coral shrink-0" />
+                    {it}
+                  </li>
                 ))}
+              </motion.ul>
+            </Reveal>
+
+            <Reveal className="mt-4 grid sm:grid-cols-2 gap-4">
+              {SERVICIOS.map((s) => (
+                <motion.article
+                  key={s.titulo}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 lg:p-9 hover:bg-white/[0.04] transition-colors"
+                >
+                  <s.icon className="h-5 w-5 text-coral" />
+                  <h3 className="mt-4 text-xl font-medium tracking-tight">{s.titulo}</h3>
+                  <p className="mt-3 text-zinc-400 leading-relaxed">{s.texto}</p>
+                </motion.article>
+              ))}
+            </Reveal>
+          </section>
+
+          {/* ---------- Ventajas ---------- */}
+          <section className="py-20 lg:py-28 border-t border-white/10">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Por qué funciona
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Ventajas de automatizar con criterio
+              </motion.h2>
+            </Reveal>
+            <Reveal className="mt-12 grid sm:grid-cols-2 gap-x-12 gap-y-10">
+              {VENTAJAS.map((v) => (
+                <motion.div key={v.titulo} variants={fadeUp} className="border-t border-white/10 pt-6">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">{v.tag}</p>
+                  <h3 className="mt-2 text-xl font-medium tracking-tight">{v.titulo}</h3>
+                  <p className="mt-3 text-zinc-400 leading-relaxed">{v.texto}</p>
+                </motion.div>
+              ))}
+            </Reveal>
+          </section>
+
+          {/* ---------- Quién soy ---------- */}
+          <section id="nosotros" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-start">
+              <Reveal>
+                <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                  Quién soy
+                </motion.p>
+                <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                  Hola, soy Fabián
+                </motion.h2>
+                <motion.p variants={fadeUp} className="mt-3 font-medium text-zinc-400">
+                  Fundador de SpectersAI · Ingeniero Civil Industrial
+                </motion.p>
+
+                <motion.div variants={fadeUp} className="lg:hidden mt-8 grid grid-cols-2 gap-4">
+                  <div className="col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4">
+                    <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
+                    <div>
+                      <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
+                      <p className="text-sm text-zinc-400">Santiago, Chile</p>
+                    </div>
+                  </div>
+                  {PERFIL_STATS.map((s) => (
+                    <div key={s.valor} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                      <p className="text-xl font-medium tracking-tight text-coral">{s.valor}</p>
+                      <p className="mt-2 text-sm text-zinc-400 leading-snug">{s.etiqueta}</p>
+                    </div>
+                  ))}
+                </motion.div>
+
+                <motion.p variants={fadeUp} className="mt-8 text-lg text-zinc-400 leading-relaxed">
+                  Llevo más de 7 años entre ventas, growth, retención y customer
+                  success, y en paralelo construyendo software: CRMs,
+                  integraciones y automatizaciones para negocios reales.
+                </motion.p>
+                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
+                  He construido CRMs a medida con Lovable para Ramaeduc,
+                  Postulo.cl y Fyno, diseñé el CRM de Retention que usamos en
+                  SumUp, e hice el diagnóstico y plan de automatización de
+                  Lovely Hair. Tengo experiencia integrando APIs, Shopify y
+                  herramientas de IA a operaciones reales, además de fundar
+                  Conquerspro, un ecommerce que hice crecer con más de $250M
+                  CLP en ventas.
+                </motion.p>
+
+                <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-normal text-black shadow-lg transition-all hover:bg-zinc-200"
+                  >
+                    Conversemos <FaArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+                  >
+                    <FaLinkedin className="h-4 w-4" /> Ver mi LinkedIn
+                  </a>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="mt-10">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">He trabajado en</p>
+                  <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
+                    {COMPANIES.map((c) => (
+                      <LogoChip key={c.name} src={c.src} name={c.name} />
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="lg:hidden mt-10">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Certificaciones</p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {CERTS.map((c) => (
+                      <li key={c} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-400">
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </Reveal>
+
+              <div className="hidden lg:block">
+                <Reveal className="grid grid-cols-2 gap-4">
+                  <motion.div variants={fadeUp} className="col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4">
+                    <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
+                    <div>
+                      <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
+                      <p className="text-sm text-zinc-400">Santiago, Chile</p>
+                    </div>
+                  </motion.div>
+                  {PERFIL_STATS.map((s) => (
+                    <motion.div key={s.valor} variants={fadeUp} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                      <p className="text-xl font-medium tracking-tight text-coral">{s.valor}</p>
+                      <p className="mt-2 text-sm text-zinc-400 leading-snug">{s.etiqueta}</p>
+                    </motion.div>
+                  ))}
+                </Reveal>
+                <div className="mt-10">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Certificaciones</p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {CERTS.map((c) => (
+                      <li key={c} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-400">
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
+          </section>
 
-            {/* Certificaciones: solo en mobile, al final */}
-            <div className="lg:hidden mt-10">
-              <CertList />
+          {/* ---------- FAQ ---------- */}
+          <section id="faq" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12">
+              <Reveal>
+                <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                  Dudas comunes
+                </motion.p>
+                <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                  Preguntas frecuentes
+                </motion.h2>
+                <motion.p variants={fadeUp} className="mt-5 text-zinc-400 leading-relaxed">
+                  ¿Tienes otra duda? Escríbenos a{" "}
+                  <a href={`mailto:${EMAIL}`} className="font-medium text-white underline decoration-coral decoration-2 underline-offset-4">
+                    {EMAIL}
+                  </a>{" "}
+                  y te respondemos a la brevedad.
+                </motion.p>
+              </Reveal>
+              <Reveal className="space-y-3">
+                {FAQS.map((f) => (
+                  <motion.details key={f.q} variants={fadeUp} className="group rounded-2xl border border-white/10 bg-white/[0.02] px-6 py-5">
+                    <summary className="flex items-center justify-between gap-4 cursor-pointer list-none text-lg font-medium tracking-tight">
+                      {f.q}
+                      <span className="faq-icon grid place-items-center w-8 h-8 rounded-full bg-coral text-white text-xl shrink-0 transition-transform">
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-4 text-zinc-400 leading-relaxed">{f.a}</p>
+                  </motion.details>
+                ))}
+              </Reveal>
             </div>
-          </div>
+          </section>
 
-          {/* Columna 2 (desktop): foto + hitos, certificaciones */}
-          <div className="hidden lg:block">
-            <div className="reveal grid grid-cols-2 gap-4">
-              <ProfileCard />
-              <PerfilStats />
-            </div>
-            <div className="mt-10">
-              <CertList />
-            </div>
-          </div>
-        </div>
-      </section>
+          {/* ---------- CTA final ---------- */}
+          <section className="py-20 lg:py-28 border-t border-white/10">
+            <Reveal className="rounded-[2rem] border border-white/10 bg-gradient-to-br from-coral/[0.08] to-transparent px-6 sm:px-12 lg:px-16 pt-16 pb-10 relative overflow-hidden">
+              <motion.h2 variants={fadeUp} className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight max-w-3xl">
+                ¿Listo para <span className="text-coral">automatizar</span> tu negocio?
+              </motion.h2>
+              <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed max-w-xl">
+                Conversemos. Partimos con un diagnóstico, y de ahí vemos si lo
+                tuyo es un agente de IA, una integración o un CRM a medida.
+              </motion.p>
+              <motion.div variants={fadeUp} className="mt-8 inline-flex items-start gap-3 rounded-2xl border border-coral/25 bg-coral/[0.08] px-5 py-4 max-w-xl">
+                <FaScaleBalanced className="mt-0.5 h-5 w-5 text-coral shrink-0" />
+                <p className="text-sm text-zinc-300 leading-relaxed">
+                  <span className="font-medium text-white">Trabajamos hasta que quedes conforme.</span>{" "}
+                  Si algún entregable no te convence, lo seguimos desarrollando. Sin letra chica.
+                </p>
+              </motion.div>
+              <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-5">
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="inline-flex items-center gap-2 rounded-full bg-coral px-7 py-3.5 font-medium text-white hover:bg-coral/85 transition-colors"
+                >
+                  Escríbenos <FaArrowRight className="h-3.5 w-3.5" />
+                </a>
+                <p className="text-sm text-zinc-500">
+                  Te respondemos a la brevedad,
+                  <br className="sm:hidden" /> sin vueltas.
+                </p>
+              </motion.div>
+            </Reveal>
+          </section>
 
-      {/* ---------- FAQ ---------- */}
-      <section id="faq" className="py-16 lg:py-24 scroll-mt-8">
-        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-12">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-coral">Dudas comunes</p>
-            <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight">
-              Preguntas frecuentes
-            </h2>
-            <p className="mt-5 text-ink-soft leading-relaxed">
-              ¿Tienes otra duda? Escríbenos a{" "}
-              <a href={`mailto:${EMAIL}`} className="font-semibold underline decoration-coral decoration-2 underline-offset-4">
-                {EMAIL}
-              </a>{" "}
-              y te respondemos a la brevedad.
-            </p>
-          </div>
-          <div className="reveal space-y-3">
-            {FAQS.map((f) => (
-              <details key={f.q} className="group float-card rounded-2xl bg-white px-6 py-5">
-                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none font-display font-bold text-lg tracking-tight">
-                  {f.q}
-                  <span className="faq-icon grid place-items-center w-8 h-8 rounded-full bg-lime text-ink text-xl shrink-0 transition-transform">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-4 text-ink-soft leading-relaxed">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- CTA final + footer ---------- */}
-      <section className="pb-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-night text-paper px-6 sm:px-12 lg:px-16 pt-16 pb-10">
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(560px 400px at 90% 10%, rgba(200,239,111,0.16), transparent 70%), radial-gradient(520px 380px at 5% 95%, rgba(243,114,98,0.14), transparent 70%)",
-            }}
-          />
-          <div className="relative max-w-3xl">
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-              ¿Listo para{" "}
-              <em className="not-italic text-lime">escalar</em>{" "}
-              tu negocio?
-            </h2>
-            <p className="mt-6 text-lg text-paper/70 leading-relaxed max-w-xl">
-              Conversemos. Partimos con un diagnóstico, y de ahí vemos si lo
-              tuyo es optimizar tu web, afinar tu oferta o invertir en publicidad.
-            </p>
-            <div className="mt-8 inline-flex items-start gap-3 rounded-2xl border border-lime/30 bg-lime/10 px-5 py-4 max-w-xl">
-              <span className="mt-0.5 grid place-items-center w-6 h-6 rounded-full bg-lime text-ink text-xs font-bold shrink-0">
-                ✓
-              </span>
-              <p className="text-sm text-paper/85 leading-relaxed">
-                <span className="font-semibold text-paper">Trabajamos hasta que quedes conforme.</span>{" "}
-                Si algún entregable no te convence, lo seguimos desarrollando. Sin letra chica.
-              </p>
-            </div>
-            <div className="mt-8 flex flex-wrap items-center gap-5">
-              <a
-                href={`mailto:${EMAIL}`}
-                className="rounded-full bg-lime text-ink px-7 py-3.5 font-bold hover:bg-lime/85 transition-colors"
-              >
-                Escríbenos →
-              </a>
-              <p className="text-sm text-paper/60">
-                Te respondemos a la brevedad,
-                <br className="sm:hidden" /> sin vueltas.
-              </p>
-            </div>
-          </div>
-
-          <hr className="relative mt-16 border-paper/15" />
-          <footer className="relative mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="flex items-center gap-2 font-display text-xl font-bold">
-              <Ghost className="w-6 h-6 text-lime" />
-              specters
-            </div>
-            <nav className="flex flex-wrap gap-6 text-sm text-paper/70">
-              {NAV_LINKS.map((l) => (
-                <a key={l.href} href={l.href} className="hover:text-paper transition-colors">
+          {/* ---------- Footer ---------- */}
+          <footer className="py-10 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="text-lg font-light tracking-tight">SpectersAI</div>
+            <nav className="flex flex-wrap gap-6 text-sm text-zinc-400">
+              {NAV_ITEMS.map((l) => (
+                <a key={l.href} href={l.href} className="hover:text-white transition-colors">
                   {l.label}
                 </a>
               ))}
             </nav>
-            <p className="text-sm text-paper/50">
-              © {new Date().getFullYear()} Specters, todos los derechos reservados
-            </p>
+            <p className="text-sm text-zinc-600">© {new Date().getFullYear()} SpectersAI</p>
           </footer>
         </div>
-      </section>
       </div>
     </>
   );

@@ -20,19 +20,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://specterspro.com"),
-  title: "Specters, Te ayudamos a escalar tu negocio | Diagnóstico, Meta Ads y Google Ads",
+  title: "SpectersAI — Automatización e IA para tu negocio",
   description:
-    "Primero diagnosticamos tu negocio, después ejecutamos lo que hace más sentido: publicidad en Meta y Google, optimización de tu web o priorización de tu oferta. Enfoque 80/20, medido de verdad.",
-  alternates: {
-    canonical: "https://specterspro.com",
-  },
+    "Diagnosticamos tus procesos y construimos agentes de IA, integraciones y CRMs a medida. IA donde suma, control humano donde es crítico.",
   openGraph: {
-    title: "Specters, Te ayudamos a escalar tu negocio",
+    title: "SpectersAI — Automatización e IA para tu negocio",
     description:
-      "Diagnóstico de negocio + publicidad digital en Meta y Google Ads. Encontramos el 20% de acciones que genera el 80% de tus resultados.",
-    url: "https://specterspro.com",
-    siteName: "Specters",
+      "Diagnóstico de automatización + agentes de IA, CRMs a medida e integraciones. Implementación real, medida y con control humano donde importa.",
+    siteName: "SpectersAI",
     locale: "es_CL",
     type: "website",
   },
