@@ -310,10 +310,9 @@ export default function Home() {
         titleLine1="Automatizamos lo repetitivo"
         titleLine2={
           <>
-            <span className="block">y construimos software para tu</span>
-            <span className="block">
-              <RotatingWord words={BUSINESS_TYPES} /> con IA
-            </span>
+            <span className="whitespace-nowrap">y construimos</span> software para tu{" "}
+            <RotatingWord words={BUSINESS_TYPES} />{" "}
+            <span className="whitespace-nowrap">con IA</span>
           </>
         }
         description="Dejamos de hacer a mano lo que un sistema puede hacer solo: agendar, responder, ordenar tus datos. Te mostramos gratis dónde te conviene partir."
@@ -674,7 +673,7 @@ export default function Home() {
               <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-5">
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-coral px-7 py-3.5 font-medium text-white hover:bg-coral/85 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-7 py-3.5 font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110"
                 >
                   Agenda tu diagnóstico gratis <FaArrowRight className="h-3.5 w-3.5" />
                 </a>

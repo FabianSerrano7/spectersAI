@@ -112,9 +112,9 @@ export function Hero3({
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.6 }}
         transition={{ type: "spring", duration: 0.6, bounce: 0 }}
-        className="absolute top-0 left-0 z-30 w-full"
+        className="fixed top-0 left-0 z-30 w-full bg-background/70 backdrop-blur-md border-b border-white/5"
       >
-        <div className="flex max-w-full items-center justify-between px-6 py-6 sm:px-10 md:px-16 lg:px-20">
+        <div className="flex max-w-full items-center justify-between px-6 py-5 sm:px-10 md:px-16 lg:px-20">
           <a
             href="#"
             className="text-foreground flex items-center gap-2.5 text-2xl font-light tracking-tight sm:text-xl"
@@ -130,7 +130,7 @@ export function Hero3({
               <a
                 key={navItem.label}
                 href={navItem.href}
-                className="group text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm font-medium transition-colors duration-200"
+                className="group text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-base font-medium transition-colors duration-200"
               >
                 <span>{navItem.label}</span>
                 {navItem.hasDropdown && (
@@ -143,7 +143,7 @@ export function Hero3({
           <div className="hidden md:block">
             <a
               href={signInHref}
-              className="border-border/80 bg-background/20 text-foreground hover:bg-accent hover:text-accent-foreground rounded-full border px-6 py-2 text-sm font-medium backdrop-blur-sm transition-all duration-200"
+              className="rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110"
             >
               {signInText}
             </a>
@@ -208,7 +208,7 @@ export function Hero3({
               <a
                 href={signInHref}
                 onClick={() => setMobileMenuOpen(false)}
-                className="border-border bg-background text-foreground hover:bg-accent flex w-full items-center justify-center rounded-full border py-3 text-base font-medium transition-colors"
+                className="flex w-full items-center justify-center rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] py-3 text-base font-medium text-white shadow-lg shadow-coral/25 transition-all"
               >
                 {signInText}
               </a>
@@ -259,7 +259,7 @@ export function Hero3({
               {primaryCtaText && (
                 <a
                   href={primaryCtaHref}
-                  className="rounded-full bg-white px-8 py-3.5 text-sm font-normal text-black shadow-lg transition-all duration-200 sm:text-base"
+                  className="rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-8 py-3.5 text-sm font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110 sm:text-base"
                 >
                   {primaryCtaText}
                 </a>
