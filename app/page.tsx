@@ -307,11 +307,13 @@ export default function Home() {
         signInText="Hablemos"
         signInHref={`mailto:${EMAIL}`}
         tagline="Diagnóstico gratis. Automatización real."
-        titleLine1="Automatizamos lo repetitivo y"
+        titleLine1="Automatizamos lo repetitivo"
         titleLine2={
           <>
-            construimos software para tu <RotatingWord words={BUSINESS_TYPES} />{" "}
-            <span className="whitespace-nowrap">con IA</span>
+            <span className="block">y construimos software para tu</span>
+            <span className="block">
+              <RotatingWord words={BUSINESS_TYPES} /> con IA
+            </span>
           </>
         }
         description="Dejamos de hacer a mano lo que un sistema puede hacer solo: agendar, responder, ordenar tus datos. Te mostramos gratis dónde te conviene partir."
