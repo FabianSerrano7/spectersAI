@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Specters">
+  <path d="M24 5C14.6 5 8 12.2 8 21.5V40c0 1.8 2.1 2.8 3.5 1.6l3.1-2.6c.8-.7 2-.6 2.7.1l2.9 2.9c.9.9 2.4.9 3.3 0l2.9-2.9c.7-.7 1.9-.8 2.7-.1l3.4 2.7C34 42.9 36 41.9 36 40.1V21.5C40 12.2 33.4 5 24 5Z" transform="translate(2 0)" fill="#191913"/>
+  <circle cx="22" cy="21" r="2.6" fill="#fbfaf6"/>
+  <circle cx="33" cy="21" r="2.6" fill="#fbfaf6"/>
+</svg>

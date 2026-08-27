@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "specterschile-dev",
+      "runtimeExecutable": "/Users/fabianserrano/.local/bin/npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "/Users/fabianserrano/Claude/specterschile",
+      "port": 3000
+    }
+  ]
+}
