@@ -12,6 +12,22 @@
   --color-night: #14171c;
   --color-mint: #dff0da;
   --color-peach: #fde4d8;
+
+  /* tokens dark, usados por el hero (Hero3) */
+  --color-background: #08090b;
+  --color-foreground: #f4f4f2;
+  --color-card: #101114;
+  --color-card-foreground: #f4f4f2;
+  --color-primary: #f4f4f2;
+  --color-primary-foreground: #08090b;
+  --color-muted: #17181c;
+  --color-muted-foreground: #9c9c9c;
+  --color-accent: #17181c;
+  --color-accent-foreground: #f4f4f2;
+  --color-border: rgba(244, 244, 242, 0.12);
+  --color-input: rgba(244, 244, 242, 0.14);
+  --color-ring: #c8ef6f;
+
   --font-display: var(--font-schibsted);
   --font-serif: var(--font-instrument-serif);
   --font-sans: var(--font-inter);

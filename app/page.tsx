@@ -1,3 +1,4 @@
+import { Hero3 } from "@/components/ui/hero-3";
 import { Avatar, LogoChip } from "./Avatar";
 
 /* ---------- Gráficos estilo dashboard (SVG) ---------- */
@@ -16,195 +17,6 @@ function Ghost({ className }: { className?: string }) {
   );
 }
 
-/* Marcador irregular hecho a mano — se pinta detrás del texto */
-function Highlight({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="relative inline-block isolate">
-      <svg
-        viewBox="0 0 300 90"
-        preserveAspectRatio="none"
-        className="absolute -inset-x-2 -inset-y-1 -z-10 h-[112%] w-[104%]"
-        aria-hidden
-      >
-        <path
-          d="M8 20 C70 12, 150 10, 288 15 C296 15, 297 24, 294 40 C292 56, 296 68, 288 74 C200 80, 90 82, 14 76 C4 75, 2 66, 5 50 C7 38, 3 28, 8 20 Z"
-          fill="var(--color-lime)"
-        />
-      </svg>
-      {children}
-    </span>
-  );
-}
-
-/* Subrayado tipo lápiz, con doble trazo y textura */
-function PencilUnderline({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 240 20" fill="none" className={className} aria-hidden>
-      <path
-        d="M4 11C48 6 96 5 150 7c26 1 52 2 84 5"
-        stroke="var(--color-coral)"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M14 15C70 12 130 12 196 14"
-        stroke="var(--color-coral)"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeOpacity="0.55"
-      />
-    </svg>
-  );
-}
-
-function AreaChart({ className, uid = "d" }: { className?: string; uid?: string }) {
-  const line =
-    "M4 42 C18 38, 26 42, 38 33 C48 25.5, 56 31, 66 26 C78 20, 92 17, 112 9";
-  const gid = `areaFill-${uid}`;
-  return (
-    <svg viewBox="0 0 120 52" fill="none" className={className} aria-hidden>
-      <defs>
-        <linearGradient id={gid} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="var(--color-lime)" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="var(--color-lime)" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      {[14, 26, 38].map((y) => (
-        <line key={y} x1="4" y1={y} x2="116" y2={y} stroke="#191913" strokeOpacity="0.06" />
-      ))}
-      <path d={`${line} L112 52 L4 52 Z`} fill={`url(#${gid})`} />
-      <path d={line} stroke="#79b426" strokeWidth="2.2" strokeLinecap="round" />
-      <circle cx="112" cy="9" r="4" fill="#79b426" stroke="white" strokeWidth="2" />
-    </svg>
-  );
-}
-
-function Gauge({ percent, className, uid = "d" }: { percent: number; className?: string; uid?: string }) {
-  const arc = Math.PI * 40; // semicírculo r=40
-  const gid = `gaugeGrad-${uid}`;
-  return (
-    <svg viewBox="0 0 100 58" fill="none" className={className} aria-hidden>
-      <defs>
-        <linearGradient id={gid} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="var(--color-sun)" />
-          <stop offset="100%" stopColor="var(--color-coral)" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M10 54 A40 40 0 0 1 90 54"
-        stroke="#191913"
-        strokeOpacity="0.08"
-        strokeWidth="8"
-        strokeLinecap="round"
-      />
-      <path
-        d="M10 54 A40 40 0 0 1 90 54"
-        stroke={`url(#${gid})`}
-        strokeWidth="8"
-        strokeLinecap="round"
-        strokeDasharray={`${(percent / 100) * arc} ${arc}`}
-      />
-    </svg>
-  );
-}
-
-function MiniBars({ className }: { className?: string }) {
-  const bars = [18, 26, 22, 34, 30, 42];
-  return (
-    <svg viewBox="0 0 120 48" fill="none" className={className} aria-hidden>
-      {bars.map((h, i) => (
-        <rect
-          key={i}
-          x={6 + i * 19}
-          y={46 - h}
-          width="11"
-          height={h}
-          rx="3.5"
-          fill={i === bars.length - 1 ? "var(--color-lime)" : "rgba(251,250,246,0.28)"}
-        />
-      ))}
-    </svg>
-  );
-}
-
-function DeltaChip({ value }: { value: string }) {
-  return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-[#e7f5cf] px-2 py-0.5 text-xs font-semibold text-[#4e7a12] tabular-nums">
-      <svg viewBox="0 0 12 12" className="w-2.5 h-2.5" fill="none" aria-hidden>
-        <path d="M2 8.5 6 4l4 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      {value}
-    </span>
-  );
-}
-
-/* ---------- Tarjetas flotantes del hero ---------- */
-
-function VentasCard({ className, uid = "d" }: { className?: string; uid?: string }) {
-  return (
-    <div className={`float-card rounded-2xl bg-white p-5 ${className ?? ""}`}>
-      <div className="flex items-center justify-between gap-6">
-        <p className="text-sm font-medium text-ink-soft">Ventas atribuidas</p>
-        <DeltaChip value="+18,5%" />
-      </div>
-      <p className="mt-1 font-display text-3xl font-bold tabular-nums tracking-tight">$4.280.590</p>
-      <p className="text-xs text-ink-soft/70">vs mes anterior</p>
-      <AreaChart className="mt-3 w-full" uid={uid} />
-    </div>
-  );
-}
-
-function DiagnosticoCard({ className, uid = "d" }: { className?: string; uid?: string }) {
-  return (
-    <div className={`float-card rounded-2xl bg-white p-5 ${className ?? ""}`}>
-      <div className="flex items-center justify-between gap-3">
-        <p className="text-sm font-medium text-ink-soft">Diagnóstico de negocio</p>
-        <DeltaChip value="+20 pts" />
-      </div>
-      <div className="relative mt-3 mx-auto w-36">
-        <Gauge percent={80} className="w-full" uid={uid} />
-        <p className="absolute inset-x-0 bottom-0 text-center font-display text-2xl font-bold tabular-nums">
-          80<span className="text-sm text-ink-soft/60">/100</span>
-        </p>
-      </div>
-      <p className="mt-3 text-center text-xs text-ink-soft/70">
-        salud digital de tu negocio
-      </p>
-    </div>
-  );
-}
-
-function CampanasCard({ className }: { className?: string }) {
-  return (
-    <div className={`float-card rounded-2xl bg-night text-paper p-5 ${className ?? ""}`}>
-      <div className="flex items-center justify-between gap-6">
-        <p className="text-sm font-medium">Meta Ads · Google Ads</p>
-        <span className="h-2 w-2 rounded-full bg-lime animate-pulse" />
-      </div>
-      <MiniBars className="mt-3 w-full" />
-      <p className="mt-2 text-xs text-paper/60">campañas optimizadas semana a semana</p>
-    </div>
-  );
-}
-
-function Chip8020({ className }: { className?: string }) {
-  return (
-    <span
-      className={`float-card inline-flex items-center gap-1.5 rounded-full bg-coral px-4 py-2 text-sm font-semibold text-white ${className ?? ""}`}
-    >
-      ✦ Enfoque 80/20
-    </span>
-  );
-}
-
-function GhostTile({ className }: { className?: string }) {
-  return (
-    <div className={`float-card grid place-items-center w-14 h-14 rounded-2xl bg-white ${className ?? ""}`}>
-      <Ghost className="w-8 h-8 text-ink" />
-    </div>
-  );
-}
-
 /* ---------- Datos ---------- */
 
 const NAV_LINKS = [
@@ -213,6 +25,38 @@ const NAV_LINKS = [
   { label: "Quién soy", href: "#nosotros" },
   { label: "Preguntas frecuentes", href: "#faq" },
 ];
+
+const HERO_STATS = [
+  { value: "5+", label: "Sistemas y CRMs construidos" },
+  { value: "120h → 40h", label: "Horas ahorradas al mes en un caso real" },
+  { value: "2020", label: "Trabajando con IA aplicada a negocios" },
+];
+
+/* Fondo del hero: gradiente + grilla generados en SVG, sin depender de
+   una imagen externa (evita 404s/hotlink-blocking en producción). */
+const HERO_BG =
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent(`
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1200" viewBox="0 0 1920 1200">
+  <defs>
+    <radialGradient id="g1" cx="78%" cy="12%" r="55%">
+      <stop offset="0%" stop-color="#c8ef6f" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#c8ef6f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="12%" cy="85%" r="55%">
+      <stop offset="0%" stop-color="#f37262" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#f37262" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1200" fill="#08090b"/>
+  <rect width="1920" height="1200" fill="url(#grid)"/>
+  <rect width="1920" height="1200" fill="url(#g1)"/>
+  <rect width="1920" height="1200" fill="url(#g2)"/>
+</svg>
+`.trim());
 
 const PASOS = [
   {
@@ -427,101 +271,26 @@ const EMAIL = "fabian@specterspro.com";
 
 export default function Home() {
   return (
-    <div className="mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10">
-      {/* ---------- Nav (fijo) ---------- */}
-      <header className="sticky top-0 z-50 -mx-5 sm:-mx-8 lg:-mx-10 border-b border-ink/5 bg-paper">
-        <div className="flex items-center justify-between px-5 sm:px-8 lg:px-10 py-4">
-          <a href="#" className="flex items-center gap-2 font-display text-2xl font-bold tracking-tight">
-            <Ghost className="w-8 h-8 text-ink" />
-            specters
-          </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-ink-soft">
-            {NAV_LINKS.map((l) => (
-              <a key={l.href} href={l.href} className="hover:text-ink transition-colors">
-                {l.label}
-              </a>
-            ))}
-          </nav>
-          <a
-            href={`mailto:${EMAIL}`}
-            className="rounded-full bg-ink text-paper px-5 py-2.5 text-sm font-semibold hover:bg-ink/85 transition-colors"
-          >
-            Hablemos
-          </a>
-        </div>
-      </header>
-
-      {/* ---------- Hero ---------- */}
-      <section className="grid lg:grid-cols-[1.05fr_1fr] gap-14 lg:gap-6 items-center pt-10 pb-20 lg:pt-16 lg:pb-28">
-        <div>
-          <h1 className="font-display text-[2.7rem] leading-[1.14] sm:text-6xl sm:leading-[1.12] lg:text-[4.3rem] font-bold tracking-tight">
-            Te ayudamos a{" "}
-            <Highlight>vender más</Highlight>{" "}
-            y{" "}
-            <span className="relative inline-block">
-              <em className="not-italic text-coral">escalar</em>
-              <PencilUnderline className="absolute -bottom-3 left-0 w-full" />
-            </span>{" "}
-            tu negocio
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-ink-soft leading-relaxed">
-            Primero diagnosticamos tu negocio y encontramos el 20% de acciones
-            que genera el 80% de los resultados. Después ejecutamos en orden:
-            optimizar tu web, afinar tu oferta y, cuando la base está lista,
-            invertir en Meta y Google Ads.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a
-              href={`mailto:${EMAIL}`}
-              className="rounded-full bg-ink text-paper px-7 py-3.5 font-semibold hover:bg-ink/85 transition-colors"
-            >
-              Agenda una llamada →
-            </a>
-            <a
-              href="#diagnostico"
-              className="rounded-full border border-ink/20 bg-white px-7 py-3.5 font-semibold hover:border-ink/50 transition-colors"
-            >
-              Cómo trabajamos
-            </a>
-          </div>
-        </div>
-
-        {/* Collage flotante — desktop */}
-        <div className="relative hidden lg:block h-[560px]">
-          <div
-            className="absolute inset-0 rounded-[3rem]"
-            style={{
-              background:
-                "radial-gradient(380px 300px at 32% 28%, var(--color-mint), transparent 72%), radial-gradient(360px 320px at 74% 72%, var(--color-peach), transparent 72%)",
-            }}
-          />
-          <VentasCard className="absolute left-1 top-10 w-[340px] -rotate-2" />
-          <Chip8020 className="absolute right-4 top-6 rotate-3" />
-          <DiagnosticoCard className="absolute right-0 top-[176px] w-[250px] rotate-2 z-10" />
-          <CampanasCard className="absolute left-8 bottom-8 w-[300px] rotate-1" />
-          <GhostTile className="absolute right-14 bottom-4 -rotate-6" />
-        </div>
-
-        {/* Collage — mobile/tablet */}
-        <div className="lg:hidden relative">
-          <div
-            className="absolute inset-0 -m-4 rounded-[3rem]"
-            style={{
-              background:
-                "radial-gradient(300px 260px at 25% 20%, var(--color-mint), transparent 72%), radial-gradient(300px 280px at 80% 85%, var(--color-peach), transparent 72%)",
-            }}
-          />
-          <div className="relative grid grid-cols-2 gap-4 items-start">
-            <VentasCard className="col-span-2 -rotate-1" uid="m" />
-            <DiagnosticoCard className="rotate-1" uid="m" />
-            <div className="grid gap-4 justify-items-start">
-              <Chip8020 className="rotate-2" />
-              <CampanasCard className="-rotate-1" />
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <>
+      <Hero3
+        logoText="SpectersAI"
+        navItems={NAV_LINKS.map((l) => ({ label: l.label, href: l.href }))}
+        signInText="Hablemos"
+        signInHref={`mailto:${EMAIL}`}
+        tagline="IA aplicada. Diseñada para pymes reales."
+        titleLine1="Automatizamos lo repetitivo"
+        titleLine2="de tu negocio con IA."
+        description="Diagnosticamos tus procesos y construimos agentes de IA, integraciones y CRMs a medida — IA donde suma, control humano donde es crítico."
+        primaryCtaText="Agenda una llamada"
+        primaryCtaHref={`mailto:${EMAIL}`}
+        secondaryCtaText="Cómo trabajamos"
+        secondaryCtaHref="#diagnostico"
+        backgroundImage={HERO_BG}
+        stats={HERO_STATS}
+        scrollText="Descubre cómo"
+        scrollHref="#diagnostico"
+      />
+      <div className="mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10">
       {/* ---------- Diagnóstico ---------- */}
       <section id="diagnostico" className="py-16 lg:py-24 scroll-mt-8">
         <div className="rounded-[2.5rem] bg-night text-paper px-6 sm:px-12 lg:px-16 py-14 lg:py-20 relative overflow-hidden">
@@ -881,6 +650,7 @@ export default function Home() {
           </footer>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
