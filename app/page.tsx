@@ -325,7 +325,7 @@ export default function Home() {
             y construimos software para tu <span className="text-coral">Negocio</span> con IA
           </>
         }
-        description="Ayudamos a pymes y equipos operativos a sacarse de encima lo repetitivo: sistemas a medida, automatizaciones y agentes de IA que viven donde tu equipo ya trabaja. IA donde suma; control humano donde es crítico."
+        description="Le quitamos a pymes y equipos operativos el peso de las tareas repetitivas: construimos sistemas a medida y agentes de IA integrados a las herramientas que tu equipo ya usa. La IA se encarga de lo operativo; las decisiones críticas siguen en manos de personas."
         primaryCtaText="Agenda tu diagnóstico"
         primaryCtaHref={`mailto:${EMAIL}`}
         secondaryCtaText="Ver experiencia real"
