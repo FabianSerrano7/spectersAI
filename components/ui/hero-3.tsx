@@ -9,7 +9,6 @@ import {
   FaBars,
   FaXmark,
 } from "react-icons/fa6";
-import LogoIcon from "@/assets/logo-icon";
 
 export interface Hero3NavItem {
   label: string;
@@ -120,9 +119,7 @@ export function Hero3({
             href="#"
             className="text-foreground flex items-center gap-2.5 text-2xl font-light tracking-tight sm:text-xl"
           >
-            <span className="text-primary flex items-center justify-center">
-              {logo || <LogoIcon className="size-8 text-white" />}
-            </span>
+            {logo}
             <span>{logoText}</span>
           </a>
 
@@ -175,9 +172,7 @@ export function Hero3({
                 className="text-foreground flex items-center gap-2.5 text-lg font-semibold tracking-tight"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <span className="text-primary flex items-center justify-center">
-                  {logo || <LogoIcon className="size-8 fill-current" />}
-                </span>
+                {logo}
                 <span>{logoText}</span>
               </a>
               <button
