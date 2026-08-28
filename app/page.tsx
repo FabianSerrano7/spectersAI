@@ -80,7 +80,7 @@ const NAV_ITEMS = [
 const HERO_STATS = [
   { value: "120h → 40h", label: "Horas ahorradas al mes, en un caso real" },
   { value: "5+", label: "Sistemas y automatizaciones en producción" },
-  { value: "Gratis", label: "El diagnóstico inicial, sin costo ni compromiso" },
+  { value: "30 min", label: "Diagnóstico inicial, sin compromiso" },
 ];
 
 /* Fondo del hero: el mismo asset de la referencia Watermelon/Hero3. */
@@ -119,8 +119,8 @@ const BENEFICIOS = [
 const PASOS = [
   {
     numero: "01",
-    titulo: "Diagnóstico gratis",
-    texto: "Revisamos tu operación real: qué haces a mano, en qué se te va más tiempo. Sin costo, sin compromiso.",
+    titulo: "Diagnóstico inicial",
+    texto: "Revisamos tu operación real: qué haces a mano, en qué se te va más tiempo. Sin compromiso.",
   },
   {
     numero: "02",
@@ -136,42 +136,6 @@ const PASOS = [
     numero: "04",
     titulo: "Acompañamiento",
     texto: "Medimos el resultado real y seguimos ajustando contigo, mes a mes.",
-  },
-];
-
-const PROYECTOS = [
-  {
-    numero: "01",
-    cliente: "Lovely Hair",
-    titulo: "Diagnóstico y plan de automatización",
-    texto:
-      "Análisis completo del negocio (agenda, clientes, ventas) y un plan priorizado de qué automatizar primero, con portal de seguimiento para el cliente.",
-    logo: "/logo-lovelyhair.png",
-  },
-  {
-    numero: "02",
-    cliente: "Ramaeduc",
-    titulo: "CRM educativo",
-    texto: "CRM a medida para centralizar la información de alumnos y automatizar el seguimiento administrativo.",
-  },
-  {
-    numero: "03",
-    cliente: "Postulo.cl",
-    titulo: "Plataforma de postulaciones",
-    texto: "Sistema que ordena y automatiza el flujo de postulantes, desde el registro hasta el seguimiento, reemplazando planillas sueltas.",
-  },
-  {
-    numero: "04",
-    cliente: "Fyno",
-    titulo: "CRM a medida",
-    texto: "Herramienta interna para gestionar clientes y operación diaria, construida a la medida del flujo de trabajo del equipo.",
-  },
-  {
-    numero: "05",
-    cliente: "SumUp",
-    titulo: "CRM de Retention",
-    texto: "Durante mi paso por SumUp diseñé un CRM interno orientado a Retention, para dar seguimiento a clientes en riesgo de fuga.",
-    logo: "/logo-sumup.png",
   },
 ];
 
@@ -297,8 +261,6 @@ const STACK = [
 ];
 
 const PERFIL_FACTS = [
-  { etiqueta: "Rol", valor: "Fundador — quien te atiende" },
-  { etiqueta: "Ubicación", valor: "Santiago, Chile" },
   { etiqueta: "Experiencia", valor: "+8 años en ventas, tecnología y marketing" },
   { etiqueta: "Especialidad", valor: "Marketing digital, automatización con IA, eCommerce y data analytics" },
   { etiqueta: "Escala", valor: "€35M/mes en revenue gestionados con 15 KAMs (ex-SumUp)" },
@@ -327,7 +289,7 @@ const CERTS = [
 const FAQS = [
   {
     q: "¿Cuánto cuesta el diagnóstico inicial?",
-    a: "Nada. Es gratis y sin compromiso, así ambos vemos si tiene sentido trabajar juntos.",
+    a: "Es una llamada de 30 minutos sin compromiso: revisamos tu operación y te decimos exactamente qué automatizar primero.",
   },
   {
     q: "¿Cuánto se demora en verse resultados?",
@@ -356,15 +318,15 @@ export default function Home() {
         navItems={NAV_ITEMS}
         signInText="Hablemos"
         signInHref={`mailto:${EMAIL}`}
-        tagline="Diagnóstico gratis. Automatización real."
+        tagline=""
         titleLine1="Automatizamos lo repetitivo"
         titleLine2={
           <>
             y construimos software para tu <span className="text-coral">Negocio</span> con IA
           </>
         }
-        description="Dejamos de hacer a mano lo que un sistema puede hacer solo: agendar, responder, ordenar tus datos. Te mostramos gratis dónde te conviene partir."
-        primaryCtaText="Agenda tu diagnóstico gratis"
+        description="Ayudamos a pymes y equipos operativos a sacarse de encima lo repetitivo: sistemas a medida, automatizaciones y agentes de IA que viven donde tu equipo ya trabaja. IA donde suma; control humano donde es crítico."
+        primaryCtaText="Agenda tu diagnóstico"
         primaryCtaHref={`mailto:${EMAIL}`}
         secondaryCtaText="Ver experiencia real"
         secondaryCtaHref="#nosotros"
@@ -476,18 +438,22 @@ export default function Home() {
                   <span className="text-foreground font-medium">8% de los clientes que generaba el 60% del revenue</span>{" "}
                   y movía cerca de <span className="text-foreground font-medium">€35M al mes</span>. En dos
                   años llevamos la cobertura de retención de{" "}
-                  <span className="text-foreground font-medium">7% a 60%</span> — no fue una mejora
-                  incremental, fue crear un área que pasó a ser parte del core del negocio.
+                  <span className="text-foreground font-medium">7% a 60%</span>. No fue una mejora
+                  incremental: fue crear un área que pasó a ser parte del core del negocio.
                 </motion.p>
                 <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  Antes de fundar SpectersAI integré <span className="text-foreground font-medium">APIs, Shopify y herramientas de IA</span> a
-                  operaciones reales, y fundé <span className="text-foreground font-medium">Conquerspro</span>, un
-                  ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>.
+                  Antes de fundar SpectersAI fundé <span className="text-foreground font-medium">Conquerspro</span>, un
+                  ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>,
+                  y llevé una <span className="text-foreground font-medium">agencia de marketing digital</span> donde
+                  ayudé a más de <span className="text-foreground font-medium">15 pymes</span> a manejar
+                  sus campañas online, principalmente en Meta. Esa etapa también incluyó
+                  integrar <span className="text-foreground font-medium">APIs, Shopify y herramientas de IA</span> a
+                  operaciones reales.
                 </motion.p>
                 <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
                   Ya ayudé a otras pymes y emprendedores a ordenar su negocio
-                  con datos: levantar información, sacar el{" "}
-                  <span className="text-foreground font-medium">80/20</span>, construir{" "}
+                  con datos: levantar información, identificar{" "}
+                  <span className="text-foreground font-medium">el 20% de clientes que genera el 80% de resultados</span>, construir{" "}
                   <span className="text-foreground font-medium">matrices de retención</span> y
                   priorizar dónde meter el esfuerzo, además de{" "}
                   <span className="text-foreground font-medium">automatizar procesos con IA</span>.
@@ -562,35 +528,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            <Reveal className="mt-16">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-zinc-500">
-                Antes de SpectersAI, ya construí esto
-              </motion.p>
-              <motion.p variants={fadeUp} className="mt-2 max-w-2xl text-zinc-400 leading-relaxed">
-                Es la experiencia con la que arranca SpectersAI, no una promesa sin respaldo.
-              </motion.p>
-              <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                {PROYECTOS.map((p) => (
-                  <motion.article
-                    key={p.numero}
-                    variants={fadeUp}
-                    className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex flex-col"
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <span className="text-sm font-medium text-coral">{p.numero}</span>
-                      {p.logo ? (
-                        <LogoChip src={p.logo} name={p.cliente} />
-                      ) : (
-                        <span className="text-lg font-light tracking-tight text-zinc-400">{p.cliente}</span>
-                      )}
-                    </div>
-                    <h3 className="mt-4 text-lg font-medium tracking-tight">{p.titulo}</h3>
-                    <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{p.texto}</p>
-                  </motion.article>
-                ))}
-              </div>
-            </Reveal>
           </section>
 
           {/* ---------- Cómo trabajamos ---------- */}
@@ -600,7 +537,7 @@ export default function Home() {
                 Cómo trabajamos
               </motion.p>
               <motion.h2 variants={fadeUp} className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Primero el diagnóstico, gratis
+                Primero el diagnóstico
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed">
                 No te vendemos un chatbot antes de entender tu negocio. Así se ve el proceso:
@@ -869,7 +806,7 @@ export default function Home() {
                 Tu competencia todavía hace todo a mano. <span className="text-coral">Tú no tienes por qué.</span>
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed max-w-xl">
-                Agenda tu diagnóstico gratis y en 30 minutos sabemos por dónde partir.
+                Agenda tu diagnóstico y en 30 minutos sabemos por dónde partir.
               </motion.p>
               <motion.div variants={fadeUp} className="mt-8 inline-flex items-start gap-3 rounded-2xl border border-coral/25 bg-coral/[0.08] px-5 py-4 max-w-xl">
                 <FaScaleBalanced className="mt-0.5 h-5 w-5 text-coral shrink-0" />
@@ -883,7 +820,7 @@ export default function Home() {
                   href={`mailto:${EMAIL}`}
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-7 py-3.5 font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110"
                 >
-                  Agenda tu diagnóstico gratis <FaArrowRight className="h-3.5 w-3.5" />
+                  Agenda tu diagnóstico <FaArrowRight className="h-3.5 w-3.5" />
                 </a>
                 <p className="text-sm text-zinc-500">
                   Te respondemos a la brevedad,
