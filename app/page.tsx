@@ -346,7 +346,7 @@ export default function Home() {
                 ¿Te suena familiar?
               </motion.p>
               <motion.h2 variants={fadeUp} className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Vender bien no siempre significa operar bien.
+                Que tu negocio siga vendiendo más, mejorando la operación.
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed">
                 Pasa en casi todas las pymes que conocemos:
