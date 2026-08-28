@@ -483,6 +483,14 @@ export default function Home() {
                   Antes de fundar SpectersAI integré <span className="text-foreground font-medium">APIs, Shopify y herramientas de IA</span> a
                   operaciones reales, y fundé <span className="text-foreground font-medium">Conquerspro</span>, un
                   ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>.
+                </motion.p>
+                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
+                  Ya ayudé a otras pymes y emprendedores a ordenar su negocio
+                  con datos: levantar información, sacar el{" "}
+                  <span className="text-foreground font-medium">80/20</span>, construir{" "}
+                  <span className="text-foreground font-medium">matrices de retención</span> y
+                  priorizar dónde meter el esfuerzo, además de{" "}
+                  <span className="text-foreground font-medium">automatizar procesos con IA</span>.
                   Esa experiencia es la que traigo a tu negocio.
                 </motion.p>
 
