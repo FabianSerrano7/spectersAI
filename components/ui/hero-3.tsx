@@ -240,8 +240,9 @@ export function Hero3({
               variants={item}
               className="text-foreground mb-6 text-4xl font-light tracking-tight sm:text-5xl md:text-6xl lg:text-7xl "
             >
-              {titleLine1 && <span className="block">{titleLine1}</span>}
-              {titleLine2 && <span className="block">{titleLine2}</span>}
+              {titleLine1}
+              {titleLine1 && titleLine2 && " "}
+              {titleLine2}
             </motion.h1>
 
             {description && (
