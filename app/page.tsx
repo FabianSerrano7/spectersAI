@@ -640,7 +640,7 @@ export default function Home() {
                   Fabián Serrano
                 </motion.h2>
                 <motion.p variants={fadeUp} className="mt-3 font-medium text-zinc-400">
-                  Santiago, Chile. Fundador de SpectersAI y la persona con la que realmente vas a hablar.
+                  Santiago, Chile. Fundador de SpectersAI.
                 </motion.p>
 
                 <motion.div variants={fadeUp} className="lg:hidden mt-8 divide-y divide-white/10 border-t border-white/10">
@@ -666,8 +666,8 @@ export default function Home() {
                   Antes de fundar SpectersAI fundé <span className="text-foreground font-medium">Conquerspro</span>,
                   un ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>,
                   y llevé una <span className="text-foreground font-medium">agencia de marketing digital</span> que
-                  ayudó a más de <span className="text-foreground font-medium">15 pymes</span> con
-                  sus campañas en Meta. Hoy aplico esa misma mirada a los negocios con
+                  ayudó a más de <span className="text-foreground font-medium">15 empresas, pequeñas, medianas y grandes</span>,
+                  con sus campañas en Meta. Hoy aplico esa misma mirada a los negocios con
                   los que trabajo: <span className="text-foreground font-medium">identificar el 20% de clientes que genera el 80% de resultados</span>,
                   construir <span className="text-foreground font-medium">matrices de retención</span> y
                   automatizar con IA.
@@ -690,7 +690,7 @@ export default function Home() {
                   </a>
                 </motion.div>
 
-                <motion.div variants={fadeUp} className="mt-10">
+                <motion.div variants={fadeUp} className="lg:hidden mt-10">
                   <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">He trabajado en</p>
                   <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
                     {COMPANIES.map((c) => (
@@ -711,7 +711,7 @@ export default function Home() {
                 </motion.div>
               </Reveal>
 
-              <div className="hidden lg:block">
+              <div className="hidden lg:block lg:pt-[92px]">
                 <Reveal className="divide-y divide-white/10 border-t border-white/10">
                   {PERFIL_FACTS.map((f) => (
                     <motion.div key={f.etiqueta} variants={fadeUp} className="flex items-center justify-between gap-4 py-3">
@@ -729,6 +729,14 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
+                </div>
+                <div className="mt-10">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">He trabajado en</p>
+                  <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
+                    {COMPANIES.map((c) => (
+                      <LogoChip key={c.name} src={c.src} name={c.name} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
