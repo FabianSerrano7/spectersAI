@@ -640,7 +640,7 @@ export default function Home() {
                   Fabián Serrano
                 </motion.h2>
                 <motion.p variants={fadeUp} className="mt-3 font-medium text-zinc-400">
-                  Santiago, Chile. Fundador de SpectersAI.
+                  Ingeniero Civil Industrial. Santiago, Chile. Fundador de SpectersAI.
                 </motion.p>
 
                 <motion.div variants={fadeUp} className="lg:hidden mt-8 divide-y divide-white/10 border-t border-white/10">
