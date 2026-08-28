@@ -9,6 +9,10 @@ import {
   FaHandshake,
   FaScaleBalanced,
   FaLinkedin,
+  FaChartLine,
+  FaCreditCard,
+  FaChartPie,
+  FaEnvelope,
 } from "react-icons/fa6";
 import { Hero3 } from "@/components/ui/hero-3";
 import {
@@ -192,14 +196,37 @@ const SERVICIOS = [
     titulo: "No te dejamos solo después de lanzar",
     texto: "Monitoreamos, ajustamos y sumamos automatizaciones nuevas a medida que tu negocio crece.",
   },
+  {
+    icon: FaChartLine,
+    titulo: "Campañas digitales con tracking real",
+    texto:
+      "Configuramos tus campañas en Meta Ads y los eventos de conversión, para que sepas exactamente qué está funcionando y qué no.",
+  },
+  {
+    icon: FaCreditCard,
+    titulo: "Pasarelas de pago integradas",
+    texto:
+      "Conectamos Mercado Pago, Webpay, Flow y otras pasarelas para que cobres pagos únicos o recurrentes sin fricción.",
+  },
+  {
+    icon: FaChartPie,
+    titulo: "Paneles con tus números ordenados",
+    texto:
+      "Construimos un panel de reportería con tus métricas clave, fácil de revisar, sin armar un informe a mano cada vez.",
+  },
+  {
+    icon: FaEnvelope,
+    titulo: "Automatización de correos",
+    texto:
+      "Secuencias automáticas para seguimiento de clientes, cobranza o retención, sin que tengas que enviarlas una por una.",
+  },
 ];
 
 const PROBLEMAS = [
   {
-    problema:
-      "Todo se maneja a mano: cotizaciones en papel o WhatsApp, información repartida en varias planillas. Ese método se cae en cuanto crece el número de clientes o proveedores.",
+    problema: "Todo se maneja a mano, sin un sistema que lo sostenga",
     solucion:
-      "Reemplazamos eso por un sistema centralizado donde cotizar, hacer seguimiento y consultar el historial de cada cliente queda automatizado. La operación se mantiene ordenada, sin importar cuánto crezcas.",
+      "Cotizaciones en papel o WhatsApp, información repartida en varias planillas: ese método se cae en cuanto crece el número de clientes o proveedores. Lo reemplazamos por un sistema centralizado donde cotizar, hacer seguimiento y consultar el historial queda automatizado.",
   },
   {
     problema: "Nadie responde fuera de horario",
@@ -450,16 +477,16 @@ export default function Home() {
               </motion.h2>
             </Reveal>
 
-            <Reveal className="mt-12 grid sm:grid-cols-2 gap-4">
+            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {SERVICIOS.map((s) => (
                 <motion.article
                   key={s.titulo}
                   variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 lg:p-9 hover:bg-white/[0.04] transition-colors"
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-7 hover:bg-white/[0.04] transition-colors"
                 >
                   <s.icon className="h-5 w-5 text-coral" />
-                  <h3 className="mt-4 text-xl font-medium tracking-tight">{s.titulo}</h3>
-                  <p className="mt-3 text-zinc-400 leading-relaxed">{s.texto}</p>
+                  <h3 className="mt-4 text-lg font-medium tracking-tight">{s.titulo}</h3>
+                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
                 </motion.article>
               ))}
             </Reveal>
