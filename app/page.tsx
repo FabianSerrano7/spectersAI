@@ -299,9 +299,9 @@ const STACK = [
 const PERFIL_FACTS = [
   { etiqueta: "Rol", valor: "Fundador — quien te atiende" },
   { etiqueta: "Ubicación", valor: "Santiago, Chile" },
-  { etiqueta: "Experiencia", valor: "+7 años en ventas, growth y software" },
-  { etiqueta: "Especialidad", valor: "CRMs, integraciones y automatización con IA" },
-  { etiqueta: "Empresas", valor: "SumUp · Capitaria · Grupo Air" },
+  { etiqueta: "Experiencia", valor: "+8 años en ventas, tecnología y marketing" },
+  { etiqueta: "Especialidad", valor: "Marketing digital, automatización con IA, eCommerce y data analytics" },
+  { etiqueta: "Empresas", valor: "SumUp · Capitaria · Grupo Air · Conquerspro" },
   { etiqueta: "Certificaciones", valor: "8 · Reforge, Wharton, UC Berkeley" },
 ];
 
@@ -463,9 +463,9 @@ export default function Home() {
                 </motion.div>
 
                 <motion.p variants={fadeUp} className="mt-8 text-lg text-zinc-400 leading-relaxed">
-                  Llevo <span className="text-foreground font-medium">más de 7 años</span> entre
-                  ventas, growth y customer success, y en paralelo construyendo
-                  software: <span className="text-foreground font-medium">CRMs, integraciones y automatizaciones</span> para
+                  Llevo <span className="text-foreground font-medium">más de 8 años</span> entre
+                  ventas, tecnología y marketing, y en paralelo construyendo
+                  software: <span className="text-foreground font-medium">integraciones, automatización con IA y data analytics</span> para
                   negocios reales.
                 </motion.p>
                 <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
