@@ -337,7 +337,7 @@ export default function Home() {
       />
 
       <div className="dark bg-background text-foreground">
-        <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-20">
+        <div className="w-full max-w-7xl px-6 sm:px-10 md:px-16 lg:px-20">
           {/* ---------- Dolor ---------- */}
           <section id="dolor" className="py-20 lg:py-28 scroll-mt-24 relative">
             <div className="grid-fade absolute inset-x-0 top-0 h-[420px] -z-10" />
@@ -537,17 +537,17 @@ export default function Home() {
                     variants={fadeUp}
                     className="absolute top-28 right-0 z-10 w-[240px] rounded-xl border border-white/10 bg-background/90 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
                   >
-                    <p className="text-xs text-zinc-500">Capa de decisión</p>
-                    <p className="mt-1 text-sm font-medium">Enrutamiento y validación</p>
+                    <p className="text-xs text-zinc-500">Seguimiento</p>
+                    <p className="mt-1 text-sm font-medium">Estado de los pedidos</p>
                     <div className="mt-3 flex h-2 w-full gap-1 overflow-hidden rounded-full">
                       <div className="w-[50%] bg-coral" />
                       <div className="w-[30%] bg-blue-400" />
                       <div className="w-[20%] bg-amber-400" />
                     </div>
                     <div className="mt-3 flex gap-3 text-[10px] text-zinc-500">
-                      <span>Prioridad</span>
-                      <span>Revisiones</span>
-                      <span>Filtros</span>
+                      <span>Pendiente</span>
+                      <span>En proceso</span>
+                      <span>Entregado</span>
                     </div>
                   </motion.div>
 
