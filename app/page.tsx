@@ -3,7 +3,6 @@
 import { motion, type Variants } from "motion/react";
 import {
   FaArrowRight,
-  FaCheck,
   FaRobot,
   FaPlug,
   FaLayerGroup,
