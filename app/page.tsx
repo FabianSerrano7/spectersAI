@@ -296,11 +296,13 @@ const STACK = [
   },
 ];
 
-const PERFIL_STATS = [
-  { valor: "5+ sistemas", etiqueta: "CRMs y plataformas a medida construidos y en uso" },
-  { valor: "APIs & Shopify", etiqueta: "experiencia integrando sistemas y tiendas online" },
-  { valor: "Data-driven", etiqueta: "mido, priorizo y optimizo cada automatización" },
-  { valor: "IA con criterio", etiqueta: "IA donde suma, control humano donde es crítico" },
+const PERFIL_FACTS = [
+  { etiqueta: "Rol", valor: "Fundador — quien te atiende" },
+  { etiqueta: "Ubicación", valor: "Santiago, Chile" },
+  { etiqueta: "Experiencia", valor: "+7 años en ventas, growth y software" },
+  { etiqueta: "Especialidad", valor: "CRMs, integraciones y automatización con IA" },
+  { etiqueta: "Empresas", valor: "SumUp · Capitaria · Grupo Air" },
+  { etiqueta: "Certificaciones", valor: "8 · Reforge, Wharton, UC Berkeley" },
 ];
 
 const COMPANIES = [
@@ -443,33 +445,34 @@ export default function Home() {
                   Fundador de SpectersAI, y la persona con la que realmente vas a hablar.
                 </motion.p>
 
-                <motion.div variants={fadeUp} className="lg:hidden mt-8 grid grid-cols-2 gap-4">
-                  <div className="col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4">
-                    <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
-                    <div>
-                      <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
-                      <p className="text-sm text-zinc-400">Santiago, Chile</p>
-                    </div>
+                <motion.div variants={fadeUp} className="lg:hidden mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                  <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
+                  <div>
+                    <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
+                    <p className="text-sm text-zinc-400">Santiago, Chile</p>
                   </div>
-                  {PERFIL_STATS.map((s) => (
-                    <div key={s.valor} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-                      <p className="text-xl font-medium tracking-tight text-coral">{s.valor}</p>
-                      <p className="mt-2 text-sm text-zinc-400 leading-snug">{s.etiqueta}</p>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="lg:hidden mt-6 divide-y divide-white/10 border-t border-white/10">
+                  {PERFIL_FACTS.map((f) => (
+                    <div key={f.etiqueta} className="flex items-center justify-between gap-4 py-3">
+                      <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
+                      <span className="text-sm text-zinc-200 text-right">{f.valor}</span>
                     </div>
                   ))}
                 </motion.div>
 
                 <motion.p variants={fadeUp} className="mt-8 text-lg text-zinc-400 leading-relaxed">
-                  Llevo más de 7 años entre ventas, growth, retención y customer
-                  success, y en paralelo construyendo software: CRMs,
-                  integraciones y automatizaciones para negocios reales.
+                  Llevo <span className="text-foreground font-medium">más de 7 años</span> entre
+                  ventas, growth y customer success, y en paralelo construyendo
+                  software: <span className="text-foreground font-medium">CRMs, integraciones y automatizaciones</span> para
+                  negocios reales.
                 </motion.p>
                 <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  Antes de fundar SpectersAI, tengo experiencia integrando
-                  APIs, Shopify y herramientas de IA a operaciones reales,
-                  además de haber fundado Conquerspro, un ecommerce que hice
-                  crecer con más de $250M CLP en ventas. Esa experiencia es la
-                  que traigo a tu negocio.
+                  Antes de fundar SpectersAI integré <span className="text-foreground font-medium">APIs, Shopify y herramientas de IA</span> a
+                  operaciones reales, y fundé <span className="text-foreground font-medium">Conquerspro</span>, un
+                  ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>.
+                  Esa experiencia es la que traigo a tu negocio.
                 </motion.p>
 
                 <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
@@ -511,20 +514,22 @@ export default function Home() {
               </Reveal>
 
               <div className="hidden lg:block">
-                <Reveal className="grid grid-cols-2 gap-4">
-                  <motion.div variants={fadeUp} className="col-span-2 rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center gap-4">
+                <Reveal>
+                  <motion.div variants={fadeUp} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
                     <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
                     <div>
                       <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
                       <p className="text-sm text-zinc-400">Santiago, Chile</p>
                     </div>
                   </motion.div>
-                  {PERFIL_STATS.map((s) => (
-                    <motion.div key={s.valor} variants={fadeUp} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-                      <p className="text-xl font-medium tracking-tight text-coral">{s.valor}</p>
-                      <p className="mt-2 text-sm text-zinc-400 leading-snug">{s.etiqueta}</p>
-                    </motion.div>
-                  ))}
+                  <div className="mt-6 divide-y divide-white/10 border-t border-white/10">
+                    {PERFIL_FACTS.map((f) => (
+                      <motion.div key={f.etiqueta} variants={fadeUp} className="flex items-center justify-between gap-4 py-3">
+                        <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
+                        <span className="text-sm text-zinc-200 text-right">{f.valor}</span>
+                      </motion.div>
+                    ))}
+                  </div>
                 </Reveal>
                 <div className="mt-10">
                   <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Certificaciones</p>
