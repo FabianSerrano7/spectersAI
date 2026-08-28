@@ -233,7 +233,7 @@ export function Hero3({
 
             <motion.h1
               variants={item}
-              className="text-foreground mb-6 text-4xl font-light tracking-tight sm:text-5xl md:text-6xl lg:text-7xl "
+              className="text-foreground mb-6 text-[1.75rem] font-light tracking-tight sm:text-5xl md:text-6xl lg:text-7xl "
             >
               {titleLine1}
               {titleLine1 && titleLine2 && " "}
