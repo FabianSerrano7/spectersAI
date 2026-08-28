@@ -104,6 +104,7 @@ export function Hero3({
             aria-hidden="true"
             className="pointer-events-none h-full w-full object-cover brightness-40 select-none"
           />
+          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent to-background sm:h-80 lg:h-96" />
         </div>
       )}
 
