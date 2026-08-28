@@ -473,7 +473,7 @@ export default function Home() {
                 Nuestros servicios
               </motion.p>
               <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Lo que hacemos para que tu operación se ordene sola
+                Lo que hacemos para que tu operación esté ordenada y optimizada
               </motion.h2>
             </Reveal>
 
