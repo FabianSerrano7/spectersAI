@@ -9,8 +9,8 @@ import LogoIcon from "@/assets/logo-icon";
 const EMAIL = "fabian@specterspro.com";
 
 const NAV_ITEMS = [
-  { label: "Cómo trabajamos", href: "/#diagnostico" },
   { label: "Servicios", href: "/#servicios" },
+  { label: "Cómo trabajamos", href: "/#diagnostico" },
   { label: "Tecnología", href: "/#stack" },
   { label: "Quién soy", href: "/#nosotros" },
   { label: "FAQ", href: "/#faq" },

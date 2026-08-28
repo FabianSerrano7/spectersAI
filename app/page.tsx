@@ -71,8 +71,8 @@ function Reveal({
 /* ---------- Datos ---------- */
 
 const NAV_ITEMS = [
-  { label: "Cómo trabajamos", href: "#diagnostico" },
   { label: "Servicios", href: "#servicios" },
+  { label: "Cómo trabajamos", href: "#diagnostico" },
   { label: "Tecnología", href: "#stack" },
   { label: "Quién soy", href: "#nosotros" },
   { label: "FAQ", href: "#faq" },
@@ -382,6 +382,38 @@ export default function Home() {
             </Reveal>
           </section>
 
+          {/* ---------- Servicios ---------- */}
+          <section id="servicios" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Nuestros servicios
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Lo que hacemos para que tu operación esté ordenada y optimizada
+              </motion.h2>
+            </Reveal>
+
+            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {SERVICIOS.map((s) => (
+                <motion.article
+                  key={s.titulo}
+                  variants={fadeUp}
+                  className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-7 hover:bg-white/[0.04] transition-colors"
+                >
+                  <s.icon className="h-5 w-5 text-coral" />
+                  <h3 className="mt-4 text-lg font-medium tracking-tight">{s.titulo}</h3>
+                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
+                  <Link
+                    href={`/servicios/${s.slug}`}
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-coral hover:text-[#ff9a4d] transition-colors"
+                  >
+                    Ver más <FaArrowRight className="h-3 w-3" />
+                  </Link>
+                </motion.article>
+              ))}
+            </Reveal>
+          </section>
+
           {/* ---------- Beneficios ---------- */}
           <section className="py-20 lg:py-28 border-t border-white/10">
             <Reveal className="max-w-2xl">
@@ -439,38 +471,6 @@ export default function Home() {
                   <h3 className="mt-2 text-lg font-medium tracking-tight">{p.titulo}</h3>
                   <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{p.texto}</p>
                 </motion.div>
-              ))}
-            </Reveal>
-          </section>
-
-          {/* ---------- Servicios ---------- */}
-          <section id="servicios" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
-            <Reveal className="max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Nuestros servicios
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Lo que hacemos para que tu operación esté ordenada y optimizada
-              </motion.h2>
-            </Reveal>
-
-            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {SERVICIOS.map((s) => (
-                <motion.article
-                  key={s.titulo}
-                  variants={fadeUp}
-                  className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-7 hover:bg-white/[0.04] transition-colors"
-                >
-                  <s.icon className="h-5 w-5 text-coral" />
-                  <h3 className="mt-4 text-lg font-medium tracking-tight">{s.titulo}</h3>
-                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
-                  <Link
-                    href={`/servicios/${s.slug}`}
-                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-coral hover:text-[#ff9a4d] transition-colors"
-                  >
-                    Ver más <FaArrowRight className="h-3 w-3" />
-                  </Link>
-                </motion.article>
               ))}
             </Reveal>
           </section>
