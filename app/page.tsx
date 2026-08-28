@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, type Variants } from "motion/react";
 import {
   FaArrowRight,
@@ -141,47 +142,55 @@ const PASOS = [
 
 const SERVICIOS = [
   {
+    slug: "agentes-de-ia",
     icon: FaRobot,
-    titulo: "Agentes de IA que nunca duermen",
+    titulo: "Agentes de IA que contestan por ti",
     texto:
       "Atienden clientes, cotizan y agendan por WhatsApp, mail o tu web, las 24 horas, con reglas claras de cuándo pasarte la conversación a ti.",
   },
   {
+    slug: "crm-a-medida",
     icon: FaLayerGroup,
     titulo: "Un CRM hecho para cómo trabajas tú",
     texto:
       "En vez de forzar tu negocio a encajar en un software genérico, construimos el sistema a tu medida, con la estructura que tu operación necesita.",
   },
   {
+    slug: "integraciones",
     icon: FaPlug,
     titulo: "Todo tu software hablando entre sí",
     texto:
       "Shopify, WhatsApp Business, pasarelas de pago, planillas, APIs propias o de terceros: conectado, sin trabajo doble.",
   },
   {
+    slug: "soporte-continuo",
     icon: FaHandshake,
     titulo: "No te dejamos solo después de lanzar",
     texto: "Monitoreamos, ajustamos y sumamos automatizaciones nuevas a medida que tu negocio crece.",
   },
   {
+    slug: "campanas-digitales",
     icon: FaChartLine,
     titulo: "Campañas digitales con tracking real",
     texto:
-      "Configuramos tus campañas en Meta Ads y los eventos de conversión, para que sepas exactamente qué está funcionando y qué no.",
+      "Configuramos tus campañas en Meta Ads y Google Ads, con los eventos de conversión bien medidos, para que sepas qué está funcionando y qué no.",
   },
   {
+    slug: "pasarelas-de-pago",
     icon: FaCreditCard,
     titulo: "Pasarelas de pago integradas",
     texto:
       "Conectamos Mercado Pago, Webpay, Flow y otras pasarelas para que cobres pagos únicos o recurrentes sin fricción.",
   },
   {
+    slug: "paneles-de-reportes",
     icon: FaChartPie,
     titulo: "Paneles con tus números ordenados",
     texto:
       "Construimos un panel de reportería con tus métricas clave, fácil de revisar, sin armar un informe a mano cada vez.",
   },
   {
+    slug: "automatizacion-de-correos",
     icon: FaEnvelope,
     titulo: "Automatización de correos",
     texto:
@@ -450,11 +459,17 @@ export default function Home() {
                 <motion.article
                   key={s.titulo}
                   variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-7 hover:bg-white/[0.04] transition-colors"
+                  className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-7 hover:bg-white/[0.04] transition-colors"
                 >
                   <s.icon className="h-5 w-5 text-coral" />
                   <h3 className="mt-4 text-lg font-medium tracking-tight">{s.titulo}</h3>
                   <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
+                  <Link
+                    href={`/servicios/${s.slug}`}
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-coral hover:text-[#ff9a4d] transition-colors"
+                  >
+                    Ver más <FaArrowRight className="h-3 w-3" />
+                  </Link>
                 </motion.article>
               ))}
             </Reveal>
