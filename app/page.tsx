@@ -196,9 +196,9 @@ const SERVICIOS = [
 
 const PROBLEMAS = [
   {
-    problema: "Pierdes el hilo de las conversaciones con tus clientes",
+    problema: "Todo se maneja a mano, sin una base que sostenga el crecimiento",
     solucion:
-      "Centralizamos cada interacción, sin importar el canal, en un solo historial por cliente. Nadie en tu equipo empieza de cero.",
+      "Cotizaciones en papel o WhatsApp, información repartida en varias planillas. Cuando crece el número de clientes o proveedores, ese método se cae. Lo reemplazamos por un sistema centralizado que mantiene la operación ordenada, sin importar cuánto crezcas.",
   },
   {
     problema: "Nadie responde fuera de horario",
@@ -206,9 +206,9 @@ const PROBLEMAS = [
       "Un asistente automatizado atiende, cotiza y agenda las 24 horas, y deriva a tu equipo solo cuando realmente hace falta.",
   },
   {
-    problema: "Las cotizaciones y el seguimiento de ventas se hacen a mano",
+    problema: "No sabes qué clientes sostienen realmente tu negocio",
     solucion:
-      "Automatizamos la generación de cotizaciones y el seguimiento de cada venta hasta el cierre, sin planillas paralelas.",
+      "En la mayoría de las pymes, una porción pequeña de clientes genera la mayor parte del ingreso. Te ayudamos a identificarlos y a construir una estrategia de retención distinta según el valor y el potencial de cada uno.",
   },
   {
     problema: "Tus sistemas no se hablan entre sí",
