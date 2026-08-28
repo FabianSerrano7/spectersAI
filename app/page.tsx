@@ -301,7 +301,7 @@ const PERFIL_FACTS = [
   { etiqueta: "Ubicación", valor: "Santiago, Chile" },
   { etiqueta: "Experiencia", valor: "+8 años en ventas, tecnología y marketing" },
   { etiqueta: "Especialidad", valor: "Marketing digital, automatización con IA, eCommerce y data analytics" },
-  { etiqueta: "Escala", valor: "Portafolio multimillonario (EUR) y equipo de 15+ personas en SumUp" },
+  { etiqueta: "Escala", valor: "€35M/mes en revenue bajo gestión, con 15 KAMs a cargo (SumUp)" },
   { etiqueta: "Empresas", valor: "SumUp · Capitaria · Grupo Air · Conquerspro" },
   { etiqueta: "Certificaciones", valor: "8 · Reforge, Wharton, UC Berkeley" },
 ];
@@ -470,9 +470,14 @@ export default function Home() {
                   negocios reales.
                 </motion.p>
                 <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  En SumUp construí el área de Customer Success para LATAM
-                  desde cero y hoy lidero un <span className="text-foreground font-medium">equipo de 15+ personas</span> a
-                  cargo de un <span className="text-foreground font-medium">portafolio multimillonario en euros</span>.
+                  En SumUp construí desde cero el área de Customer Success para
+                  LATAM: hoy lidero un <span className="text-foreground font-medium">equipo de 15 KAMs</span> a
+                  cargo de las cuentas grandes de la región, un{" "}
+                  <span className="text-foreground font-medium">8% de los clientes que genera el 60% del revenue</span>{" "}
+                  y mueve cerca de <span className="text-foreground font-medium">€35M al mes</span>. En dos
+                  años llevamos la cobertura de retención de{" "}
+                  <span className="text-foreground font-medium">7% a 60%</span> — no fue una mejora
+                  incremental, fue crear un área que hoy es parte del core del negocio.
                 </motion.p>
                 <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
                   Antes de fundar SpectersAI integré <span className="text-foreground font-medium">APIs, Shopify y herramientas de IA</span> a
