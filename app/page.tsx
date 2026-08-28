@@ -12,7 +12,6 @@ import {
   FaLinkedin,
 } from "react-icons/fa6";
 import { Hero3 } from "@/components/ui/hero-3";
-import { HeroHeadline } from "@/components/hero-headline";
 import {
   ClaudeIcon,
   GeminiIcon,
@@ -70,21 +69,6 @@ const NAV_ITEMS = [
   { label: "Stack", href: "#stack" },
   { label: "Quién soy", href: "#nosotros" },
   { label: "FAQ", href: "#faq" },
-];
-
-const BUSINESS_TYPES = [
-  "Peluquería",
-  "Barbería",
-  "Automotora",
-  "Taller Mecánico",
-  "Panadería",
-  "Estudio Jurídico",
-  "Clínica",
-  "Consulta Médica",
-  "Veterinaria",
-  "Restaurante",
-  "Inmobiliaria",
-  "Empresa",
 ];
 
 const HERO_STATS = [
@@ -307,8 +291,12 @@ export default function Home() {
         signInText="Hablemos"
         signInHref={`mailto:${EMAIL}`}
         tagline="Diagnóstico gratis. Automatización real."
-        titleLine1={<HeroHeadline words={BUSINESS_TYPES} />}
-        titleLine2={null}
+        titleLine1="Automatizamos lo repetitivo"
+        titleLine2={
+          <>
+            y construimos software para tu <span className="text-coral">Negocio</span> con IA
+          </>
+        }
         description="Dejamos de hacer a mano lo que un sistema puede hacer solo: agendar, responder, ordenar tus datos. Te mostramos gratis dónde te conviene partir."
         primaryCtaText="Agenda tu diagnóstico gratis"
         primaryCtaHref={`mailto:${EMAIL}`}
