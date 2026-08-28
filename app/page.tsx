@@ -394,142 +394,6 @@ export default function Home() {
             </Reveal>
           </section>
 
-          {/* ---------- Quién soy ---------- */}
-          <section id="nosotros" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-start">
-              <Reveal>
-                <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                  Con quién vas a hablar
-                </motion.p>
-                <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                  Hola, soy Fabián
-                </motion.h2>
-                <motion.p variants={fadeUp} className="mt-3 font-medium text-zinc-400">
-                  Fundador de SpectersAI, y la persona con la que realmente vas a hablar.
-                </motion.p>
-
-                <motion.div variants={fadeUp} className="lg:hidden mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-                  <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
-                  <div>
-                    <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
-                    <p className="text-sm text-zinc-400">Santiago, Chile</p>
-                  </div>
-                </motion.div>
-
-                <motion.div variants={fadeUp} className="lg:hidden mt-6 divide-y divide-white/10 border-t border-white/10">
-                  {PERFIL_FACTS.map((f) => (
-                    <div key={f.etiqueta} className="flex items-center justify-between gap-4 py-3">
-                      <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
-                      <span className="text-sm text-zinc-200 text-right">{f.valor}</span>
-                    </div>
-                  ))}
-                </motion.div>
-
-                <motion.p variants={fadeUp} className="mt-8 text-lg text-zinc-400 leading-relaxed">
-                  Llevo <span className="text-foreground font-medium">más de 8 años</span> entre
-                  ventas, tecnología y marketing, y en paralelo construyendo
-                  software: <span className="text-foreground font-medium">integraciones, automatización con IA y data analytics</span> para
-                  negocios reales.
-                </motion.p>
-                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  En SumUp construí desde cero el área de Customer Success para
-                  LATAM: llegué a liderar un <span className="text-foreground font-medium">equipo de 15 KAMs</span> a
-                  cargo de las cuentas grandes de la región, un{" "}
-                  <span className="text-foreground font-medium">8% de los clientes que generaba el 60% del revenue</span>{" "}
-                  y movía cerca de <span className="text-foreground font-medium">€35M al mes</span>. En dos
-                  años llevamos la cobertura de retención de{" "}
-                  <span className="text-foreground font-medium">7% a 60%</span>. No fue una mejora
-                  incremental: fue crear un área que pasó a ser parte del core del negocio.
-                </motion.p>
-                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  Antes de fundar SpectersAI fundé <span className="text-foreground font-medium">Conquerspro</span>, un
-                  ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>,
-                  y llevé una <span className="text-foreground font-medium">agencia de marketing digital</span> donde
-                  ayudé a más de <span className="text-foreground font-medium">15 pymes</span> a manejar
-                  sus campañas online, principalmente en Meta. Esa etapa también incluyó
-                  integrar <span className="text-foreground font-medium">APIs, Shopify y herramientas de IA</span> a
-                  operaciones reales.
-                </motion.p>
-                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  Ya ayudé a otras pymes y emprendedores a ordenar su negocio
-                  con datos: levantar información, identificar{" "}
-                  <span className="text-foreground font-medium">el 20% de clientes que genera el 80% de resultados</span>, construir{" "}
-                  <span className="text-foreground font-medium">matrices de retención</span> y
-                  priorizar dónde meter el esfuerzo, además de{" "}
-                  <span className="text-foreground font-medium">automatizar procesos con IA</span>.
-                  Esa experiencia es la que traigo a tu negocio.
-                </motion.p>
-
-                <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
-                  <a
-                    href={`mailto:${EMAIL}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-normal text-black shadow-lg transition-all hover:bg-zinc-200"
-                  >
-                    Conversemos <FaArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                  <a
-                    href={LINKEDIN_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
-                  >
-                    <FaLinkedin className="h-4 w-4" /> Ver mi LinkedIn
-                  </a>
-                </motion.div>
-
-                <motion.div variants={fadeUp} className="mt-10">
-                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">He trabajado en</p>
-                  <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
-                    {COMPANIES.map((c) => (
-                      <LogoChip key={c.name} src={c.src} name={c.name} />
-                    ))}
-                  </div>
-                </motion.div>
-
-                <motion.div variants={fadeUp} className="lg:hidden mt-10">
-                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Certificaciones</p>
-                  <ul className="mt-3 flex flex-wrap gap-2">
-                    {CERTS.map((c) => (
-                      <li key={c} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-400">
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              </Reveal>
-
-              <div className="hidden lg:block">
-                <Reveal>
-                  <motion.div variants={fadeUp} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-                    <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
-                    <div>
-                      <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
-                      <p className="text-sm text-zinc-400">Santiago, Chile</p>
-                    </div>
-                  </motion.div>
-                  <div className="mt-6 divide-y divide-white/10 border-t border-white/10">
-                    {PERFIL_FACTS.map((f) => (
-                      <motion.div key={f.etiqueta} variants={fadeUp} className="flex items-center justify-between gap-4 py-3">
-                        <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
-                        <span className="text-sm text-zinc-200 text-right">{f.valor}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </Reveal>
-                <div className="mt-10">
-                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Certificaciones</p>
-                  <ul className="mt-3 flex flex-wrap gap-2">
-                    {CERTS.map((c) => (
-                      <li key={c} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-400">
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/* ---------- Cómo trabajamos ---------- */}
           <section id="diagnostico" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
             <Reveal className="max-w-2xl">
@@ -763,6 +627,142 @@ export default function Home() {
                 </motion.div>
               ))}
             </Reveal>
+          </section>
+
+          {/* ---------- Quién soy ---------- */}
+          <section id="nosotros" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-start">
+              <Reveal>
+                <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                  Con quién vas a hablar
+                </motion.p>
+                <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                  Hola, soy Fabián
+                </motion.h2>
+                <motion.p variants={fadeUp} className="mt-3 font-medium text-zinc-400">
+                  Fundador de SpectersAI, y la persona con la que realmente vas a hablar.
+                </motion.p>
+
+                <motion.div variants={fadeUp} className="lg:hidden mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                  <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
+                  <div>
+                    <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
+                    <p className="text-sm text-zinc-400">Santiago, Chile</p>
+                  </div>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="lg:hidden mt-6 divide-y divide-white/10 border-t border-white/10">
+                  {PERFIL_FACTS.map((f) => (
+                    <div key={f.etiqueta} className="flex items-center justify-between gap-4 py-3">
+                      <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
+                      <span className="text-sm text-zinc-200 text-right">{f.valor}</span>
+                    </div>
+                  ))}
+                </motion.div>
+
+                <motion.p variants={fadeUp} className="mt-8 text-lg text-zinc-400 leading-relaxed">
+                  Llevo <span className="text-foreground font-medium">más de 8 años</span> entre
+                  ventas, tecnología y marketing, y en paralelo construyendo
+                  software: <span className="text-foreground font-medium">integraciones, automatización con IA y data analytics</span> para
+                  negocios reales.
+                </motion.p>
+                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
+                  En SumUp construí desde cero el área de Customer Success para
+                  LATAM: llegué a liderar un <span className="text-foreground font-medium">equipo de 15 KAMs</span> a
+                  cargo de las cuentas grandes de la región, un{" "}
+                  <span className="text-foreground font-medium">8% de los clientes que generaba el 60% del revenue</span>{" "}
+                  y movía cerca de <span className="text-foreground font-medium">€35M al mes</span>. En dos
+                  años llevamos la cobertura de retención de{" "}
+                  <span className="text-foreground font-medium">7% a 60%</span>. No fue una mejora
+                  incremental: fue crear un área que pasó a ser parte del core del negocio.
+                </motion.p>
+                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
+                  Antes de fundar SpectersAI fundé <span className="text-foreground font-medium">Conquerspro</span>, un
+                  ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>,
+                  y llevé una <span className="text-foreground font-medium">agencia de marketing digital</span> donde
+                  ayudé a más de <span className="text-foreground font-medium">15 pymes</span> a manejar
+                  sus campañas online, principalmente en Meta. Esa etapa también incluyó
+                  integrar <span className="text-foreground font-medium">APIs, Shopify y herramientas de IA</span> a
+                  operaciones reales.
+                </motion.p>
+                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
+                  Ya ayudé a otras pymes y emprendedores a ordenar su negocio
+                  con datos: levantar información, identificar{" "}
+                  <span className="text-foreground font-medium">el 20% de clientes que genera el 80% de resultados</span>, construir{" "}
+                  <span className="text-foreground font-medium">matrices de retención</span> y
+                  priorizar dónde meter el esfuerzo, además de{" "}
+                  <span className="text-foreground font-medium">automatizar procesos con IA</span>.
+                  Esa experiencia es la que traigo a tu negocio.
+                </motion.p>
+
+                <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-normal text-black shadow-lg transition-all hover:bg-zinc-200"
+                  >
+                    Conversemos <FaArrowRight className="h-3.5 w-3.5" />
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+                  >
+                    <FaLinkedin className="h-4 w-4" /> Ver mi LinkedIn
+                  </a>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="mt-10">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">He trabajado en</p>
+                  <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-4">
+                    {COMPANIES.map((c) => (
+                      <LogoChip key={c.name} src={c.src} name={c.name} />
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="lg:hidden mt-10">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Certificaciones</p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {CERTS.map((c) => (
+                      <li key={c} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-400">
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </Reveal>
+
+              <div className="hidden lg:block">
+                <Reveal>
+                  <motion.div variants={fadeUp} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                    <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
+                    <div>
+                      <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
+                      <p className="text-sm text-zinc-400">Santiago, Chile</p>
+                    </div>
+                  </motion.div>
+                  <div className="mt-6 divide-y divide-white/10 border-t border-white/10">
+                    {PERFIL_FACTS.map((f) => (
+                      <motion.div key={f.etiqueta} variants={fadeUp} className="flex items-center justify-between gap-4 py-3">
+                        <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
+                        <span className="text-sm text-zinc-200 text-right">{f.valor}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </Reveal>
+                <div className="mt-10">
+                  <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Certificaciones</p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {CERTS.map((c) => (
+                      <li key={c} className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-xs text-zinc-400">
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* ---------- FAQ ---------- */}
