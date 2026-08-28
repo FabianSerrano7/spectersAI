@@ -331,7 +331,7 @@ export default function Home() {
         titleLine1="Automatizamos lo repetitivo"
         titleLine2={
           <>
-            y construimos software para tu <span className="text-coral">Negocio</span> con IA
+            y construimos software para tu <span className="text-coral">Negocio</span> con{" "}IA
           </>
         }
         description="Le quitamos a pymes y equipos operativos el peso de las tareas repetitivas: construimos sistemas a medida y agentes de IA integrados a las herramientas que tu equipo ya usa. La IA se encarga de lo operativo; las decisiones críticas siguen en manos de personas."
