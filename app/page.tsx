@@ -145,7 +145,7 @@ const PROYECTOS = [
     numero: "02",
     cliente: "Ramaeduc",
     titulo: "CRM educativo",
-    texto: "CRM a medida construido con Lovable para centralizar la información de alumnos y automatizar el seguimiento administrativo.",
+    texto: "CRM a medida para centralizar la información de alumnos y automatizar el seguimiento administrativo.",
   },
   {
     numero: "03",
@@ -157,7 +157,7 @@ const PROYECTOS = [
     numero: "04",
     cliente: "Fyno",
     titulo: "CRM a medida",
-    texto: "Herramienta interna para gestionar clientes y operación diaria, construida con Lovable a la medida del flujo de trabajo del equipo.",
+    texto: "Herramienta interna para gestionar clientes y operación diaria, construida a la medida del flujo de trabajo del equipo.",
   },
   {
     numero: "05",
@@ -179,7 +179,7 @@ const SERVICIOS = [
     icon: FaLayerGroup,
     titulo: "Un CRM hecho para cómo trabajas tú",
     texto:
-      "Nada de forzar tu negocio a encajar en un software genérico. Construimos el CRM a tu medida, con Lovable y stack propio.",
+      "En vez de forzar tu negocio a encajar en un software genérico, construimos el sistema a tu medida, con la estructura que tu operación necesita.",
   },
   {
     icon: FaPlug,
@@ -191,6 +191,29 @@ const SERVICIOS = [
     icon: FaHandshake,
     titulo: "No te dejamos solo después de lanzar",
     texto: "Monitoreamos, ajustamos y sumamos automatizaciones nuevas a medida que tu negocio crece.",
+  },
+];
+
+const PROBLEMAS = [
+  {
+    problema: "Pierdes el hilo de las conversaciones con tus clientes",
+    solucion:
+      "Centralizamos cada interacción, sin importar el canal, en un solo historial por cliente. Nadie en tu equipo empieza de cero.",
+  },
+  {
+    problema: "Nadie responde fuera de horario",
+    solucion:
+      "Un asistente automatizado atiende, cotiza y agenda las 24 horas, y deriva a tu equipo solo cuando realmente hace falta.",
+  },
+  {
+    problema: "Las cotizaciones y el seguimiento de ventas se hacen a mano",
+    solucion:
+      "Automatizamos la generación de cotizaciones y el seguimiento de cada venta hasta el cierre, sin planillas paralelas.",
+  },
+  {
+    problema: "Tus sistemas no se hablan entre sí",
+    solucion:
+      "Conectamos pagos, inventario y atención al cliente para que la información se actualice sola, en todos lados a la vez.",
   },
 ];
 
@@ -431,6 +454,35 @@ export default function Home() {
             </Reveal>
           </section>
 
+          {/* ---------- Problemas que resolvemos ---------- */}
+          <section id="problemas" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Casos reales
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Los problemas que más vemos en pymes como la tuya
+              </motion.h2>
+            </Reveal>
+
+            <Reveal className="mt-12 grid sm:grid-cols-2 gap-4">
+              {PROBLEMAS.map((p) => (
+                <motion.div
+                  key={p.problema}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 lg:p-9"
+                >
+                  <p className="text-sm font-medium uppercase tracking-widest text-zinc-500">Problema</p>
+                  <h3 className="mt-2 text-lg font-medium tracking-tight">{p.problema}</h3>
+                  <div className="mt-5 border-t border-white/10 pt-5">
+                    <p className="text-sm font-medium uppercase tracking-widest text-coral">Cómo lo resolvemos</p>
+                    <p className="mt-2 text-zinc-400 leading-relaxed">{p.solucion}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </Reveal>
+          </section>
+
           {/* ---------- Stack ---------- */}
           <section id="stack" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
             <Reveal className="max-w-2xl">
@@ -438,10 +490,10 @@ export default function Home() {
                 Con qué construimos
               </motion.p>
               <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Herramientas reales, no humo
+                Tecnología de nivel profesional, sin depender de una sola marca
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-5 text-lg text-zinc-400 leading-relaxed">
-                IA, infraestructura y desarrollo de verdad: esto es lo que usamos para construir agentes, integraciones y CRMs.
+                Elegimos la herramienta según el problema, no al revés. Este es el stack con el que construimos agentes, integraciones y CRMs.
               </motion.p>
             </Reveal>
             <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -660,7 +712,7 @@ export default function Home() {
                 </a>
                 <p className="text-sm text-zinc-500">
                   Te respondemos a la brevedad,
-                  <br className="sm:hidden" /> sin vueltas.
+                  <br className="sm:hidden" /> directo al punto.
                 </p>
               </motion.div>
             </Reveal>
