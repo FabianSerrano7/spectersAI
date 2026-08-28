@@ -196,9 +196,10 @@ const SERVICIOS = [
 
 const PROBLEMAS = [
   {
-    problema: "Todo se maneja a mano, sin una base que sostenga el crecimiento",
+    problema:
+      "Todo se maneja a mano: cotizaciones en papel o WhatsApp, información repartida en varias planillas. Ese método se cae en cuanto crece el número de clientes o proveedores.",
     solucion:
-      "Cotizaciones en papel o WhatsApp, información repartida en varias planillas. Cuando crece el número de clientes o proveedores, ese método se cae. Lo reemplazamos por un sistema centralizado que mantiene la operación ordenada, sin importar cuánto crezcas.",
+      "Reemplazamos eso por un sistema centralizado donde cotizar, hacer seguimiento y consultar el historial de cada cliente queda automatizado. La operación se mantiene ordenada, sin importar cuánto crezcas.",
   },
   {
     problema: "Nadie responde fuera de horario",
@@ -206,14 +207,24 @@ const PROBLEMAS = [
       "Un asistente automatizado atiende, cotiza y agenda las 24 horas, y deriva a tu equipo solo cuando realmente hace falta.",
   },
   {
-    problema: "No sabes qué clientes sostienen realmente tu negocio",
+    problema: "Tratas a todos tus clientes igual, aunque no todos aportan lo mismo",
     solucion:
-      "En la mayoría de las pymes, una porción pequeña de clientes genera la mayor parte del ingreso. Te ayudamos a identificarlos y a construir una estrategia de retención distinta según el valor y el potencial de cada uno.",
+      "Te ayudamos a identificar y priorizar a los clientes que realmente generan valor para tu negocio, con una estrategia de retención distinta para cada segmento.",
   },
   {
     problema: "Tus sistemas no se hablan entre sí",
     solucion:
       "Conectamos pagos, inventario y atención al cliente para que la información se actualice sola, en todos lados a la vez.",
+  },
+  {
+    problema: "La operación depende de que una sola persona esté disponible",
+    solucion:
+      "Documentamos y sistematizamos los procesos clave, para que el trabajo no se detenga cuando esa persona está de vacaciones, enferma o simplemente ocupada.",
+  },
+  {
+    problema: "Tu sitio web está desactualizado o no funciona bien en el celular",
+    solucion:
+      "Construimos o renovamos tu sitio con IA: catálogo de productos al día, diseño optimizado para mobile y hosting incluido, sin que tengas que preocuparte de la parte técnica.",
   },
 ];
 
@@ -461,11 +472,11 @@ export default function Home() {
                 Casos reales
               </motion.p>
               <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Los problemas que más vemos en pymes como la tuya
+                Cómo resolvemos los problemas que tienen empresas como la tuya
               </motion.h2>
             </Reveal>
 
-            <Reveal className="mt-12 grid sm:grid-cols-2 gap-4">
+            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {PROBLEMAS.map((p) => (
                 <motion.div
                   key={p.problema}
