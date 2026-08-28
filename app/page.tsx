@@ -73,7 +73,7 @@ function Reveal({
 const NAV_ITEMS = [
   { label: "Cómo trabajamos", href: "#diagnostico" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Stack", href: "#stack" },
+  { label: "Tecnología", href: "#stack" },
   { label: "Quién soy", href: "#nosotros" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -624,7 +624,7 @@ export default function Home() {
                 Tecnología de nivel profesional, sin depender de una sola marca
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-5 text-lg text-zinc-400 leading-relaxed">
-                Elegimos la herramienta según el problema, no al revés. Este es el stack con el que construimos agentes, integraciones y CRMs.
+                Elegimos la herramienta según el problema, no al revés. Estas son las herramientas con las que construimos agentes, integraciones y CRMs.
               </motion.p>
             </Reveal>
             <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
