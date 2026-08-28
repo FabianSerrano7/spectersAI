@@ -27,7 +27,7 @@ import {
   VercelIcon,
   GitHubIcon,
 } from "@/components/brand-icons";
-import { Avatar, LogoChip } from "./Avatar";
+import { LogoChip } from "./Avatar";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 22, filter: "blur(8px)" },
@@ -637,21 +637,13 @@ export default function Home() {
                   Con quién vas a hablar
                 </motion.p>
                 <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                  Hola, soy Fabián
+                  Fabián Serrano
                 </motion.h2>
                 <motion.p variants={fadeUp} className="mt-3 font-medium text-zinc-400">
-                  Fundador de SpectersAI, y la persona con la que realmente vas a hablar.
+                  Santiago, Chile. Fundador de SpectersAI y la persona con la que realmente vas a hablar.
                 </motion.p>
 
-                <motion.div variants={fadeUp} className="lg:hidden mt-8 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-                  <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
-                  <div>
-                    <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
-                    <p className="text-sm text-zinc-400">Santiago, Chile</p>
-                  </div>
-                </motion.div>
-
-                <motion.div variants={fadeUp} className="lg:hidden mt-6 divide-y divide-white/10 border-t border-white/10">
+                <motion.div variants={fadeUp} className="lg:hidden mt-8 divide-y divide-white/10 border-t border-white/10">
                   {PERFIL_FACTS.map((f) => (
                     <div key={f.etiqueta} className="flex items-center justify-between gap-4 py-3">
                       <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
@@ -662,37 +654,23 @@ export default function Home() {
 
                 <motion.p variants={fadeUp} className="mt-8 text-lg text-zinc-400 leading-relaxed">
                   Llevo <span className="text-foreground font-medium">más de 8 años</span> entre
-                  ventas, tecnología y marketing, y en paralelo construyendo
-                  software: <span className="text-foreground font-medium">integraciones, automatización con IA y data analytics</span> para
-                  negocios reales.
+                  ventas, tecnología y marketing. En SumUp construí desde cero
+                  el área de Customer Success para LATAM: llegué a liderar
+                  un <span className="text-foreground font-medium">equipo de 15 KAMs</span> a cargo de
+                  cuentas que generaban el <span className="text-foreground font-medium">60% del revenue</span> y
+                  movían cerca de <span className="text-foreground font-medium">€35M al mes</span>, llevando
+                  la cobertura de retención de <span className="text-foreground font-medium">7% a 60%</span> en
+                  dos años.
                 </motion.p>
                 <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  En SumUp construí desde cero el área de Customer Success para
-                  LATAM: llegué a liderar un <span className="text-foreground font-medium">equipo de 15 KAMs</span> a
-                  cargo de las cuentas grandes de la región, un{" "}
-                  <span className="text-foreground font-medium">8% de los clientes que generaba el 60% del revenue</span>{" "}
-                  y movía cerca de <span className="text-foreground font-medium">€35M al mes</span>. En dos
-                  años llevamos la cobertura de retención de{" "}
-                  <span className="text-foreground font-medium">7% a 60%</span>. No fue una mejora
-                  incremental: fue crear un área que pasó a ser parte del core del negocio.
-                </motion.p>
-                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  Antes de fundar SpectersAI fundé <span className="text-foreground font-medium">Conquerspro</span>, un
-                  ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>,
-                  y llevé una <span className="text-foreground font-medium">agencia de marketing digital</span> donde
-                  ayudé a más de <span className="text-foreground font-medium">15 pymes</span> a manejar
-                  sus campañas online, principalmente en Meta. Esa etapa también incluyó
-                  integrar <span className="text-foreground font-medium">APIs, Shopify y herramientas de IA</span> a
-                  operaciones reales.
-                </motion.p>
-                <motion.p variants={fadeUp} className="mt-4 text-lg text-zinc-400 leading-relaxed">
-                  Ya ayudé a otras pymes y emprendedores a ordenar su negocio
-                  con datos: levantar información, identificar{" "}
-                  <span className="text-foreground font-medium">el 20% de clientes que genera el 80% de resultados</span>, construir{" "}
-                  <span className="text-foreground font-medium">matrices de retención</span> y
-                  priorizar dónde meter el esfuerzo, además de{" "}
-                  <span className="text-foreground font-medium">automatizar procesos con IA</span>.
-                  Esa experiencia es la que traigo a tu negocio.
+                  Antes de fundar SpectersAI fundé <span className="text-foreground font-medium">Conquerspro</span>,
+                  un ecommerce que hice crecer a <span className="text-foreground font-medium">más de $250M CLP en ventas</span>,
+                  y llevé una <span className="text-foreground font-medium">agencia de marketing digital</span> que
+                  ayudó a más de <span className="text-foreground font-medium">15 pymes</span> con
+                  sus campañas en Meta. Hoy aplico esa misma mirada a los negocios con
+                  los que trabajo: <span className="text-foreground font-medium">identificar el 20% de clientes que genera el 80% de resultados</span>,
+                  construir <span className="text-foreground font-medium">matrices de retención</span> y
+                  automatizar con IA.
                 </motion.p>
 
                 <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
@@ -734,22 +712,13 @@ export default function Home() {
               </Reveal>
 
               <div className="hidden lg:block">
-                <Reveal>
-                  <motion.div variants={fadeUp} className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-                    <Avatar src="/fabian.jpg" initials="FS" alt="Fabián Serrano" className="w-16 h-16" />
-                    <div>
-                      <p className="text-lg font-medium tracking-tight">Fabián Serrano</p>
-                      <p className="text-sm text-zinc-400">Santiago, Chile</p>
-                    </div>
-                  </motion.div>
-                  <div className="mt-6 divide-y divide-white/10 border-t border-white/10">
-                    {PERFIL_FACTS.map((f) => (
-                      <motion.div key={f.etiqueta} variants={fadeUp} className="flex items-center justify-between gap-4 py-3">
-                        <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
-                        <span className="text-sm text-zinc-200 text-right">{f.valor}</span>
-                      </motion.div>
-                    ))}
-                  </div>
+                <Reveal className="divide-y divide-white/10 border-t border-white/10">
+                  {PERFIL_FACTS.map((f) => (
+                    <motion.div key={f.etiqueta} variants={fadeUp} className="flex items-center justify-between gap-4 py-3">
+                      <span className="text-xs uppercase tracking-widest text-zinc-500">{f.etiqueta}</span>
+                      <span className="text-sm text-zinc-200 text-right">{f.valor}</span>
+                    </motion.div>
+                  ))}
                 </Reveal>
                 <div className="mt-10">
                   <p className="text-xs font-medium uppercase tracking-widest text-zinc-500">Certificaciones</p>
