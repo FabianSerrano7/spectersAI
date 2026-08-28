@@ -13,6 +13,9 @@ import {
   FaCreditCard,
   FaChartPie,
   FaEnvelope,
+  FaTableCellsLarge,
+  FaClock,
+  FaTriangleExclamation,
 } from "react-icons/fa6";
 import { Hero3 } from "@/components/ui/hero-3";
 import {
@@ -426,131 +429,6 @@ export default function Home() {
             </Reveal>
           </section>
 
-          {/* ---------- Cómo trabajamos ---------- */}
-          <section id="diagnostico" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
-            <Reveal className="max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Cómo trabajamos
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Primero el diagnóstico, gratis
-              </motion.h2>
-              <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed">
-                No te vendemos un chatbot antes de entender tu negocio. Así se ve el proceso:
-              </motion.p>
-            </Reveal>
-
-            <Reveal className="mt-10 rounded-2xl border border-coral/25 bg-coral/[0.08] p-6 sm:p-7 max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xl font-light tracking-tight text-coral">
-                IA donde suma, control humano donde es crítico.
-              </motion.p>
-              <motion.p variants={fadeUp} className="mt-2 text-zinc-400 leading-relaxed">
-                No delegamos todo a la IA. Automatizamos lo repetitivo y dejamos las decisiones
-                importantes en tus manos. Trabajamos con IA desde 2020, así que sabemos dónde
-                realmente aporta.
-              </motion.p>
-            </Reveal>
-
-            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {PASOS.map((p) => (
-                <motion.div
-                  key={p.numero}
-                  variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors"
-                >
-                  <span className="text-sm font-medium text-coral">{p.numero}</span>
-                  <h3 className="mt-2 text-lg font-medium tracking-tight">{p.titulo}</h3>
-                  <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{p.texto}</p>
-                </motion.div>
-              ))}
-            </Reveal>
-          </section>
-
-          {/* ---------- Servicios ---------- */}
-          <section id="servicios" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
-            <Reveal className="max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Nuestros servicios
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Lo que hacemos para que tu operación esté ordenada y optimizada
-              </motion.h2>
-            </Reveal>
-
-            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {SERVICIOS.map((s) => (
-                <motion.article
-                  key={s.titulo}
-                  variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-7 hover:bg-white/[0.04] transition-colors"
-                >
-                  <s.icon className="h-5 w-5 text-coral" />
-                  <h3 className="mt-4 text-lg font-medium tracking-tight">{s.titulo}</h3>
-                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
-                </motion.article>
-              ))}
-            </Reveal>
-          </section>
-
-          {/* ---------- Problemas que resolvemos ---------- */}
-          <section id="problemas" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
-            <Reveal className="max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Casos reales
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Cómo resolvemos los problemas que tienen empresas como la tuya
-              </motion.h2>
-            </Reveal>
-
-            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {PROBLEMAS.map((p) => (
-                <motion.div
-                  key={p.problema}
-                  variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 lg:p-9"
-                >
-                  <p className="text-sm font-medium uppercase tracking-widest text-zinc-500">Problema</p>
-                  <h3 className="mt-2 text-lg font-medium tracking-tight">{p.problema}</h3>
-                  <div className="mt-5 border-t border-white/10 pt-5">
-                    <p className="text-sm font-medium uppercase tracking-widest text-coral">Cómo lo resolvemos</p>
-                    <p className="mt-2 text-zinc-400 leading-relaxed">{p.solucion}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </Reveal>
-          </section>
-
-          {/* ---------- Stack ---------- */}
-          <section id="stack" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
-            <Reveal className="max-w-2xl">
-              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
-                Con qué construimos
-              </motion.p>
-              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
-                Tecnología de nivel profesional, sin depender de una sola marca
-              </motion.h2>
-              <motion.p variants={fadeUp} className="mt-5 text-lg text-zinc-400 leading-relaxed">
-                Elegimos la herramienta según el problema, no al revés. Este es el stack con el que construimos agentes, integraciones y CRMs.
-              </motion.p>
-            </Reveal>
-            <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {STACK.map((s) => (
-                <motion.div
-                  key={s.name}
-                  variants={fadeUp}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
-                    <s.icon className="h-5 w-5 text-coral" />
-                  </div>
-                  <h3 className="mt-4 text-lg font-medium tracking-tight">{s.name}</h3>
-                  <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
-                </motion.div>
-              ))}
-            </Reveal>
-          </section>
-
           {/* ---------- Quién soy ---------- */}
           <section id="nosotros" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 lg:items-start">
@@ -688,6 +566,241 @@ export default function Home() {
                   </motion.article>
                 ))}
               </div>
+            </Reveal>
+          </section>
+
+          {/* ---------- Cómo trabajamos ---------- */}
+          <section id="diagnostico" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Cómo trabajamos
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Primero el diagnóstico, gratis
+              </motion.h2>
+              <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed">
+                No te vendemos un chatbot antes de entender tu negocio. Así se ve el proceso:
+              </motion.p>
+            </Reveal>
+
+            <Reveal className="mt-10 rounded-2xl border border-coral/25 bg-coral/[0.08] p-6 sm:p-7 max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xl font-light tracking-tight text-coral">
+                IA donde suma, control humano donde es crítico.
+              </motion.p>
+              <motion.p variants={fadeUp} className="mt-2 text-zinc-400 leading-relaxed">
+                No delegamos todo a la IA. Automatizamos lo repetitivo y dejamos las decisiones
+                importantes en tus manos. Trabajamos con IA desde 2020, así que sabemos dónde
+                realmente aporta.
+              </motion.p>
+            </Reveal>
+
+            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {PASOS.map((p) => (
+                <motion.div
+                  key={p.numero}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors"
+                >
+                  <span className="text-sm font-medium text-coral">{p.numero}</span>
+                  <h3 className="mt-2 text-lg font-medium tracking-tight">{p.titulo}</h3>
+                  <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{p.texto}</p>
+                </motion.div>
+              ))}
+            </Reveal>
+          </section>
+
+          {/* ---------- Servicios ---------- */}
+          <section id="servicios" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Nuestros servicios
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Lo que hacemos para que tu operación esté ordenada y optimizada
+              </motion.h2>
+            </Reveal>
+
+            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {SERVICIOS.map((s) => (
+                <motion.article
+                  key={s.titulo}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 lg:p-7 hover:bg-white/[0.04] transition-colors"
+                >
+                  <s.icon className="h-5 w-5 text-coral" />
+                  <h3 className="mt-4 text-lg font-medium tracking-tight">{s.titulo}</h3>
+                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
+                </motion.article>
+              ))}
+            </Reveal>
+          </section>
+
+          {/* ---------- Panel en acción ---------- */}
+          <section className="py-20 lg:py-28 border-t border-white/10">
+            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-10">
+              <Reveal>
+                <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                  Panel de control
+                </motion.p>
+                <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                  Controla tu operación, no solo tareas sueltas
+                </motion.h2>
+                <motion.p variants={fadeUp} className="mt-5 max-w-lg text-lg text-zinc-400 leading-relaxed">
+                  Pedidos, pagos y clientes coordinados en un solo panel, sin depender de una planilla ni saltar entre aplicaciones.
+                </motion.p>
+
+                <motion.div variants={fadeUp} className="mt-8 space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-coral/10 text-coral">
+                      <FaTableCellsLarge className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">Visibilidad total</p>
+                      <p className="text-xs text-zinc-500">Ve en qué etapa está cada pedido o cliente</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-coral/10 text-coral">
+                      <FaClock className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">Velocidad de ejecución</p>
+                      <p className="text-xs text-zinc-500">Mide cuánto tarda cada proceso en resolverse</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-coral/10 text-coral">
+                      <FaTriangleExclamation className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">Alertas inteligentes</p>
+                      <p className="text-xs text-zinc-500">Detecta problemas antes de que crezcan</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="mt-8">
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-6 py-3 text-sm font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110"
+                  >
+                    Ver cómo funciona
+                  </a>
+                </motion.div>
+              </Reveal>
+
+              <Reveal className="relative flex justify-center rounded-2xl border border-white/10 bg-white/[0.02] p-8">
+                <div className="relative h-[380px] w-full max-w-md">
+                  <motion.div
+                    variants={fadeUp}
+                    className="absolute top-0 left-0 w-[260px] rounded-xl border border-white/10 bg-background/80 p-4 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur-md"
+                  >
+                    <p className="text-xs text-zinc-500">Flujo entrante</p>
+                    <p className="mt-1 text-lg font-medium tracking-tight">Nuevo pedido detectado</p>
+                    <div className="mt-2 flex gap-2 text-[10px]">
+                      <span className="rounded-md bg-coral/10 px-2 py-0.5 text-coral">En vivo</span>
+                      <span className="rounded-md bg-white/5 px-2 py-0.5 text-zinc-400">Disparador</span>
+                    </div>
+                    <div className="mt-3 space-y-1 text-xs text-zinc-500">
+                      <p>Origen: WhatsApp / Web</p>
+                      <p>Región: Chile</p>
+                      <p>Estado: Activo</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    variants={fadeUp}
+                    className="absolute top-28 right-0 z-10 w-[240px] rounded-xl border border-white/10 bg-background/90 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
+                  >
+                    <p className="text-xs text-zinc-500">Capa de decisión</p>
+                    <p className="mt-1 text-sm font-medium">Enrutamiento y validación</p>
+                    <div className="mt-3 flex h-2 w-full gap-1 overflow-hidden rounded-full">
+                      <div className="w-[50%] bg-coral" />
+                      <div className="w-[30%] bg-blue-400" />
+                      <div className="w-[20%] bg-amber-400" />
+                    </div>
+                    <div className="mt-3 flex gap-3 text-[10px] text-zinc-500">
+                      <span>Prioridad</span>
+                      <span>Revisiones</span>
+                      <span>Filtros</span>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    variants={fadeUp}
+                    className="absolute bottom-8 left-10 w-[260px] rounded-xl border border-white/10 bg-background/90 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
+                  >
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-medium">Ejecución</span>
+                      <span className="text-xs text-zinc-500">Sincronizado</span>
+                    </div>
+                    <p className="mt-2 text-sm text-zinc-400">Acción completada y enviada a los sistemas conectados</p>
+                    <div className="mt-3 flex gap-2 text-[10px]">
+                      <span className="rounded-md bg-green-500/10 px-2 py-0.5 text-green-500">Listo</span>
+                      <span className="rounded-md bg-purple-500/10 px-2 py-0.5 text-purple-400">Distribuido</span>
+                    </div>
+                  </motion.div>
+                </div>
+              </Reveal>
+            </div>
+          </section>
+
+          {/* ---------- Problemas que resolvemos ---------- */}
+          <section id="problemas" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Casos reales
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Cómo resolvemos los problemas que tienen empresas como la tuya
+              </motion.h2>
+            </Reveal>
+
+            <Reveal className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {PROBLEMAS.map((p) => (
+                <motion.div
+                  key={p.problema}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 lg:p-9"
+                >
+                  <p className="text-sm font-medium uppercase tracking-widest text-zinc-500">Problema</p>
+                  <h3 className="mt-2 text-lg font-medium tracking-tight">{p.problema}</h3>
+                  <div className="mt-5 border-t border-white/10 pt-5">
+                    <p className="text-sm font-medium uppercase tracking-widest text-coral">Cómo lo resolvemos</p>
+                    <p className="mt-2 text-zinc-400 leading-relaxed">{p.solucion}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </Reveal>
+          </section>
+
+          {/* ---------- Stack ---------- */}
+          <section id="stack" className="py-20 lg:py-28 border-t border-white/10 scroll-mt-24">
+            <Reveal className="max-w-2xl">
+              <motion.p variants={fadeUp} className="text-xs font-medium uppercase tracking-widest text-coral">
+                Con qué construimos
+              </motion.p>
+              <motion.h2 variants={fadeUp} className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">
+                Tecnología de nivel profesional, sin depender de una sola marca
+              </motion.h2>
+              <motion.p variants={fadeUp} className="mt-5 text-lg text-zinc-400 leading-relaxed">
+                Elegimos la herramienta según el problema, no al revés. Este es el stack con el que construimos agentes, integraciones y CRMs.
+              </motion.p>
+            </Reveal>
+            <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {STACK.map((s) => (
+                <motion.div
+                  key={s.name}
+                  variants={fadeUp}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
+                    <s.icon className="h-5 w-5 text-coral" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-medium tracking-tight">{s.name}</h3>
+                  <p className="mt-2 text-sm text-zinc-400 leading-relaxed">{s.texto}</p>
+                </motion.div>
+              ))}
             </Reveal>
           </section>
 
