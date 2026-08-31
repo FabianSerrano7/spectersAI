@@ -347,7 +347,7 @@ export default function Home() {
       />
 
       <div className="dark bg-background text-foreground">
-        <div className="w-full max-w-[1600px] px-6 sm:px-10 md:px-16 lg:px-20">
+        <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 md:px-16 lg:px-20">
           {/* ---------- Dolor ---------- */}
           <section id="dolor" className="py-20 lg:py-28 scroll-mt-24 relative">
             <div className="grid-fade absolute inset-x-0 top-0 h-[420px] -z-10" />

@@ -41,7 +41,7 @@ export default async function ServicioPage({
     <div className="dark min-h-screen bg-background text-foreground">
       <ServiceHeader />
 
-      <main className="w-full max-w-[1600px] px-6 sm:px-10 md:px-16 lg:px-20">
+      <main className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 md:px-16 lg:px-20">
         <section className="reveal py-16 lg:py-24">
           <p className="text-xs font-medium uppercase tracking-widest text-coral">{servicio.kicker}</p>
           <div className="mt-4 flex items-start gap-4">
