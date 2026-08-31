@@ -21,7 +21,7 @@ export function ServiceHeader() {
   return (
     <>
       <header className="sticky top-0 z-30 w-full border-b border-white/5 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5 sm:px-10 md:px-16 lg:px-20">
+        <div className="flex w-full max-w-[1600px] items-center justify-between px-6 py-5 sm:px-10 md:px-16 lg:px-20">
           <Link href="/" className="flex items-center gap-2.5 text-2xl font-light tracking-tight text-foreground sm:text-xl">
             <span>SpectersAI</span>
           </Link>
