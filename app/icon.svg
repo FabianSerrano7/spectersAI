@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
-  <rect width="240" height="240" rx="48" fill="#08090b"/>
+  <rect width="240" height="240" rx="48" fill="#0b0c0e"/>
   <text
-    x="50%"
-    y="53%"
-    text-anchor="middle"
-    dominant-baseline="middle"
-    font-family="Arial, Helvetica, sans-serif"
-    font-weight="700"
-    font-size="140"
-    fill="#ff4d23"
+    x="46"
+    y="172"
+    font-family="Archivo, Arial, Helvetica, sans-serif"
+    font-weight="500"
+    font-size="148"
+    letter-spacing="-6"
+    fill="#ffffff"
   >S</text>
+  <rect x="168" y="176" width="34" height="34" fill="#ec3013"/>
 </svg>

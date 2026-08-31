@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { FaArrowLeft, FaBars, FaXmark } from "react-icons/fa6";
+import { Logo } from "@/components/Logo";
 
 const EMAIL = "fabian@specterspro.com";
 
@@ -22,8 +23,8 @@ export function ServiceHeader() {
     <>
       <header className="sticky top-0 z-30 w-full border-b border-white/5 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-6 py-5 sm:px-10 md:px-16 lg:px-20">
-          <Link href="/" className="flex items-center gap-2.5 text-2xl font-light tracking-tight text-foreground sm:text-xl">
-            <span>SpectersAI</span>
+          <Link href="/" className="flex items-center">
+            <Logo size={24} />
           </Link>
 
           <div className="flex items-center gap-6">
@@ -61,12 +62,8 @@ export function ServiceHeader() {
             className="fixed inset-0 z-50 flex flex-col bg-background/95 p-6 backdrop-blur-md sm:hidden"
           >
             <div className="flex items-center justify-between">
-              <Link
-                href="/"
-                className="flex items-center gap-2.5 text-lg font-semibold tracking-tight text-foreground"
-                onClick={() => setMenuOpen(false)}
-              >
-                <span>SpectersAI</span>
+              <Link href="/" className="flex items-center" onClick={() => setMenuOpen(false)}>
+                <Logo size={22} />
               </Link>
               <button
                 onClick={() => setMenuOpen(false)}

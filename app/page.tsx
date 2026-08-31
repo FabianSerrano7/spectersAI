@@ -19,6 +19,7 @@ import {
   FaTriangleExclamation,
 } from "react-icons/fa6";
 import { Hero3 } from "@/components/ui/hero-3";
+import { Logo } from "@/components/Logo";
 import {
   ClaudeIcon,
   GeminiIcon,
@@ -324,7 +325,6 @@ export default function Home() {
   return (
     <>
       <Hero3
-        logoText="SpectersAI"
         navItems={NAV_ITEMS}
         signInText="Hablemos"
         signInHref={`mailto:${EMAIL}`}
@@ -825,7 +825,7 @@ export default function Home() {
 
           {/* ---------- Footer ---------- */}
           <footer className="py-10 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-            <div className="text-lg font-light tracking-tight">SpectersAI</div>
+            <Logo size={20} />
             <nav className="flex flex-wrap gap-6 text-sm text-zinc-400">
               {NAV_ITEMS.map((l) => (
                 <a key={l.href} href={l.href} className="hover:text-white transition-colors">

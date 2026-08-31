@@ -9,6 +9,7 @@ import {
   FaBars,
   FaXmark,
 } from "react-icons/fa6";
+import { Logo } from "@/components/Logo";
 
 export interface Hero3NavItem {
   label: string;
@@ -22,8 +23,6 @@ export interface Hero3Stat {
 }
 
 export interface Hero3Props {
-  logo?: ReactNode;
-  logoText?: string;
   navItems?: Hero3NavItem[];
   signInText?: string;
   signInHref?: string;
@@ -63,8 +62,6 @@ const item: Variants = {
 };
 
 export function Hero3({
-  logo,
-  logoText = "Watermelon",
   navItems = [
     { label: "Solutions", href: "#", hasDropdown: true },
     { label: "Technology", href: "#", hasDropdown: true },
@@ -115,12 +112,8 @@ export function Hero3({
         className="fixed top-0 left-0 z-30 w-full bg-background/70 backdrop-blur-md border-b border-white/5"
       >
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 sm:px-10 md:px-16 lg:px-20">
-          <a
-            href="#"
-            className="text-foreground flex items-center gap-2.5 text-2xl font-light tracking-tight sm:text-xl"
-          >
-            {logo}
-            <span>{logoText}</span>
+          <a href="#" className="flex items-center">
+            <Logo size={24} />
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -169,11 +162,10 @@ export function Hero3({
             <div className="flex items-center justify-between">
               <a
                 href="#"
-                className="text-foreground flex items-center gap-2.5 text-lg font-semibold tracking-tight"
+                className="flex items-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {logo}
-                <span>{logoText}</span>
+                <Logo size={22} />
               </a>
               <button
                 onClick={() => setMobileMenuOpen(false)}
