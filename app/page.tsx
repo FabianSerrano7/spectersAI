@@ -7,7 +7,7 @@ import {
   FaRobot,
   FaPlug,
   FaLayerGroup,
-  FaHandshake,
+  FaMagnifyingGlassChart,
   FaScaleBalanced,
   FaLinkedin,
   FaChartLine,
@@ -60,7 +60,7 @@ function Reveal({
       variants={stagger}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0, margin: "0px 0px 400px 0px" }}
       className={className}
     >
       {children}
@@ -163,10 +163,11 @@ const SERVICIOS = [
       "Shopify, WhatsApp Business, pasarelas de pago, planillas, APIs propias o de terceros: conectado, sin trabajo doble.",
   },
   {
-    slug: "soporte-continuo",
-    icon: FaHandshake,
-    titulo: "No te dejamos solo después de lanzar",
-    texto: "Monitoreamos, ajustamos y sumamos automatizaciones nuevas a medida que tu negocio crece.",
+    slug: "analisis-de-datos",
+    icon: FaMagnifyingGlassChart,
+    titulo: "Análisis de datos para vender más",
+    texto:
+      "Con tus datos de ventas construimos una matriz de clientes para priorizar a quién retener y dónde enfocar el esfuerzo.",
   },
   {
     slug: "campanas-digitales",
@@ -190,11 +191,11 @@ const SERVICIOS = [
       "Construimos un panel de reportería con tus métricas clave, fácil de revisar, sin armar un informe a mano cada vez.",
   },
   {
-    slug: "automatizacion-de-correos",
+    slug: "automatizacion-de-comunicaciones",
     icon: FaEnvelope,
-    titulo: "Automatización de correos",
+    titulo: "Automatización de comunicaciones",
     texto:
-      "Secuencias automáticas para seguimiento de clientes, cobranza o retención, sin que tengas que enviarlas una por una.",
+      "Secuencias automáticas por correo, WhatsApp y otros canales para seguimiento de clientes, cobranza o retención, sin enviarlas una por una.",
   },
 ];
 
@@ -445,7 +446,7 @@ export default function Home() {
                 Primero el diagnóstico
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-6 text-lg text-zinc-400 leading-relaxed">
-                No te vendemos un chatbot antes de entender tu negocio. Así se ve el proceso:
+                Partimos analizando cómo está tu negocio en conjunto contigo, para buscar oportunidades de mayor crecimiento. Así se ve el proceso:
               </motion.p>
             </Reveal>
 

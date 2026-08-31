@@ -3,7 +3,7 @@ import {
   FaRobot,
   FaLayerGroup,
   FaPlug,
-  FaHandshake,
+  FaMagnifyingGlassChart,
   FaChartLine,
   FaCreditCard,
   FaChartPie,
@@ -89,26 +89,26 @@ export const SERVICIOS_DETALLE: ServicioDetalle[] = [
       "Negocios que ya usan varias herramientas (tienda online, WhatsApp, pagos, planillas) pero tienen que traspasar información a mano entre ellas.",
   },
   {
-    slug: "soporte-continuo",
-    icon: FaHandshake,
-    kicker: "Acompañamiento",
-    titulo: "No te dejamos solo después de lanzar",
+    slug: "analisis-de-datos",
+    icon: FaMagnifyingGlassChart,
+    kicker: "Datos con foco en ventas",
+    titulo: "Análisis de datos para vender más",
     resumen:
-      "Monitoreamos lo que construimos, lo ajustamos y sumamos automatizaciones nuevas a medida que tu negocio crece, en vez de entregarte un sistema y desaparecer.",
+      "Con tus datos de ventas construimos una matriz de clientes para priorizar a quién retener y dónde enfocar el esfuerzo, en vez de tratar a todos tus clientes igual.",
     incluye: [
-      "Monitoreo de que los sistemas y agentes sigan funcionando bien",
-      "Ajustes cuando algo del negocio cambia (precios, catálogo, procesos)",
-      "Nuevas automatizaciones a medida que aparecen necesidades",
-      "Un canal directo conmigo, sin mesa de ayuda ni tickets",
+      "Análisis de tus datos de ventas para entender qué está pasando realmente",
+      "Matriz de clientes según el valor que aportan a tu negocio",
+      "Identificación de quién genera la mayor parte de tus ingresos",
+      "Recomendaciones concretas para priorizar retención y esfuerzo comercial",
     ],
     comoFunciona: [
-      "Después del lanzamiento, revisamos juntos cómo está funcionando todo",
-      "Detectamos qué se puede mejorar o automatizar a continuación",
-      "Vamos sumando esos ajustes sin tener que rehacer lo ya construido",
-      "Mantenemos una revisión periódica para que el sistema crezca con tu negocio",
+      "Levantamos tus datos de ventas y clientes desde donde ya los tengas",
+      "Construimos la matriz de clientes según su valor y comportamiento",
+      "Identificamos qué segmentos priorizar y por qué",
+      "Te entregamos un panel para revisar esto de forma continua",
     ],
     paraQuien:
-      "Negocios que ya tuvieron la experiencia de contratar un desarrollo y quedarse sin soporte apenas terminó el proyecto.",
+      "Negocios que tienen datos de ventas pero no los usan para decidir a qué clientes priorizar o cómo mejorar la retención.",
   },
   {
     slug: "campanas-digitales",
@@ -178,26 +178,27 @@ export const SERVICIOS_DETALLE: ServicioDetalle[] = [
       "Negocios que hoy arman un reporte a mano en Excel cada cierto tiempo, juntando números de distintos lados.",
   },
   {
-    slug: "automatizacion-de-correos",
+    slug: "automatizacion-de-comunicaciones",
     icon: FaEnvelope,
     kicker: "Seguimiento automático",
-    titulo: "Automatización de correos",
+    titulo: "Automatización de comunicaciones",
     resumen:
-      "Secuencias automáticas para seguimiento de clientes, cobranza o retención, sin que tengas que redactar y enviar cada correo uno por uno.",
+      "Secuencias automáticas por correo, WhatsApp y otros canales para seguimiento de clientes, cobranza o retención, sin que tengas que escribir cada mensaje uno por uno.",
     incluye: [
       "Secuencias automáticas según la etapa en la que está cada cliente",
+      "Mensajes por correo, WhatsApp u otros canales, según lo que uses",
       "Recordatorios de cobranza sin tener que perseguir a nadie a mano",
-      "Correos de retención para clientes que llevan tiempo sin comprar",
+      "Mensajes de retención para clientes que llevan tiempo sin comprar",
       "Personalización automática con los datos de cada cliente",
     ],
     comoFunciona: [
       "Mapeamos los momentos en que hoy le escribes a tus clientes a mano",
       "Diseñamos las secuencias y los disparadores que las activan",
-      "Conectamos todo a tu CRM o base de clientes existente",
+      "Conectamos todo a tu CRM, WhatsApp o base de clientes existente",
       "Revisamos resultados y ajustamos el contenido según cómo responden",
     ],
     paraQuien:
-      "Negocios que hacen seguimiento de clientes o cobranza escribiendo correos uno por uno, o que simplemente no llegan a hacerlo.",
+      "Negocios que hacen seguimiento de clientes o cobranza escribiendo mensajes uno por uno, o que simplemente no llegan a hacerlo.",
   },
 ];
 
