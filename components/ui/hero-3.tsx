@@ -111,21 +111,21 @@ export function Hero3({
         transition={{ type: "spring", duration: 0.6, bounce: 0 }}
         className="fixed top-0 left-0 z-30 w-full bg-background/70 backdrop-blur-md border-b border-white/5"
       >
-        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 sm:px-10 md:px-16 lg:px-20">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between px-[1.95rem] py-[1.625rem] sm:px-[3.25rem] md:px-[5.2rem] lg:px-[6.5rem]">
           <a href="#" className="flex items-center">
-            <Logo size={24} />
+            <Logo size={31} />
           </a>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-[2.6rem] md:flex">
             {navItems.map((navItem) => (
               <a
                 key={navItem.label}
                 href={navItem.href}
-                className="group text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-base font-medium transition-colors duration-200"
+                className="group text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-[1.3rem] font-medium transition-colors duration-200"
               >
                 <span>{navItem.label}</span>
                 {navItem.hasDropdown && (
-                  <FaChevronDown className="text-muted-foreground h-3 w-3 fill-current transition-transform duration-200 group-hover:translate-y-0.5" />
+                  <FaChevronDown className="text-muted-foreground h-[0.975rem] w-[0.975rem] fill-current transition-transform duration-200 group-hover:translate-y-0.5" />
                 )}
               </a>
             ))}
@@ -134,7 +134,7 @@ export function Hero3({
           <div className="hidden md:block">
             <a
               href={signInHref}
-              className="rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110"
+              className="rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-[1.95rem] py-[0.8125rem] text-[1.1375rem] font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110"
             >
               {signInText}
             </a>
@@ -142,10 +142,10 @@ export function Hero3({
 
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="text-foreground hover:bg-accent flex items-center justify-center rounded-full p-2 transition-colors md:hidden"
+            className="text-foreground hover:bg-accent flex items-center justify-center rounded-full p-[0.65rem] transition-colors md:hidden"
             aria-label="Toggle navigation menu"
           >
-            <FaBars className="h-5 w-5 fill-current" />
+            <FaBars className="h-[1.625rem] w-[1.625rem] fill-current" />
           </button>
         </div>
       </motion.header>

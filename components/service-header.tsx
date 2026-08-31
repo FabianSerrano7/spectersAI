@@ -22,31 +22,31 @@ export function ServiceHeader() {
   return (
     <>
       <header className="sticky top-0 z-30 w-full border-b border-white/5 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-6 py-5 sm:px-10 md:px-16 lg:px-20">
+        <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-[1.95rem] py-[1.625rem] sm:px-[3.25rem] md:px-[5.2rem] lg:px-[6.5rem]">
           <Link href="/" className="flex items-center">
-            <Logo size={24} />
+            <Logo size={31} />
           </Link>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-[1.95rem]">
             <Link
               href="/#servicios"
-              className="hidden items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground sm:flex"
+              className="hidden items-center gap-1.5 text-[1.1375rem] font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground sm:flex"
             >
-              <FaArrowLeft className="h-3 w-3" />
+              <FaArrowLeft className="h-[0.975rem] w-[0.975rem]" />
               <span>Todos los servicios</span>
             </Link>
             <a
               href={`mailto:${EMAIL}`}
-              className="hidden rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-6 py-2.5 text-sm font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110 sm:block"
+              className="hidden rounded-full bg-gradient-to-r from-coral to-[#ff9a4d] px-[1.95rem] py-[0.8125rem] text-[1.1375rem] font-medium text-white shadow-lg shadow-coral/25 transition-all duration-200 hover:shadow-coral/40 hover:brightness-110 sm:block"
             >
               Hablemos
             </a>
             <button
               onClick={() => setMenuOpen(true)}
-              className="flex items-center justify-center rounded-full p-2 text-foreground transition-colors hover:bg-accent sm:hidden"
+              className="flex items-center justify-center rounded-full p-[0.65rem] text-foreground transition-colors hover:bg-accent sm:hidden"
               aria-label="Abrir menú"
             >
-              <FaBars className="h-5 w-5" />
+              <FaBars className="h-[1.625rem] w-[1.625rem]" />
             </button>
           </div>
         </div>
