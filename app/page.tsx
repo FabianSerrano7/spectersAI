@@ -833,7 +833,9 @@ export default function Home() {
                 </a>
               ))}
             </nav>
-            <p className="text-sm text-zinc-600">© {new Date().getFullYear()} SpectersAI</p>
+            <p className="text-sm text-zinc-600">
+              © {new Date().getFullYear()} Specters Chile SpA · RUT 76.309.964-2 · Santiago, Chile
+            </p>
           </footer>
         </div>
       </div>
