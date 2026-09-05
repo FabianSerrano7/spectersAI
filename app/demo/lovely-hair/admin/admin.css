@@ -1,0 +1,50 @@
+.admin-root {
+  --page: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f5f6f8;
+  --ink: #0f1115;
+  --ink-2: #4b5563;
+  --muted: #9aa1ac;
+  --border: rgba(15, 17, 21, 0.09);
+  --acc: #2563eb;
+  --acc-soft: #eaf1ff;
+  --acc-ink: #ffffff;
+  --lab: #dc2626;
+  --lab-soft: #fdecea;
+  --good: #16a34a;
+  --good-soft: #eafaf0;
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04), 0 4px 10px rgba(16, 24, 40, 0.06);
+  color-scheme: light;
+}
+
+.admin-root[data-theme="dark"] {
+  --page: #0b0d10;
+  --surface: #14171c;
+  --surface-2: #191d24;
+  --ink: #f5f6f8;
+  --ink-2: #c3c8d1;
+  --muted: #7d8590;
+  --border: rgba(255, 255, 255, 0.1);
+  --acc: #3b82f6;
+  --acc-soft: rgba(59, 130, 246, 0.18);
+  --acc-ink: #ffffff;
+  --lab-soft: rgba(220, 38, 38, 0.18);
+  --good: #22c55e;
+  --good-soft: rgba(34, 197, 94, 0.18);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 10px rgba(0, 0, 0, 0.25);
+  color-scheme: dark;
+}
+
+.admin-root {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-body-family), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.admin-root h1,
+.admin-root h2,
+.admin-root h3,
+.admin-root .font-display {
+  font-family: var(--font-display-family), system-ui, sans-serif;
+}
